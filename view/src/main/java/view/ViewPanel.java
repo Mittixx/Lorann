@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -66,5 +67,13 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+	}
+
+	public void keyPressed(KeyEvent e)
+	{
+		if(e.getKeyCode()==KeyEvent.VK_LEFT)
+		{
+			System.out.println("Coudou Dimitri");
+		}
 	}
 }
