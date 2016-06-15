@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
+import model.dataBase.DBConnection;
 
 /**
  * The Class Model.
