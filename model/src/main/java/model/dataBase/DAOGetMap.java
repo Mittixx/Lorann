@@ -10,6 +10,7 @@ import java.sql.Connection;
 public class DAOGetMap {
 
     /**
+     *Instantiates a new DAOGetMap.
      *
      * @param connection
      */
@@ -17,7 +18,7 @@ public class DAOGetMap {
     }
 
     /**
-     *
+     *Which map the hero is in.
      * @param id
      * @return
      */
