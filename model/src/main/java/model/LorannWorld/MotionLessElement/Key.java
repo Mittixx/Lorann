@@ -1,4 +1,7 @@
-package model.LorannWorld.MotionLessElement;
+package model.LorannWorld.MotionlessElement;
+
+import contract.Collectable;
+import contract.ISprite;
 
 /**
  * The key.
@@ -13,6 +16,10 @@ public class Key extends MotionlessElement{
      *
      */
     public Key() {
-        super();
+        super(null,null);
+    }
+
+    public void setSprite(ISprite sprite) {
+
     }
 }

@@ -1,4 +1,7 @@
-package model.LorannWorld.MotionLessElement;
+package model.LorannWorld.MotionlessElement;
+
+import contract.Collectable;
+import contract.ISprite;
 
 /**
  * Horizontal Bone.
@@ -13,6 +16,10 @@ public class BoneH extends MotionlessElement{
      *
      */
     public BoneH() {
-        super();
+        super(null,null);
+    }
+
+    public void setSprite(ISprite sprite) {
+
     }
 }

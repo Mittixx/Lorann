@@ -1,8 +1,10 @@
 package model.LorannWorld;
 
+import contract.ISprite;
+
 import java.awt.*;
 
-public class Sprite {
+public class Sprite implements ISprite{
     private Image image;
 
     public Sprite(Image image) {

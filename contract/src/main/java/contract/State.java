@@ -1,4 +1,4 @@
-package model.LorannWorld.MobileElement;
+package contract;
 /**
  * The enumeration of the state of the hero, if he can throw spells.
  */

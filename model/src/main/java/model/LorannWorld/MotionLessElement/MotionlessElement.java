@@ -1,10 +1,9 @@
-package model.LorannWorld.MotionLessElement;
+package model.LorannWorld.MotionlessElement;
 
+import contract.Collectable;
 import model.LorannWorld.Element;
-import model.LorannWorld.Permeability;
+import contract.Permeability;
 import model.LorannWorld.Sprite;
-import model.LorannWorld.MotionLessElement.Collectable;
-import model.LorannWorld.MotionLessElement.DoorState;
 
 /**
  * @author Romain

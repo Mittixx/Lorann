@@ -1,6 +1,9 @@
-package model.LorannWorld.MotionLessElement;
+package model.LorannWorld.MotionlessElement;
 
-import model.LorannWorld.MobileElement.State;
+import contract.DoorState;
+import contract.ISprite;
+import contract.Permeability;
+import model.LorannWorld.Sprite;
 
 /**
  * The Door.
@@ -15,6 +18,10 @@ public class Door extends MotionlessElement{
      *
      */
     public Door() {
-        super();
+        super(null,null);
+    }
+
+    public void setSprite(ISprite sprite) {
+
     }
 }

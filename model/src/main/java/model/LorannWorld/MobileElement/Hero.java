@@ -1,13 +1,15 @@
 package model.LorannWorld.MobileElement;
 
-import model.LorannWorld.Permeability;
+import contract.IHero;
+import contract.Permeability;
+import contract.State;
 import model.LorannWorld.Sprite;
 
 /**
  * The class Hero
  * @author Tanguy Blochet
  */
-public class Hero extends MobileElement{
+public class Hero extends MobileElement implements IHero {
     /**
      * The state of the hero
      */

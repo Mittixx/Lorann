@@ -52,12 +52,7 @@ public class Model extends Observable implements IModel {
 	 * @see contract.IModel(java.lang.String)
 	 */
 	public void loadMap(final int ID) {
-		try {
-			final DAOGetMap daoGetMap = new DAOGetMap(DBConnection.getInstance().getConnection());
-			//this.setMap(daoHelloWorld.find(ID).getMessage());
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	/*
