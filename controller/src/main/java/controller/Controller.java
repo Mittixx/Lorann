@@ -8,6 +8,7 @@ import contract.IView;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Controller.
+ *@author Romain
  */
 public class Controller implements IController {
 
@@ -59,30 +60,6 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case English:
-				this.model.loadMessage("GB");
-				break;
-			case Francais:
-				this.model.loadMessage("FR");
-				break;
-			case Deutsch:
-				this.model.loadMessage("DE");
-				break;
-			case Indonesia:
-				this.model.loadMessage("ID");
-				break;
-
-			default:
-				break;
-		}
-	}
 
 	/**
 	 * Move the hero.
@@ -110,4 +87,27 @@ public class Controller implements IController {
 
 	}
 
+	/**
+	 * Where the hero begins the level
+	 */
+	public void heroStart(){
+
+	}
+
+	/**
+	 * Where the monsters begin the level
+	 */
+	public void monstersStart(){
+
+	}
+
+
+	/**
+	 * Pick up user's action
+	 * @param controllerOrder
+	 *
+     */
+	public void orderPerform(ControllerOrder controllerOrder){
+
+	}
 }
