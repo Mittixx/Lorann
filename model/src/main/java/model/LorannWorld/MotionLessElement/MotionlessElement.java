@@ -1,5 +1,6 @@
 package model.LorannWorld.MotionLessElement;
 
+import model.LorannWorld.Element;
 import model.LorannWorld.Permeability;
 import model.LorannWorld.Sprite;
 import model.LorannWorld.MotionLessElement.Collectable;
@@ -8,7 +9,7 @@ import model.LorannWorld.MotionLessElement.DoorState;
 /**
  * @author Romain
  */
-public class MotionlessElement {
+public abstract class MotionlessElement extends Element{
     /** Easting */
     private int x;
 
