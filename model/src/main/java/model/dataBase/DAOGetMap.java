@@ -16,6 +16,11 @@ public class DAOGetMap {
     public DAOGetMap(Connection connection) {
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Map find(int id){
 
         return null;
