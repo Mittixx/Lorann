@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Dimitri
  */
 class ViewPanel extends JPanel implements Observer {
 
@@ -69,11 +69,4 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
 	}
 
-	public void keyPressed(KeyEvent e)
-	{
-		if(e.getKeyCode()==KeyEvent.VK_LEFT)
-		{
-			System.out.println("Coudou Dimitri");
-		}
-	}
 }
