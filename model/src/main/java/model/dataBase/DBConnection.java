@@ -1,4 +1,6 @@
-package model;
+package model.dataBase;
+
+import model.dataBase.DBProperties;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +9,7 @@ import java.sql.SQLException;
 /**
  * The Class DBConnection.
  *
- * @author Jean-Aymeric Diet
+ * @author Romain
  */
 final class DBConnection {
 	/** The instance. */
