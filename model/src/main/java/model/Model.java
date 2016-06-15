@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
+import model.LorannWorld.Map;
+import model.dataBase.DAOGetMap;
 
 /**
  * The Class Model.
@@ -13,15 +15,15 @@ import contract.IModel;
 public class Model extends Observable implements IModel {
 
 	/**
-	 * The message.
+	 * The map.
 	 */
-	private String message;
+	private Map map;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.message = "";
+		this.map =null;
 	}
 
 	/*
@@ -29,17 +31,17 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage()
 	 */
-	public String getMessage() {
-		return this.message;
+	public Map getMap() {
+		return this.map;
 	}
 
 	/**
-	 * Sets the message.
+	 * Sets the map.
 	 *
-	 * @param message the new message
+	 * @param map the new map
 	 */
-	private void setMessage(final String message) {
-		this.message = message;
+	private void setMap(final Map map) {
+		this.map = map;
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -47,12 +49,12 @@ public class Model extends Observable implements IModel {
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
+	 * @see contract.IModel(java.lang.String)
 	 */
-	public void loadMessage(final String key) {
+	public void loadMap(final int ID) {
 		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setMessage(daoHelloWorld.find(key).getMessage());
+			final DAOGetMap daoGetMap = new DAOGetMap(DBConnection.getInstance().getConnection());
+			//this.setMap(daoHelloWorld.find(ID).getMessage());
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
