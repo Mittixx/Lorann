@@ -5,6 +5,7 @@ import java.util.Observable;
 
 import contract.IModel;
 import model.LorannWorld.Map;
+import model.dataBase.DAOGetMap;
 
 /**
  * The Class Model.

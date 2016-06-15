@@ -1,5 +1,7 @@
 package model.LorannWorld;
 
+import model.LorannWorld.MobileElement.MobileElement;
+
 import java.util.ArrayList;
 
 /**
@@ -25,5 +27,48 @@ public class Map {
      * the mobile elements of the map
      **/
     private ArrayList<MobileElement> mobiles;
+    /**
+     * the Identifiant of the map
+     **/
+    private int ID;
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Element[][] getElements() {
+        return elements;
+    }
+
+    public ArrayList<MobileElement> getMobiles() {
+        return mobiles;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setElements(Element[][] elements) {
+        this.elements = elements;
+    }
+
+    public void setMobiles(ArrayList<MobileElement> mobiles) {
+        this.mobiles = mobiles;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 }
