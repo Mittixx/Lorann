@@ -1,11 +1,13 @@
 package model.LorannWorld;
 
+import contract.IElement;
+
 import java.awt.geom.Point2D;
 
 /**
  * The class Element
  */
-public class Element {
+public class Element implements IElement {
     /**
      * The image of the element
      */
@@ -22,6 +24,9 @@ public class Element {
      * The point where the element will spawn
      */
     private Point2D spawn;
+
+
+
 
     public Sprite getSprite() {
         return sprite;

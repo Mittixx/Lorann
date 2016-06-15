@@ -1,5 +1,8 @@
 package model.LorannWorld;
 
+import contract.IElement;
+import contract.IMap;
+import contract.IMobileElement;
 import model.LorannWorld.MobileElement.MobileElement;
 
 import java.util.ArrayList;
@@ -10,7 +13,7 @@ import java.util.ArrayList;
  * @author Tanguy Blochet
  * @version 15.06.2016
  **/
-public class Map {
+public class Map implements IMap{
     /**
     * the width of the map
      **/
@@ -26,49 +29,50 @@ public class Map {
     /**
      * the mobile elements of the map
      **/
-    private ArrayList<MobileElement> mobiles;
+    private ArrayList<IMobileElement> mobiles;
     /**
      * the Identifiant of the map
      **/
     private int ID;
 
+
     public int getWidth() {
-        return width;
+        return 0;
     }
 
     public int getHeight() {
-        return height;
+        return 0;
     }
 
-    public Element[][] getElements() {
-        return elements;
+    public IElement[][] getElements() {
+        return new IElement[0][];
     }
 
-    public ArrayList<MobileElement> getMobiles() {
-        return mobiles;
+    public ArrayList<IMobileElement> getMobiles() {
+        return null;
     }
 
     public int getID() {
-        return ID;
+        return 0;
     }
 
     public void setWidth(int width) {
-        this.width = width;
+
     }
 
     public void setHeight(int height) {
-        this.height = height;
+
     }
 
-    public void setElements(Element[][] elements) {
-        this.elements = elements;
+    public void setElements(IElement[][] elements) {
+
     }
 
-    public void setMobiles(ArrayList<MobileElement> mobiles) {
-        this.mobiles = mobiles;
+    public void setMobiles(ArrayList<IMobileElement> mobiles) {
+
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+
     }
 }

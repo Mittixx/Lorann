@@ -1,4 +1,4 @@
-package model.LorannWorld.MobileElement;
+package model.LorannWorld;
 
 import model.LorannWorld.Sprite;
 
