@@ -5,24 +5,24 @@ import java.util.Observable;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Tanguy Blochet
  */
 public interface IModel {
 
 	/**
-	 * Gets the message.
+	 * Gets the map.
 	 *
-	 * @return the message
+	 * @return the map
 	 */
-	String getMessage();
+	//Map getMap();
 
 	/**
-	 * Load the message.
+	 * Load the map.
 	 *
-	 * @param key
+	 * @param ID
 	 *          the key
 	 */
-	void loadMessage(String key);
+	void loadMap(int ID);
 
 	/**
 	 * Gets the observable.
