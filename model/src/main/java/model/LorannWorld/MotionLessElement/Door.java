@@ -15,6 +15,6 @@ public class Door extends MotionlessElement{
      *
      */
     public Door() {
-        super(new Sprite(ElementSprite.getImage("Camp.png")), Permeability.BLOCKING);
+        super();
     }
 }
