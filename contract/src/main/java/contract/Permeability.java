@@ -1,4 +1,4 @@
-package model.LorannWorld;
+package contract;
 
 /**
 

@@ -1,4 +1,7 @@
-package model.LorannWorld.MotionLessElement;
+package model.LorannWorld.MotionlessElement;
+
+import contract.Collectable;
+import contract.ISprite;
 
 /**
  * The purse.
@@ -13,6 +16,10 @@ public class Purse extends MotionlessElement{
      *
      */
     public Purse() {
-        super();
+        super(null,null);
+    }
+
+    public void setSprite(ISprite sprite) {
+
     }
 }

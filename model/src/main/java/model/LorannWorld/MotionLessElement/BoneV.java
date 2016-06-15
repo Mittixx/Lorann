@@ -1,4 +1,7 @@
-package model.LorannWorld.MotionLessElement;
+package model.LorannWorld.MotionlessElement;
+
+import contract.Collectable;
+import contract.ISprite;
 
 /**
  * Vertical Bone.
@@ -13,6 +16,10 @@ public class BoneV extends MotionlessElement{
      *
      */
     public BoneV() {
-        super();
+        super(null,null);
+    }
+
+    public void setSprite(ISprite sprite) {
+
     }
 }

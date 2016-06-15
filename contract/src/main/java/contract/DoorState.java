@@ -1,4 +1,4 @@
-package model.LorannWorld.MotionLessElement;
+package contract;
 
 /**
  * Shows the door's state.

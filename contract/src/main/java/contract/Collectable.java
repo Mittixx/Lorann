@@ -1,4 +1,4 @@
-package model.LorannWorld.MotionLessElement;
+package contract;
 
 /**
  *Sees if an item is collectable or not.

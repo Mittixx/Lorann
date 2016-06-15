@@ -1,6 +1,6 @@
 package model.LorannWorld.MobileElement;
 
-import model.LorannWorld.Permeability;
+import contract.Permeability;
 import model.LorannWorld.Sprite;
 
 /**

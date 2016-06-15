@@ -1,11 +1,14 @@
 package model.LorannWorld;
 
 import contract.IElement;
+import contract.Permeability;
 
 import java.awt.geom.Point2D;
 
 /**
  * The class Element
+ * @author Tanguy Blochet
+ * @version 15.06.2016
  */
 public class Element implements IElement {
     /**

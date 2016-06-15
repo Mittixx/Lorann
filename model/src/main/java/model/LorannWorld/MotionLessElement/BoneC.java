@@ -1,4 +1,7 @@
-package model.LorannWorld.MotionLessElement;
+package model.LorannWorld.MotionlessElement;
+
+import contract.Collectable;
+import contract.ISprite;
 
 /**
  * Circular Bone.
@@ -13,6 +16,10 @@ public class BoneC extends MotionlessElement{
      *
      */
     public BoneC() {
-        super();
+        super(null,null);
+    }
+
+    public void setSprite(ISprite sprite) {
+
     }
 }
