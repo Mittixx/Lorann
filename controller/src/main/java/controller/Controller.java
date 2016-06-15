@@ -84,4 +84,30 @@ public class Controller implements IController {
 		}
 	}
 
+	/**
+	 * Move the hero.
+	 * @param x
+	 *		easting
+	 * @param y
+	 * 		northing
+	 */
+	public void moveHero(int x, int y){
+
+	}
+
+	/**
+	 *
+	 *Artificial Intelligence of the Monsters
+	 */
+	public void AIMonster(){
+
+	}
+
+	/**
+	 *Contact between hero/monsters/items
+	 */
+	public void contact(){
+
+	}
+
 }
