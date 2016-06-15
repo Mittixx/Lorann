@@ -12,7 +12,9 @@ import contract.IModel;
  */
 public class Model extends Observable implements IModel {
 
-	/** The message. */
+	/**
+	 * The message.
+	 */
 	private String message;
 
 	/**
@@ -34,8 +36,7 @@ public class Model extends Observable implements IModel {
 	/**
 	 * Sets the message.
 	 *
-	 * @param message
-	 *          the new message
+	 * @param message the new message
 	 */
 	private void setMessage(final String message) {
 		this.message = message;
@@ -65,4 +66,5 @@ public class Model extends Observable implements IModel {
 	public Observable getObservable() {
 		return this;
 	}
+
 }
