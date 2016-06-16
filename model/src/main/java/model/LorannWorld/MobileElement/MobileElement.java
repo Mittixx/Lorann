@@ -1,10 +1,12 @@
 package model.LorannWorld.MobileElement;
 
+import contract.IMobileElement;
+
 /**
  * The class MobileElement
  * @author Tanguy Blochet
  */
-public class MobileElement {
+public class MobileElement implements IMobileElement{
     /**
      * The X position of the element
      */
@@ -18,15 +20,9 @@ public class MobileElement {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
+    public void setY(int y) {this.y = y;}
 
-    public int getX() {
-        return x;
-    }
+    public int getX() {return x;}
 
-    public void setX(int x) {
-        this.x = x;
-    }
+    public void setX(int x) {this.x = x;}
 }

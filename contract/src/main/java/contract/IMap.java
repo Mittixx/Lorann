@@ -8,10 +8,15 @@ public interface IMap {
 
     public int getHeight();
 
-    public IElement[][] getElements();
+    public IElement getElement(int x, int y);
 
     public ArrayList<IMobileElement> getMobiles();
 
     public int getID();
 
-}
+    public void setHeroPosition(int x, int y);
+
+    public IMobileElement getHero();
+
+
+    }

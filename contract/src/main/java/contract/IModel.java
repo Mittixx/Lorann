@@ -14,7 +14,7 @@ public interface IModel {
 	 *
 	 * @return the map
 	 */
-	//Map getMap();
+	IMap getMap();
 
 	/**
 	 * Load the map.

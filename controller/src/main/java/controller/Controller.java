@@ -1,22 +1,24 @@
 package controller;
 
-import contract.ControllerOrder;
-import contract.IController;
-import contract.IModel;
-import contract.IView;
+import contract.*;
 
-// TODO: Auto-generated Javadoc
+import static contract.Permeability.PENETRABLE;
+
 /**
  * The Class Controller.
  *@author Romain
  */
-public class Controller implements IController {
+public class Controller implements IController{
 
 	/** The view. */
 	private IView		view;
 
 	/** The model. */
 	private IModel	model;
+
+	private IMobileElement hero;
+
+	private IMap element;
 
 	/**
 	 * Instantiates a new controller.
@@ -37,7 +39,7 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.view.printMessage("Move your character !");
 	}
 
 	/**
@@ -70,6 +72,12 @@ public class Controller implements IController {
 	 */
 	public void moveHero(int x, int y){
 
+		model.getMap().getHero().setY();
+		/*hero.setX(hero.getX()+x);
+		hero.setY(hero.getY()+y);
+		this.setChanged();
+		this.notifyObservers();*/
+
 	}
 
 	/**
@@ -83,15 +91,19 @@ public class Controller implements IController {
 	/**
 	 *Contact between hero/monsters/items
 	 */
-	public void contact(){
+	public boolean contact(int x, int y){
+		if((element.getElement(x, y).getPermeability()) == PENETRABLE){
+			return true;
+		}
 
+		return false;
 	}
 
 	/**
 	 * Where the hero begins the level
 	 */
-	public void heroStart(){
-
+	public void heroStart(int x, int y){
+		model.getMap().getHero();
 	}
 
 	/**
@@ -109,5 +121,34 @@ public class Controller implements IController {
      */
 	public void orderPerform(ControllerOrder controllerOrder){
 
+		switch (controllerOrder){
+			case UP :
+				System.out.println(" I'M GOING UP !");
+				if(contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1) == true) {
+					moveHero(0,-1);
+				}
+				break;
+			case DOWN :
+				System.out.println(" I'M GOING DOWN !");
+				if(contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true) {
+					moveHero(0,+1);
+				}
+				break;
+			case LEFT:
+				System.out.println(" I'M GOING LEFT !");
+				if(contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true) {
+					moveHero(-1,0);
+				}
+				break;
+			case RIGHT:
+				System.out.println(" I'M GOING RIGHT !");
+				if(contact(model.getMap().getHero().getX() +1,model.getMap().getHero().getY()) == true) {
+					moveHero(+1,0);
+				}
+				break;
+
+			default:
+				System.out.println(" I'M NOT MOVING !");
+		}
 	}
 }

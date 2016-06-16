@@ -40,6 +40,11 @@ public class Element implements IElement {
 
     }
 
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
+    }
+
     public Permeability getPermeability() {
         return permeability;
     }

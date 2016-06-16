@@ -3,7 +3,7 @@ package model.LorannWorld;
 import contract.IElement;
 import contract.IMap;
 import contract.IMobileElement;
-import model.LorannWorld.MobileElement.MobileElement;
+import model.LorannWorld.MobileElement.Hero;
 
 import java.util.ArrayList;
 
@@ -35,6 +35,8 @@ public class Map implements IMap{
      **/
     private int ID;
 
+    private IMobileElement hero;
+
 
     public int getWidth() {
         return 0;
@@ -44,8 +46,8 @@ public class Map implements IMap{
         return 0;
     }
 
-    public IElement[][] getElements() {
-        return new IElement[0][];
+    public IElement getElement(int x, int y) {
+        return elements[x][y];
     }
 
     public ArrayList<IMobileElement> getMobiles() {
@@ -74,5 +76,14 @@ public class Map implements IMap{
 
     public void setID(int ID) {
 
+    }
+
+    public void setHeroPosition(int x, int y){
+        this.hero.setX(x);
+        this.hero.setY(y);
+    }
+
+    public IMobileElement getHero(){
+        return this.hero;
     }
 }
