@@ -31,7 +31,7 @@ public class Monster extends MobileElement{
     /**
      * Instanciate a monster
      */
-    public Monster() {
+    public Monster(String path) {
         super();
     }
 }

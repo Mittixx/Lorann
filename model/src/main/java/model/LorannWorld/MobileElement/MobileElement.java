@@ -16,6 +16,8 @@ public class MobileElement implements IMobileElement{
      */
     private int y;
 
+
+
     public int getY() {
         return y;
     }

@@ -33,7 +33,7 @@ public class Hero extends MobileElement implements IHero {
     /**
      *instanciate the hero
      */
-    public Hero() {
+    public Hero(String path) {
         super();
     }
 }

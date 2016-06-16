@@ -4,9 +4,9 @@ public interface IMobileElement {
 
     int getY();
 
-    int setY(int Y);
+    void setY(int Y);
 
     int getX();
 
-    int setX(int x);
+    void setX(int x);
 }

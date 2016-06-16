@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Observable;
@@ -67,49 +68,56 @@ public class Model extends Observable implements IModel {
 				String name=resultSet.getString("name");
 				if(name=="boneH")
 				{
-					MotionlessElement e=new BoneH(name);
+					MotionlessElement e= null;
+					try {
+						e = new BoneH(name);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
 				else if(name=="boneC")
 				{
-					MotionlessElement e=new BoneC();
+					MotionlessElement e=new BoneC("name");
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
 				else if(name=="boneV")
 				{
-					MotionlessElement e=new BoneV();
+					MotionlessElement e=new BoneV("name");
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
 				else if(name=="purse")
 				{
-					MotionlessElement e=new Purse();
+					MotionlessElement e=new Purse("name");
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
 				else if(name=="key")
 				{
-					MotionlessElement e=new Key();
+					MotionlessElement e=new Key("name");
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
 				else if(name=="lorann_b")
 				{
-					MobileElement e=new Hero();
+					MobileElement e=new Hero("name");
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
 				else if(name=="monster")
 				{
-					MobileElement e=new Monster();
+					MobileElement e=new Monster("name");
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
 
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 

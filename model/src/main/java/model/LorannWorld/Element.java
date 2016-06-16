@@ -1,6 +1,7 @@
 package model.LorannWorld;
 
 import contract.IElement;
+import contract.IMap;
 import contract.ISprite;
 import contract.Permeability;
 
@@ -15,7 +16,7 @@ public class Element implements IElement {
     /**
      * The image of the element
      */
-    private Sprite sprite;
+    private ISprite sprite;
     /**
      * The permeability of the element
      */
@@ -23,7 +24,7 @@ public class Element implements IElement {
     /**
      * The map wich contains the element
      */
-    private Map map;
+    private IMap map;
     /**
      * The point where the element will spawn
      */
@@ -32,7 +33,7 @@ public class Element implements IElement {
 
 
 
-    public Sprite getSprite() {
+    public ISprite getSprite() {
         return sprite;
     }
 
@@ -53,11 +54,11 @@ public class Element implements IElement {
         this.permeability = permeability;
     }
 
-    public Map getMap() {
+    public IMap getMap() {
         return map;
     }
 
-    public void setMap(Map map) {
+    public void setMap(IMap map) {
         this.map = map;
     }
 
