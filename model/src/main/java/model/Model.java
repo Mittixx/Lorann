@@ -67,7 +67,7 @@ public class Model extends Observable implements IModel {
 				String name=resultSet.getString("name");
 				if(name=="boneH")
 				{
-					MotionlessElement e=new BoneH();
+					MotionlessElement e=new BoneH(name);
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
