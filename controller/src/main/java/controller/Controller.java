@@ -72,7 +72,8 @@ public class Controller implements IController{
 	 */
 	public void moveHero(int x, int y){
 
-		model.getMap().getHero().setY();
+		model.getMap().getHero().setX(hero.getX() + x);
+		model.getMap().getHero().setY(hero.getY() + y);
 		/*hero.setX(hero.getX()+x);
 		hero.setY(hero.getY()+y);
 		this.setChanged();
@@ -123,25 +124,21 @@ public class Controller implements IController{
 
 		switch (controllerOrder){
 			case UP :
-				System.out.println(" I'M GOING UP !");
 				if(contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1) == true) {
 					moveHero(0,-1);
 				}
 				break;
 			case DOWN :
-				System.out.println(" I'M GOING DOWN !");
 				if(contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true) {
 					moveHero(0,+1);
 				}
 				break;
 			case LEFT:
-				System.out.println(" I'M GOING LEFT !");
 				if(contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true) {
 					moveHero(-1,0);
 				}
 				break;
 			case RIGHT:
-				System.out.println(" I'M GOING RIGHT !");
 				if(contact(model.getMap().getHero().getX() +1,model.getMap().getHero().getY()) == true) {
 					moveHero(+1,0);
 				}
