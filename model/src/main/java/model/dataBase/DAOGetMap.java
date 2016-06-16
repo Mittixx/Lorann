@@ -33,8 +33,8 @@ public class DAOGetMap {
         try{
 
             final CallableStatement call=this.connection.getConnection().prepareCall(sql);
-            call.setInt(1,id); //ID map to choose
-            call.executeQuery(sql);
+            call.setInt(1,id);
+            call.execute();
             return call.getResultSet();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -4,6 +4,7 @@ import contract.IElement;
 import contract.IMap;
 import contract.IMobileElement;
 import model.LorannWorld.MobileElement.Hero;
+import model.LorannWorld.MotionlessElement.MotionlessElement;
 
 import java.util.ArrayList;
 
@@ -68,6 +69,11 @@ public class Map implements IMap{
 
     public void setElements(IElement[][] elements) {
 
+    }
+
+    public void addElementToMap(MotionlessElement element,int x,int y)
+    {
+        this.elements[x][y]=element;
     }
 
     public void setMobiles(ArrayList<IMobileElement> mobiles) {

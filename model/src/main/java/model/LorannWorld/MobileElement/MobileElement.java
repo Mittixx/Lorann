@@ -1,6 +1,8 @@
 package model.LorannWorld.MobileElement;
 
 import contract.IMobileElement;
+import contract.Permeability;
+import model.LorannWorld.Sprite;
 
 /**
  * The class MobileElement
@@ -16,7 +18,9 @@ public class MobileElement implements IMobileElement{
      */
     private int y;
 
+    public MobileElement(Sprite sprite, Permeability permeability) {
 
+    }
 
     public int getY() {
         return y;

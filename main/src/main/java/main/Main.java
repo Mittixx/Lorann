@@ -22,6 +22,7 @@ public abstract class Main {
 		final View view = new View(model);
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
+		model.loadMap(1);
 		//controller.control();
 	}
 }
