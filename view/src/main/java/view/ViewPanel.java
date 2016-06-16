@@ -1,11 +1,14 @@
 package view;
 
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
+import java.text.AttributedCharacterIterator;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
+
+import contract.IMobileElement;
+import contract.IMotionlessElement;
 
 /**
  * The Class ViewPanel.
@@ -65,8 +68,7 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
-	}
-
+        graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+        graphics.drawString((AttributedCharacterIterator) this.getViewFrame().getModel().getMap(), 10, 20);
+    }
 }
