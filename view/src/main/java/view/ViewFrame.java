@@ -1,12 +1,10 @@
 package view;
 
-import java.awt.GraphicsConfiguration;
-import java.awt.HeadlessException;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 import contract.IController;
 import contract.IModel;
@@ -130,9 +128,17 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this));
 		this.setSize(400 + this.getInsets().left + this.getInsets().right, 600 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
+		ViewPanel viewPanel=new ViewPanel(this);
+
+		System.out.println(viewPanel.getSize());
+
+		this.setContentPane(viewPanel);
+		this.setBackground(Color.black);
+		this.setVisible(true);
+
+
 	}
 	/**
 	 * Prints the message.

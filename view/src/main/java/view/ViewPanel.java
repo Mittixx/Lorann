@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.text.AttributedCharacterIterator;
 import java.util.Observable;
 import java.util.Observer;
@@ -30,7 +30,11 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
+		this.setSize(viewFrame.getWidth(),viewFrame.getHeight());
+
+
 		viewFrame.getModel().getObservable().addObserver(this);
+		repaint();
 	}
 
 	/**
@@ -68,7 +72,8 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-        graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-        graphics.drawString((AttributedCharacterIterator) this.getViewFrame().getModel().getMap(), 10, 20);
+		graphics.setColor(Color.black);
+		graphics.fillRect(0, 0, this.viewFrame.getWidth(), this.viewFrame.getHeight());
+        //graphics.drawString((AttributedCharacterIterator) this.getViewFrame().getModel().getMap(), 10, 20);
     }
 }

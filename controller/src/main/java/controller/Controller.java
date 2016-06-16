@@ -72,7 +72,7 @@ public class Controller implements IController{
 	 */
 	public void moveHero(int x, int y){
 
-		model.getMap().getHero().setY();
+		model.getMap().getHero().setY(y);
 		/*hero.setX(hero.getX()+x);
 		hero.setY(hero.getY()+y);
 		this.setChanged();
