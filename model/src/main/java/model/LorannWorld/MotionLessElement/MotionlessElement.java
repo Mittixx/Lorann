@@ -23,6 +23,7 @@ public abstract class MotionlessElement extends Element{
      * @param permeability
      */
     public MotionlessElement(Sprite sprite, Permeability permeability) {
+
     }
 
     /**
