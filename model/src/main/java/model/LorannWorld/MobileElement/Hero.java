@@ -32,9 +32,8 @@ public class Hero extends MobileElement implements IHero {
 
     /**
      *instanciate the hero
-     * @param sprite,permeability
      */
-    public Hero(Sprite sprite, Permeability permeability) {
-
+    public Hero() {
+        super();
     }
 }

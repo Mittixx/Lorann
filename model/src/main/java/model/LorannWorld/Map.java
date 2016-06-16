@@ -17,11 +17,11 @@ public class Map implements IMap{
     /**
     * the width of the map
      **/
-    private int width;
+    private int width=20;
     /**
      * the height of the map
      **/
-    private int height;
+    private int height=12;
     /**
      * the static elements of the map
      **/

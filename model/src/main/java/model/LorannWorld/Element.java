@@ -1,6 +1,7 @@
 package model.LorannWorld;
 
 import contract.IElement;
+import contract.ISprite;
 import contract.Permeability;
 
 import java.awt.geom.Point2D;
@@ -35,8 +36,8 @@ public class Element implements IElement {
         return sprite;
     }
 
-    public void setSprite(Sprite sprite) {
-        this.sprite = sprite;
+    public void setSprite(ISprite sprite) {
+
     }
 
     public Permeability getPermeability() {

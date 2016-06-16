@@ -7,7 +7,7 @@ import model.LorannWorld.Sprite;
  * The class Monster
  * @author Tanguy Blochet
  */
-public class Monster {
+public class Monster extends MobileElement{
     /**
      * The ID of the monster
      */
@@ -30,9 +30,8 @@ public class Monster {
     }
     /**
      * Instanciate a monster
-     * @param sprite,permeability,ID
      */
-    public Monster(Sprite sprite, Permeability permeability,int ID) {
-        this.ID = ID;
+    public Monster() {
+        super();
     }
 }
