@@ -39,17 +39,26 @@ public class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_:
-				return ControllerOrder.;
-			case KeyEvent.VK_:
-				return ControllerOrder.;
-			case KeyEvent.VK_:
-				return ControllerOrder.;
-			case KeyEvent.VK_:
-				return ControllerOrder.;
+			case KeyEvent.VK_UP:
+				return ControllerOrder.UP;
+			case KeyEvent.VK_DOWN:
+				return ControllerOrder.DOWN;
+			case KeyEvent.VK_LEFT:
+				return ControllerOrder.LEFT;
+			case KeyEvent.VK_RIGHT:
+				return ControllerOrder.RIGHT;
 			default:
-				return ControllerOrder.;
+				return ControllerOrder.DOWN;
 		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see contract.IView#printMessage(java.lang.String)
+	 */
+	public void printMessage(final String message) {
+		this.viewFrame.printMessage(message);
 	}
 
 	/*
