@@ -3,9 +3,14 @@
  */
 package model;
 
+import com.sun.istack.internal.NotNull;
+import junit.framework.TestCase;
+import model.LorannWorld.Map;
+import model.dataBase.DAOGetMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,9 +18,9 @@ import org.junit.Test;
 /**
  * The Class ModelTest.
  *
- * @author Jean-Aymeric Diet
+ * @author Tanguy Blochet
  */
-public class ModelTest {
+public class ModelTest extends TestCase {
 	private Model model;
 
 	/**
@@ -26,6 +31,7 @@ public class ModelTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+
 	}
 
 	/**
@@ -47,6 +53,7 @@ public class ModelTest {
 	@Before
 	public void setUp() throws Exception {
 		this.model = new Model();
+
 	}
 
 	/**
@@ -60,26 +67,15 @@ public class ModelTest {
 	}
 
 	/**
-	 * Test method for {@link model.Model#getMessage()}.
+	 * Test method for {@link model.Model#loadMap(int ID)}.
 	 */
 	@Test
-	public void testGetMessage() {
-		Assert.assertEquals("", this.model.getMessage());
+	public void testloadMap() {
+
+		DAOGetMap daoGetMap=new DAOGetMap();
+		assertNotNull(daoGetMap);
 	}
 
-	/**
-	 * Test method for {@link model.Model#loadMessage(java.lang.String)}.
-	 */
-	@Test
-	public void testGetMessageString() {
-		this.model.loadMessage("GB");
-		Assert.assertEquals("Hello world", this.model.getMessage());
-		this.model.loadMessage("FR");
-		Assert.assertEquals("Bonjour le monde", this.model.getMessage());
-		this.model.loadMessage("DE");
-		Assert.assertEquals("Hallo Welt", this.model.getMessage());
-		this.model.loadMessage("ID");
-		Assert.assertEquals("Salamat pagi dunia", this.model.getMessage());
-	}
+
 
 }

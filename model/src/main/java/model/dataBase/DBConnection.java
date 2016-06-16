@@ -21,7 +21,7 @@ final class DBConnection {
 	/**
 	 * Instantiates a new DB connection.
 	 */
-	private DBConnection() {
+	protected DBConnection() {
 		this.open();
 	}
 
