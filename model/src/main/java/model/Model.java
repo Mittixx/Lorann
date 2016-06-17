@@ -117,6 +117,7 @@ public class Model extends Observable implements IModel {
 							e.setX(resultSet.getInt(("PosX")));
 							e.setY(resultSet.getInt("PosY"));
 							monsterPlus++;
+							break;
 						}
 						case(2):
 						{
@@ -125,6 +126,7 @@ public class Model extends Observable implements IModel {
 							e.setX(resultSet.getInt(("PosX")));
 							e.setY(resultSet.getInt("PosY"));
 							monsterPlus++;
+							break;
 						}
 						case(3):
 						{
@@ -133,6 +135,7 @@ public class Model extends Observable implements IModel {
 							e.setX(resultSet.getInt(("PosX")));
 							e.setY(resultSet.getInt("PosY"));
 							monsterPlus++;
+							break;
 						}
 						case(4):
 						{
@@ -140,8 +143,10 @@ public class Model extends Observable implements IModel {
 							e.setX(resultSet.getInt(("PosX")));
 							e.setY(resultSet.getInt("PosY"));
 							map.getMobiles().add(e);
-
+							monsterPlus++;
+							break;
 						}
+
 					}
 
 				}
