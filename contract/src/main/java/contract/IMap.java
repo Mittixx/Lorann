@@ -8,7 +8,7 @@ public interface IMap {
 
     public void setHeight(int height);
 
-    public void addElementToMap(IMotionlessElement element, int x, int y);
+    public void addElementToMap(IElement element, int x, int y);
 
     public void setMobiles(ArrayList<IMobileElement> mobiles);
 
