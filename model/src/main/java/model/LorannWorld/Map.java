@@ -3,6 +3,7 @@ package model.LorannWorld;
 import contract.IElement;
 import contract.IMap;
 import contract.IMobileElement;
+import contract.IMotionlessElement;
 import model.LorannWorld.MobileElement.Hero;
 import model.LorannWorld.MotionlessElement.MotionlessElement;
 
@@ -26,7 +27,7 @@ public class Map implements IMap{
     /**
      * the static elements of the map
      **/
-    private Element[][] elements;
+    private IElement[][] elements;
     /**
      * the mobile elements of the map
      **/
@@ -74,13 +75,13 @@ public class Map implements IMap{
 
     }
 
+
     public void setElements(IElement[][] elements) {
 
     }
 
 
-
-    public void addElementToMap(MotionlessElement element,int x,int y)
+    public void addElementToMap(IElement element, int x, int y)
     {
         this.elements[x][y]=element;
     }

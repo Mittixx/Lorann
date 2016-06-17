@@ -1,5 +1,6 @@
 package model.LorannWorld.MobileElement;
 
+import contract.ControllerOrder;
 import contract.IHero;
 import contract.Permeability;
 import contract.State;
@@ -39,5 +40,9 @@ public class Hero extends MobileElement implements IHero {
      */
     public Hero(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING);
+    }
+
+    public void setControllerOrder(ControllerOrder positon) {
+
     }
 }
