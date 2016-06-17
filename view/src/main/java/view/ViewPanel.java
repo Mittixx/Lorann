@@ -7,8 +7,7 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import contract.IMobileElement;
-import contract.IMotionlessElement;
+import contract.*;
 
 /**
  * The Class ViewPanel.
@@ -74,6 +73,22 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.setColor(Color.black);
 		graphics.fillRect(0, 0, this.viewFrame.getWidth(), this.viewFrame.getHeight());
-        //graphics.drawString((AttributedCharacterIterator) this.getViewFrame().getModel().getMap(), 10, 20);
+		for(IElement[] element: viewFrame.getModel().getMap().getElements())
+		{
+			int x=0;
+			int y=0;
+
+			for(IElement e:element)
+			{
+				if(e!=null)
+				{
+
+					graphics.drawImage(e.getSprite().getImage(),x*32+1,y*32+1,null);
+					x++;
+				}
+				y++;
+			}
+		}
+        graphics.drawString(("Score"), 50, 50);
     }
 }

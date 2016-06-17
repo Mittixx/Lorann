@@ -61,7 +61,7 @@ public class Model extends Observable implements IModel {
 	 */
 	public void loadMap(final int ID) {
 
-		Map map=new Map(20,12);
+		map=new Map(20,12);
 		daoGetMap=new DAOGetMap();
 		ResultSet resultSet=daoGetMap.query("{call getElementMapByID(?)}",ID);
 		int monsterPlus=1;

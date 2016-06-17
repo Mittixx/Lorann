@@ -22,6 +22,8 @@ public interface IMap {
 
     public IElement getElement(int x, int y);
 
+    public IElement[][] getElements();
+
     public ArrayList<IMobileElement> getMobiles();
 
     public int getID();

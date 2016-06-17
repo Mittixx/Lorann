@@ -59,6 +59,10 @@ public class Map implements IMap{
         return elements[x][y];
     }
 
+    public IElement[][] getElements() {
+        return elements;
+    }
+
     public ArrayList<IMobileElement> getMobiles() {
         return mobiles;
     }
