@@ -59,6 +59,7 @@ public class View implements IView, Runnable {
 	 */
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
+
 	}
 
 	/*
