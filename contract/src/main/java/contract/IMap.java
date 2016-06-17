@@ -4,6 +4,18 @@ import java.util.ArrayList;
 
 public interface IMap {
 
+    public void setWidth(int width);
+
+    public void setHeight(int height);
+
+    public void addElementToMap(IElement element, int x, int y);
+
+    public void setMobiles(ArrayList<IMobileElement> mobiles);
+
+    public void setElements (IElement[][] elements);
+
+    public void setID(int ID);
+
     public int getWidth();
 
     public int getHeight();

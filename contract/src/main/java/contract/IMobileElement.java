@@ -9,4 +9,7 @@ public interface IMobileElement {
     int getX();
 
     void setX(int x);
-}
+
+    public void setControllerOrder (ControllerOrder direction);
+
+    }

@@ -158,4 +158,10 @@ public class Model extends Observable implements IModel {
 		return this;
 	}
 
+	public void flush(){
+		setChanged();
+		notifyObservers();
+	}
+
+
 }

@@ -12,6 +12,14 @@ public interface IController {
 	 */
 	public void control();
 
+	public void moveHero(int x, int y);
+
+	public void AIMonster();
+
+	public boolean contact(int x, int y);
+
+	public void heroStart(int x, int y);
+
 	/**
 	 * Order perform.
 	 *
