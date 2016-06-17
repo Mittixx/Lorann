@@ -37,14 +37,8 @@ public class Monster extends MobileElement{
      * Instanciate a monster
      * @param path
      */
-
-    private ControllerOrder position;
-
     public Monster(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING);
     }
 
-    public void setControllerOrder(ControllerOrder position){
-        this.position = position;
-    }
 }

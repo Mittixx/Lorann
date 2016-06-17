@@ -1,5 +1,6 @@
 package model.LorannWorld.MobileElement;
 
+import contract.ControllerOrder;
 import contract.IMobileElement;
 import contract.ISprite;
 import contract.Permeability;
@@ -26,6 +27,9 @@ public class MobileElement  implements IMobileElement{
      * The permeability of the element
      */
     private Permeability permeability;
+
+    private ControllerOrder position;
+
 
 
 
@@ -59,4 +63,9 @@ public class MobileElement  implements IMobileElement{
     public void setPermeability(Permeability permeability) {
         this.permeability = permeability;
     }
+
+    public void setControllerOrder(ControllerOrder position){
+        this.position = position;
+    }
+
 }
