@@ -14,4 +14,8 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+
+	void run();
+
+	void setController(final IController controller);
 }

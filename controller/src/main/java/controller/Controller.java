@@ -2,6 +2,7 @@ package controller;
 
 import contract.*;
 
+import static com.sun.deploy.trace.Trace.flush;
 import static contract.Permeability.PENETRABLE;
 
 /**
@@ -74,11 +75,7 @@ public class Controller implements IController{
 
 		model.getMap().getHero().setX(hero.getX() + x);
 		model.getMap().getHero().setY(hero.getY() + y);
-		/*hero.setX(hero.getX()+x);
-		hero.setY(hero.getY()+y);
-		this.setChanged();
-		this.notifyObservers();*/
-
+		flush();
 	}
 
 	/**
@@ -86,7 +83,23 @@ public class Controller implements IController{
 	 *Artificial Intelligence of the Monsters
 	 */
 	public void AIMonster(){
-
+		for(IMobileElement monster : model.getMap().getMobiles()){
+			double random = Math.random();
+			if(random <= .25d && contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1) == true){
+				monster.setControllerOrder(ControllerOrder.UP);
+				monster.setY(monster.getY()-1);
+			}else if(random <= .50d && contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true){
+				monster.setControllerOrder((ControllerOrder.LEFT));
+				monster.setX(monster.getX()-1);
+			}else if(random <= .75d && contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true){
+				monster.setControllerOrder(ControllerOrder.DOWN);
+				monster.setY(monster.getY()+1);
+			}else if(random <= 1d && contact(model.getMap().getHero().getX() +1,model.getMap().getHero().getY()) == true){
+				monster.setControllerOrder(ControllerOrder.RIGHT);
+				monster.setX(monster.getX()+1);
+			}
+		flush();
+		}
 	}
 
 	/**
@@ -100,8 +113,8 @@ public class Controller implements IController{
 		return false;
 	}
 
-	/**
-	 * Where the hero begins the level
+	 /**
+	  * Where the hero begins the level
 	 */
 	public void heroStart(int x, int y){
 		model.getMap().getHero();
@@ -145,7 +158,6 @@ public class Controller implements IController{
 				break;
 
 			default:
-				System.out.println(" I'M NOT MOVING !");
 		}
 	}
 }

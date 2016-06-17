@@ -23,6 +23,11 @@ public class Clock {
      * Launch a Thread.
      */
     public void run(){
-
+        try{
+            while(true){
+                controller.AIMonster();
+                Thread.sleep(500);
+            }
+        }catch(Exception ex) {}
     }
 }
