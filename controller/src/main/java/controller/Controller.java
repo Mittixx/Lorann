@@ -4,6 +4,7 @@ import contract.*;
 
 import java.time.*;
 
+import static contract.Permeability.BLOCKING;
 import static contract.Permeability.PENETRABLE;
 
 /**
@@ -109,16 +110,16 @@ public class Controller implements IController{
 	public void AIMonster(){
 		for(IMobileElement monster : model.getMap().getMobiles()){
 			double random = Math.random();
-			if(random <= .25d && contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true){
+			if(random <= .25d && contact(monster.getX(),monster.getY() -1) == true){
 				monster.setControllerOrder(ControllerOrder.UP);
 				monster.setY(monster.getY()-1);
-			}else if(random <= .50d && contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true){
+			}else if(random <= .50d && contact(monster.getX() -1,monster.getY()) == true){
 				monster.setControllerOrder((ControllerOrder.LEFT));
 				monster.setX(monster.getX()-1);
-			}else if(random <= .75d && contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true){
+			}else if(random <= .75d && contact(monster.getX(),monster.getY() +1) == true){
 				monster.setControllerOrder(ControllerOrder.DOWN);
 				monster.setY(monster.getY()+1);
-			}else if(random <= 1d && contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true){
+			}else if(random <= 1d && contact(monster.getX() +1,monster.getY()) == true){
 				monster.setControllerOrder(ControllerOrder.RIGHT);
 				monster.setX(monster.getX()+1);
 			}
