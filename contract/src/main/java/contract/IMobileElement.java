@@ -10,6 +10,6 @@ public interface IMobileElement {
 
     void setX(int x);
 
-   
+    void setControllerOrder (ControllerOrder positon);
 
-    }
+}
