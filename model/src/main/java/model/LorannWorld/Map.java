@@ -38,6 +38,13 @@ public class Map implements IMap{
 
     private IMobileElement hero;
 
+    public Map( int height, int width) {
+
+        this.height = height;
+        this.width = width;
+        elements=new Element[this.height][this.width];
+        mobiles=new ArrayList<IMobileElement>();
+    }
 
     public int getWidth() {
         return 0;
@@ -52,7 +59,7 @@ public class Map implements IMap{
     }
 
     public ArrayList<IMobileElement> getMobiles() {
-        return null;
+        return mobiles;
     }
 
     public int getID() {
@@ -70,6 +77,8 @@ public class Map implements IMap{
     public void setElements(IElement[][] elements) {
 
     }
+
+
 
     public void addElementToMap(MotionlessElement element,int x,int y)
     {

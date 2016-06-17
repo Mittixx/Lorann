@@ -31,7 +31,10 @@ public class Element implements IElement {
     private Point2D spawn;
 
 
-
+    public Element(ISprite sprite, Permeability permeability) {
+        this.sprite = sprite;
+        this.permeability = permeability;
+    }
 
     public ISprite getSprite() {
         return sprite;
@@ -41,10 +44,6 @@ public class Element implements IElement {
 
     }
 
-
-    public void setSprite(Sprite sprite) {
-        this.sprite = sprite;
-    }
 
     public Permeability getPermeability() {
         return permeability;

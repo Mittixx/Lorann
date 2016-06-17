@@ -60,55 +60,84 @@ public class Model extends Observable implements IModel {
 	 * @see contract.IModel(java.lang.String)
 	 */
 	public void loadMap(final int ID) {
+
+		Map map=new Map(20,12);
 		daoGetMap=new DAOGetMap();
 		ResultSet resultSet=daoGetMap.query("{call getElementMapByID(?)}",ID);
-
+		int monsterPlus=1;
 		try {
 			while (resultSet.next())
 			{
+
 				String name=resultSet.getString("name");
-				if(name=="boneH")
+				System.out.println(name);
+				if(name.equals("boneH"))
 				{
 					MotionlessElement e = new BoneH(name);
-
-					this.getMap().addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
+					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
 
 				}
-				else if(name=="boneC")
+				else if(name.equals("boneC"))
 				{
 					MotionlessElement e=new BoneC(name);
-					this.getMap().addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
+					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
 				}
-				else if(name=="boneV")
+				else if(name.equals("boneV"))
 				{
 					MotionlessElement e=new BoneV(name);
-					this.getMap().addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
+					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
 				}
-				else if(name=="purse")
+				else if(name.equals("purse"))
 				{
 					MotionlessElement e=new Purse(name);
-					this.getMap().addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
+					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
 				}
-				else if(name=="key")
+				else if(name.equals("key"))
 				{
 					MotionlessElement e=new Key(name);
-					this.getMap().addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
+					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
 				}
-				else if(name=="lorann_b")
+				else if(name.equals("lorann_b"))
 				{
 					MobileElement e=new Hero(name);
 					e.setX(resultSet.getInt("PosX"));
 					e.setY(resultSet.getInt("PosY"));
 				}
-				else if(name=="monster")
+				else if(name.equals("monster"))
 				{
-					MobileElement e=new Monster(name);
-					this.getMap().getMobiles().add(e);
+					switch(monsterPlus)
+					{
+						case(1):
+						{
+							MobileElement e=new Monster("monster_1");
+							map.getMobiles().add(e);
+							monsterPlus++;
+						}
+						case(2):
+						{
+							MobileElement e=new Monster(name+"_2");
+							map.getMobiles().add(e);
+							monsterPlus++;
+						}
+						case(3):
+						{
+							MobileElement e=new Monster(name+"_3");
+							map.getMobiles().add(e);
+							monsterPlus++;
+						}
+						case(4):
+						{
+							MobileElement e=new Monster(name+"_4");
+							map.getMobiles().add(e);
+
+						}
+					}
+
 				}
-				else if (name=="door")
+				else if (name.equals("door"))
 				{
 					MotionlessElement e=new Door(name);
-					this.getMap().addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
+					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
 				}
 
 			}
