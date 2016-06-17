@@ -113,23 +113,31 @@ public class Model extends Observable implements IModel {
 						{
 							MobileElement e=new Monster("monster_1");
 							map.getMobiles().add(e);
+							e.setX(resultSet.getInt(("PosX")));
+							e.setY(resultSet.getInt("PosY"));
 							monsterPlus++;
 						}
 						case(2):
 						{
 							MobileElement e=new Monster(name+"_2");
 							map.getMobiles().add(e);
+							e.setX(resultSet.getInt(("PosX")));
+							e.setY(resultSet.getInt("PosY"));
 							monsterPlus++;
 						}
 						case(3):
 						{
 							MobileElement e=new Monster(name+"_3");
 							map.getMobiles().add(e);
+							e.setX(resultSet.getInt(("PosX")));
+							e.setY(resultSet.getInt("PosY"));
 							monsterPlus++;
 						}
 						case(4):
 						{
 							MobileElement e=new Monster(name+"_4");
+							e.setX(resultSet.getInt(("PosX")));
+							e.setY(resultSet.getInt("PosY"));
 							map.getMobiles().add(e);
 
 						}
