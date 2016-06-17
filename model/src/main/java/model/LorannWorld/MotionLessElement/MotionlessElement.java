@@ -23,7 +23,7 @@ public abstract class MotionlessElement extends Element{
      * @param permeability
      */
     public MotionlessElement(Sprite sprite, Permeability permeability) {
-
+        super(sprite,permeability);
     }
 
     /**
@@ -33,7 +33,7 @@ public abstract class MotionlessElement extends Element{
      * @param collectable
      */
     public MotionlessElement (Sprite sprite, Permeability permeability, Collectable collectable){
-
+        super(sprite,permeability);
     }
 
     public int getY() {
