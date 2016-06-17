@@ -48,9 +48,7 @@ public class MobileElement extends Element implements IMobileElement{
     public void setX(int x) {this.x = x;}
 
 
-    public ISprite getSprite() {
-        return sprite;
-    }
+
 
     public void setSprite(ISprite sprite) {
         this.sprite = sprite;
