@@ -12,4 +12,6 @@ public interface IMobileElement {
 
     void setControllerOrder (ControllerOrder position);
 
+    ISprite getSprite();
+
 }

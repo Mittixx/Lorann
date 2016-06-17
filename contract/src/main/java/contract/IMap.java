@@ -32,5 +32,7 @@ public interface IMap {
 
     public IMobileElement getHero();
 
+    public void setHero(IMobileElement hero);
+
 
     }

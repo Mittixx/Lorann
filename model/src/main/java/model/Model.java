@@ -101,8 +101,9 @@ public class Model extends Observable implements IModel {
 				else if(name.equals("lorann_b"))
 				{
 					MobileElement e=new Hero(name);
-					e.setX(resultSet.getInt("PosX"));
-					e.setY(resultSet.getInt("PosY"));
+					map.setHero(e);
+					map.setHeroPosition(resultSet.getInt("PosX"),resultSet.getInt("PosY"));
+
 				}
 				else if(name.equals("monster"))
 				{
