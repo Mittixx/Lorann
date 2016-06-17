@@ -73,10 +73,12 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.setColor(Color.black);
 		graphics.fillRect(0, 0, this.viewFrame.getWidth(), this.viewFrame.getHeight());
+		int y=0;
+		int x=0;
 		for(IElement[] element: viewFrame.getModel().getMap().getElements())
 		{
-			int x=0;
-			int y=0;
+			y = 0;
+
 
 			for(IElement e:element)
 			{
@@ -84,11 +86,13 @@ class ViewPanel extends JPanel implements Observer {
 				{
 
 					graphics.drawImage(e.getSprite().getImage(),x*32+1,y*32+1,null);
-					x++;
+
 				}
+
+
 				y++;
 			}
+			x++;
 		}
-        graphics.drawString(("Score"), 50, 50);
     }
 }
