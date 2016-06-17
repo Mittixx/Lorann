@@ -1,6 +1,6 @@
 package model.LorannWorld.MotionlessElement;
 
-import contract.Collectable;
+import contract.StateMotionlessElement;
 import contract.ISprite;
 import contract.Permeability;
 import model.LorannWorld.Sprite;
@@ -15,8 +15,8 @@ import java.io.IOException;
  */
 public class Purse extends MotionlessElement{
 
-    /** The Purse is collectable*/
-    private Collectable collectable = Collectable.COLLECTABLE;
+    /** The Purse is stateMotionlessElement*/
+    private StateMotionlessElement stateMotionlessElement = StateMotionlessElement.COLLECTABLE;
 
     /**
      *

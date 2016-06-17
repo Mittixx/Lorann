@@ -3,6 +3,7 @@ package model.LorannWorld.MotionlessElement;
 import contract.DoorState;
 import contract.ISprite;
 import contract.Permeability;
+import contract.StateMotionlessElement;
 import model.LorannWorld.Sprite;
 
 import javax.imageio.ImageIO;
@@ -16,7 +17,7 @@ import java.io.IOException;
 public class Door extends MotionlessElement{
 
     /** The default state of the door is DRAGON*/
-    DoorState doorState = DoorState.DRAGON;
+    StateMotionlessElement doorState = StateMotionlessElement.DRAGON;
 
     /**
      *
@@ -28,4 +29,6 @@ public class Door extends MotionlessElement{
     public void setSprite(ISprite sprite) {
 
     }
+
+
 }

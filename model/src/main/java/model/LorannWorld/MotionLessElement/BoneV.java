@@ -1,6 +1,6 @@
 package model.LorannWorld.MotionlessElement;
 
-import contract.Collectable;
+import contract.StateMotionlessElement;
 import contract.ISprite;
 import contract.Permeability;
 import model.LorannWorld.Sprite;
@@ -16,7 +16,7 @@ import java.io.IOException;
 public class BoneV extends MotionlessElement{
 
     /** The Bone is fixed*/
-    private Collectable collectable = Collectable.FIXED;
+    private StateMotionlessElement stateMotionlessElement = StateMotionlessElement.FIXED;
 
     /**
      *

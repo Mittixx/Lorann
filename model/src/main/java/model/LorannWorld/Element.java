@@ -1,9 +1,6 @@
 package model.LorannWorld;
 
-import contract.IElement;
-import contract.IMap;
-import contract.ISprite;
-import contract.Permeability;
+import contract.*;
 
 import java.awt.geom.Point2D;
 
@@ -29,6 +26,8 @@ public class Element implements IElement {
      * The point where the element will spawn
      */
     private Point2D spawn;
+
+    private StateMotionlessElement stateMotionlessElement;
 
 
     public Element(ISprite sprite, Permeability permeability) {
@@ -67,5 +66,13 @@ public class Element implements IElement {
 
     public void setSpawn(Point2D spawn) {
         this.spawn = spawn;
+    }
+
+    public StateMotionlessElement getStateMotionlessElement() {
+        return stateMotionlessElement;
+    }
+
+    public void setStateMotionlessElement(StateMotionlessElement stateMotionlessElement) {
+        this.stateMotionlessElement = stateMotionlessElement;
     }
 }
