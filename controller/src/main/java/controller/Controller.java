@@ -2,7 +2,8 @@ package controller;
 
 import contract.*;
 
-import static com.sun.deploy.trace.Trace.flush;
+import java.time.*;
+
 import static contract.Permeability.PENETRABLE;
 
 /**
@@ -31,6 +32,9 @@ public class Controller implements IController{
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		Thread clock = new Thread(new Clock(this));
+		clock.start();
+
 	}
 
 	/*
@@ -144,7 +148,6 @@ public class Controller implements IController{
 	 *
      */
 	public void orderPerform(ControllerOrder controllerOrder){
-
 		switch (controllerOrder){
 			case UP :
 				if(contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1) == true) {

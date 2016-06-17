@@ -31,7 +31,6 @@ class ViewPanel extends JPanel implements Observer {
 		this.setViewFrame(viewFrame);
 		this.setSize(viewFrame.getWidth(),viewFrame.getHeight());
 
-
 		viewFrame.getModel().getObservable().addObserver(this);
 		repaint();
 	}

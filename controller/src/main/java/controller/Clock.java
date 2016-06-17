@@ -5,7 +5,7 @@ package controller;
  * @author Romain
  */
 
-public class Clock {
+public class Clock implements Runnable{
     /** The Controller */
 
     private Controller controller;

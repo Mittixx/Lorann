@@ -19,7 +19,6 @@ public interface IController {
 	public boolean contact(int x, int y);
 
 	public void heroStart(int x, int y);
-
 	/**
 	 * Order perform.
 	 *
