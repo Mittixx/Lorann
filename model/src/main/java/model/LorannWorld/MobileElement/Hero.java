@@ -14,7 +14,14 @@ import java.io.IOException;
  * The class Hero
  * @author Tanguy Blochet
  */
-public class Hero extends MobileElement implements IHero {
+public class
+
+
+
+
+
+
+Hero extends MobileElement implements IHero {
     /**
      * The state of the hero
      */

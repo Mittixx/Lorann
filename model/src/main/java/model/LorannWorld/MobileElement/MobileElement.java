@@ -29,9 +29,6 @@ public class MobileElement extends Element implements IMobileElement{
      */
     private Permeability permeability;
 
-    private ControllerOrder position;
-
-
 
     private ControllerOrder position;
 
@@ -69,9 +66,4 @@ public class MobileElement extends Element implements IMobileElement{
     public void setPermeability(Permeability permeability) {
         this.permeability = permeability;
     }
-
-    public void setControllerOrder(ControllerOrder position){
-        this.position = position;
-    }
-
 }

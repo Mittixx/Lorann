@@ -8,6 +8,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import javafx.scene.input.KeyCode;
 
 /**
  * The Class View.
@@ -37,15 +38,15 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		switch (keyCode) {
-			case KeyEvent.VK_UP:
+	public static ControllerOrder keyCodeToControllerOrder(final KeyEvent keyCode) {
+		switch (keyCode.getKeyCode()) {
+			case KeyEvent.VK_UP: case KeyEvent.VK_Z :
 				return ControllerOrder.UP;
-			case KeyEvent.VK_DOWN:
+			case KeyEvent.VK_DOWN: case KeyEvent.VK_S :
 				return ControllerOrder.DOWN;
-			case KeyEvent.VK_LEFT:
+			case KeyEvent.VK_LEFT: case KeyEvent.VK_Q :
 				return ControllerOrder.LEFT;
-			case KeyEvent.VK_RIGHT:
+			case KeyEvent.VK_RIGHT: case KeyEvent.VK_D :
 				return ControllerOrder.RIGHT;
 			default:
 				return ControllerOrder.DOWN;

@@ -17,9 +17,8 @@ public class Controller implements IController{
 	/** The model. */
 	private IModel	model;
 
-	private IMobileElement hero;
-
-	private IMap element;
+	/** The element of the Map. */
+	private IMap map;
 
 	/**
 	 * Instantiates a new controller.
@@ -73,9 +72,26 @@ public class Controller implements IController{
 	 */
 	public void moveHero(int x, int y){
 
-		model.getMap().getHero().setX(hero.getX() + x);
-		model.getMap().getHero().setY(hero.getY() + y);
-		flush();
+		model.getMap().getHero().setX(model.getMap().getHero().getX() + x);
+		model.getMap().getHero().setY(model.getMap().getHero().getY() + y);
+		model.flush();
+	}
+
+	/**
+	 *Contact between hero/monsters/items
+	 *
+	 *@param x
+	 *		easting
+	 * @param y
+	 * 		northing
+	 */
+	public boolean contact(int x, int y){
+		if(model.getMap().getElement(x, y) == null) return true;
+		if((model.getMap().getElement(x, y).getPermeability()) == PENETRABLE){
+			return true;
+		}
+
+		else {return false;}
 	}
 
 	/**
@@ -98,23 +114,17 @@ public class Controller implements IController{
 				monster.setControllerOrder(ControllerOrder.RIGHT);
 				monster.setX(monster.getX()+1);
 			}
-		flush();
+		model.flush();
 		}
-	}
-
-	/**
-	 *Contact between hero/monsters/items
-	 */
-	public boolean contact(int x, int y){
-		if((element.getElement(x, y).getPermeability()) == PENETRABLE){
-			return true;
-		}
-
-		return false;
 	}
 
 	 /**
 	  * Where the hero begins the level
+	  *
+	  * @param x
+	  *		easting
+	  * @param y
+	  * 		northing
 	 */
 	public void heroStart(int x, int y){
 		model.getMap().getHero();
