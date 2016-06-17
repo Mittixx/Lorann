@@ -70,12 +70,13 @@ public class Model extends Observable implements IModel {
 			{
 
 				String name=resultSet.getString("name");
+				System.out.println(resultSet.getInt("PosX"));
+				System.out.println(resultSet.getInt("PosY"));
 				System.out.println(name);
 				if(name.equals("boneH"))
 				{
 					MotionlessElement e = new BoneH(name);
 					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
-
 				}
 				else if(name.equals("boneC"))
 				{
