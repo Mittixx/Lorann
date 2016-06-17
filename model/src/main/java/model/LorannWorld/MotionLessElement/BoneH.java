@@ -1,13 +1,12 @@
 package model.LorannWorld.MotionlessElement;
 
-import contract.Collectable;
+import contract.StateMotionlessElement;
 import contract.IMap;
 import contract.ISprite;
 import contract.Permeability;
 import model.LorannWorld.Sprite;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -18,7 +17,7 @@ import java.io.IOException;
 public class BoneH extends MotionlessElement{
 
     /** The Bone is fixed*/
-    private Collectable collectable = Collectable.FIXED;
+    private StateMotionlessElement stateMotionlessElement = StateMotionlessElement.FIXED;
 
     /**
      *
