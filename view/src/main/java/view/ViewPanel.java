@@ -73,26 +73,30 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.setColor(Color.black);
 		graphics.fillRect(0, 0, this.viewFrame.getWidth(), this.viewFrame.getHeight());
-		int y=0;
+		int y;
 		int x=0;
 		for(IElement[] element: viewFrame.getModel().getMap().getElements())
 		{
 			y = 0;
-
-
 			for(IElement e:element)
 			{
-				if(e!=null)
-				{
-
-					graphics.drawImage(e.getSprite().getImage(),x*32+1,y*32+1,null);
-
+				if(e!=null) {
+					graphics.drawImage(e.getSprite().getImage(), x * 32 + 1, y * 32 + 1, null);
 				}
-
-
 				y++;
 			}
 			x++;
 		}
+
+		System.out.println(viewFrame.getModel().getMap().getHero().getY());
+
+		System.out.println(viewFrame.getModel().getMap().getHero().getX());
+
+		graphics.drawImage((viewFrame.getModel().getMap().getHero().getSprite().getImage()),viewFrame.getModel().getMap().getHero().getX()*32,viewFrame.getModel().getMap().getHero().getY()*32,null);
+
+		/*for(IMobileElement mobileElement:viewFrame.getModel().getMap().getMobiles())
+		{
+			graphics.drawImage(mobileElement.getSprite().getImage(), mobileElement.getX() * 32 + 1, mobileElement.getY() * 32 + 1, null);
+		}*/
     }
 }

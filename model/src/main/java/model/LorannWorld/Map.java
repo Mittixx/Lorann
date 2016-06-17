@@ -79,11 +79,9 @@ public class Map implements IMap{
 
     }
 
-
     public void setElements(IElement[][] elements) {
 
     }
-
 
     public void addElementToMap(IElement element, int x, int y)
     {
@@ -93,11 +91,9 @@ public class Map implements IMap{
     public void setMobiles(ArrayList<IMobileElement> mobiles) {
 
     }
-
     public void setID(int ID) {
 
     }
-
     public void setHeroPosition(int x, int y){
         this.hero.setX(x);
         this.hero.setY(y);
@@ -105,5 +101,9 @@ public class Map implements IMap{
 
     public IMobileElement getHero(){
         return this.hero;
+    }
+
+    public void setHero(IMobileElement hero) {
+        this.hero = hero;
     }
 }

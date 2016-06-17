@@ -4,13 +4,14 @@ import contract.ControllerOrder;
 import contract.IMobileElement;
 import contract.ISprite;
 import contract.Permeability;
+import model.LorannWorld.Element;
 import model.LorannWorld.Sprite;
 
 /**
  * The class MobileElement
  * @author Tanguy Blochet
  */
-public class MobileElement  implements IMobileElement{
+public class MobileElement extends Element implements IMobileElement{
     /**
      * The X position of the element
      */
@@ -33,8 +34,7 @@ public class MobileElement  implements IMobileElement{
 
 
     public MobileElement(Sprite sprite, Permeability permeability) {
-        this.sprite=sprite;
-        this.permeability=permeability;
+        super(sprite,permeability);
     }
 
     public int getY() {
