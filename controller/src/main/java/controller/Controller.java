@@ -109,7 +109,7 @@ public class Controller implements IController{
 	public void AIMonster(){
 		for(IMobileElement monster : model.getMap().getMobiles()){
 			double random = Math.random();
-			if(random <= .25d && contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1) == true){
+			if(random <= .25d && contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true){
 				monster.setControllerOrder(ControllerOrder.UP);
 				monster.setY(monster.getY()-1);
 			}else if(random <= .50d && contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true){
@@ -118,7 +118,7 @@ public class Controller implements IController{
 			}else if(random <= .75d && contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true){
 				monster.setControllerOrder(ControllerOrder.DOWN);
 				monster.setY(monster.getY()+1);
-			}else if(random <= 1d && contact(model.getMap().getHero().getX() +1,model.getMap().getHero().getY()) == true){
+			}else if(random <= 1d && contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true){
 				monster.setControllerOrder(ControllerOrder.RIGHT);
 				monster.setX(monster.getX()+1);
 			}

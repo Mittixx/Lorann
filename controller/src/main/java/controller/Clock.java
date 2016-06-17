@@ -26,7 +26,7 @@ public class Clock implements Runnable{
         try{
             while(true){
                 controller.AIMonster();
-                Thread.sleep(500);
+                Thread.sleep(300);
             }
         }catch(Exception ex) {}
     }
