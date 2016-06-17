@@ -33,4 +33,6 @@ public interface IModel {
 
 	public void flush();
 
+	public int testType(IElement element);
+
 	}

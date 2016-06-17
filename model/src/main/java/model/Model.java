@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Observable;
 
+import contract.IElement;
 import contract.IModel;
 import model.LorannWorld.Element;
 import model.LorannWorld.Map;
@@ -171,6 +172,23 @@ public class Model extends Observable implements IModel {
 	public void flush(){
 		setChanged();
 		notifyObservers();
+	}
+
+	public int testType(IElement element)
+	{
+		if(element instanceof Door)
+		{
+			return 1;
+		}
+		if(element instanceof Purse)
+		{
+			return 2;
+		}
+		if(element instanceof Monster)
+		{
+			return 3;
+		}
+		return 0;
 	}
 
 

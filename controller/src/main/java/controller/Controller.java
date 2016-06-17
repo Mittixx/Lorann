@@ -92,6 +92,10 @@ public class Controller implements IController{
 	public boolean contact(int x, int y){
 		if(model.getMap().getElement(x, y) == null) return true;
 		if((model.getMap().getElement(x, y).getPermeability()) == PENETRABLE){
+			if(model.testType(model.getMap().getElement(x,y))==1)	//Door test
+			{
+				
+			}
 			return true;
 		}
 
