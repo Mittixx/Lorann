@@ -1,6 +1,6 @@
 package model.LorannWorld.MotionlessElement;
 
-import contract.StateMotionlessElement;
+import contract.StateElement;
 import contract.ISprite;
 import contract.Permeability;
 import model.LorannWorld.Sprite;
@@ -15,14 +15,12 @@ import java.io.IOException;
  */
 public class Key extends MotionlessElement{
 
-    /** The key is stateMotionlessElement*/
-    private StateMotionlessElement stateMotionlessElement = StateMotionlessElement.COLLECTABLE;
 
     /**
      *
      */
     public Key(String path) throws IOException {
-        super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.PENETRABLE);
+        super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.PENETRABLE,StateElement.COLLECTABLE);
     }
 
     public void setSprite(ISprite sprite) {

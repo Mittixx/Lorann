@@ -1,6 +1,6 @@
 package model.LorannWorld.MotionlessElement;
 
-import contract.StateMotionlessElement;
+import contract.StateElement;
 import contract.ISprite;
 import contract.Permeability;
 import model.LorannWorld.Sprite;
@@ -15,14 +15,12 @@ import java.io.IOException;
  */
 public class BoneC extends MotionlessElement{
 
-    /** The Bone is fixed*/
-    private StateMotionlessElement stateMotionlessElement = StateMotionlessElement.FIXED;
 
     /**
      *
      */
     public BoneC(String path) throws IOException {
-        super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING);
+        super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING,StateElement.FIXED);
     }
 
     public void setSprite(ISprite sprite) {

@@ -17,6 +17,7 @@ public enum ControllerOrder {
 	LEFT,
 
 	/** The hero goes RIGHT */
-	RIGHT;
-
+	RIGHT,
+	/** The herep throw a spell*/
+	SPACE;
 }

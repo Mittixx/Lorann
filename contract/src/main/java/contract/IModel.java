@@ -1,5 +1,7 @@
 package contract;
 
+import javax.naming.ldap.Control;
+import java.io.IOException;
 import java.util.Observable;
 
 /**
@@ -34,5 +36,11 @@ public interface IModel {
 	public void flush();
 
 	public int testType(IElement element);
+
+	public void setMessage(String message);
+
+	public String getMessage();
+
+	void createSpell(String path, ControllerOrder direction) throws IOException;
 
 	}

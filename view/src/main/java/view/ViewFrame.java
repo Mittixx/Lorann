@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -127,9 +128,9 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setTitle("LORANN");
 		this.setModel(model);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(true);
+		this.setResizable(false); // et aussi ça
 		this.addKeyListener(this);
-		this.setSize(800 + this.getInsets().left + this.getInsets().right, 600 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(660, 425+30);  //Size of the map plus scoring panel
 		this.setLocationRelativeTo(null);
 		ViewPanel viewPanel=new ViewPanel(this);
 
@@ -166,7 +167,11 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e));
+		try {
+			this.getController().orderPerform(View.keyCodeToControllerOrder(e));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	/*

@@ -2,10 +2,7 @@ package controller;
 
 import contract.*;
 
-import java.time.*;
-
-import static contract.Permeability.BLOCKING;
-import static contract.Permeability.PENETRABLE;
+import java.io.IOException;
 
 /**
  * The Class Controller.
@@ -19,8 +16,6 @@ public class Controller implements IController{
 	/** The model. */
 	private IModel	model;
 
-	/** The element of the Map. */
-	private IMap map;
 
 	/**
 	 * Instantiates a new controller.
@@ -83,25 +78,64 @@ public class Controller implements IController{
 	}
 
 	/**
-	 *Contact between hero/monsters/items
+	 *Contact between the monsters and the elements
 	 *
 	 *@param x
 	 *		easting
 	 * @param y
 	 * 		northing
 	 */
-	public boolean contact(int x, int y){
+	public boolean contactMonster(int x, int y){
 		if(model.getMap().getElement(x, y) == null) return true;
-		if((model.getMap().getElement(x, y).getPermeability()) == PENETRABLE){
-			if(model.testType(model.getMap().getElement(x,y))==1)	//Door test
+
+		else {return false;}
+	}
+
+	/**
+	 *Contact between the hero and the elements
+	 *
+	 *@param x
+	 *		easting
+	 * @param y
+	 * 		northing
+	 */
+	public boolean contactHero(int x, int y){
+		if(model.getMap().getElement(x, y) == null) return true;
+		if((model.getMap().getElement(x, y).getPermeability()) == Permeability.PENETRABLE ){
+			if(model.getMap().getElement(x,y).getStateElement()==StateElement.COLLECTABLE)
 			{
-				model.getMap().getElement(x,y).getStateMotionlessElement();
+				System.out.print("COLLECTABLE");
 			}
 			return true;
 		}
 
+		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DEATH)
+		{
+			model.setMessage("GAME OVER !");
+		}
+
+		if(model.getMap().getElement(x,y).getStateElement()==StateElement.FIXED)
+		{
+			System.out.print("FIXED");
+		}
+		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DRAGON)
+		{
+			System.out.print("DRAGON");
+		}
+
+		 if((model.testType(model.getMap().getElement(x,y)))==1 )
+		{
+			System.out.print("DOOR");
+			gameOver();
+			return false;
+		}
+
 		else {return false;}
+
+
 	}
+
+
 
 	/**
 	 *
@@ -110,72 +144,113 @@ public class Controller implements IController{
 	public void AIMonster(){
 		for(IMobileElement monster : model.getMap().getMobiles()){
 			double random = Math.random();
-			if(random <= .25d && contact(monster.getX(),monster.getY() -1) == true){
-				monster.setControllerOrder(ControllerOrder.UP);
+			if(random <= .25d && contactMonster(monster.getX(),monster.getY() -1)){
+				monster.setDirection(ControllerOrder.UP);
 				monster.setY(monster.getY()-1);
-			}else if(random <= .50d && contact(monster.getX() -1,monster.getY()) == true){
-				monster.setControllerOrder((ControllerOrder.LEFT));
+			}else if(random <= .50d && contactMonster(monster.getX() -1,monster.getY())){
+				monster.setDirection((ControllerOrder.LEFT));
 				monster.setX(monster.getX()-1);
-			}else if(random <= .75d && contact(monster.getX(),monster.getY() +1) == true){
-				monster.setControllerOrder(ControllerOrder.DOWN);
+			}else if(random <= .75d && contactMonster(monster.getX(),monster.getY() +1)){
+				monster.setDirection(ControllerOrder.DOWN);
 				monster.setY(monster.getY()+1);
-			}else if(random <= 1d && contact(monster.getX() +1,monster.getY()) == true){
-				monster.setControllerOrder(ControllerOrder.RIGHT);
+			}else if(random <= 1d && contactMonster(monster.getX() +1,monster.getY())){
+				monster.setDirection(ControllerOrder.RIGHT);
 				monster.setX(monster.getX()+1);
 			}
 		model.flush();
 		}
 	}
 
-	 /**
-	  * Where the hero begins the level
-	  *
-	  * @param x
-	  *		easting
-	  * @param y
-	  * 		northing
-	 */
-	public void heroStart(int x, int y){
-		model.getMap().getHero();
-	}
-
-	/**
-	 * Where the monsters begin the level
-	 */
-	public void monstersStart(){
-
-	}
-
-
 	/**
 	 * Pick up user's action
 	 * @param controllerOrder
 	 *
      */
-	public void orderPerform(ControllerOrder controllerOrder){
+	public void orderPerform(ControllerOrder controllerOrder) throws IOException {
 		switch (controllerOrder){
 			case UP :
-				if(contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1) == true) {
+				if(contactHero(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1)) {
+					model.getMap().getHero().setDirection(ControllerOrder.UP);
 					moveHero(0,-1);
+
 				}
 				break;
 			case DOWN :
-				if(contact(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1) == true) {
+				if(contactHero(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1)) {
+					model.getMap().getHero().setDirection(ControllerOrder.DOWN);
 					moveHero(0,+1);
+
 				}
 				break;
 			case LEFT:
-				if(contact(model.getMap().getHero().getX() -1,model.getMap().getHero().getY()) == true) {
+				if(contactHero(model.getMap().getHero().getX() -1,model.getMap().getHero().getY())) {
+					model.getMap().getHero().setDirection(ControllerOrder.LEFT);
 					moveHero(-1,0);
+
 				}
 				break;
 			case RIGHT:
-				if(contact(model.getMap().getHero().getX() +1,model.getMap().getHero().getY()) == true) {
+				if(contactHero(model.getMap().getHero().getX() +1,model.getMap().getHero().getY())) {
+					model.getMap().getHero().setDirection(ControllerOrder.RIGHT);
 					moveHero(+1,0);
+
 				}
 				break;
 
+			case SPACE : //TODO inverse == to !=
+				if(model.getMap().getHero().getStateElement()==StateElement.WEAK)	//Test if it is able to cast a spell
+				{
+					castSpell(model.getMap().getHero().getDirection());
+				}
+			break;
 			default:
 		}
 	}
+
+	public void gameOver()
+	{
+		model.setMessage("GAME OVER !");
+	}
+
+	public void castSpell(ControllerOrder direction) throws IOException {
+		model.createSpell("fireball",direction);
+
+	}
+
+	public boolean isSpell()
+	{
+		if(model.getMap().getSpell()!=null)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	public void moveSpell()
+	{
+
+		System.out.println(model.getMap().getSpell().getDirection());
+
+		switch (model.getMap().getSpell().getDirection())
+		{
+			case DOWN:
+				model.getMap().getSpell().setY(model.getMap().getSpell().getY()+1);
+			break;
+
+			case UP:
+				model.getMap().getSpell().setY(model.getMap().getSpell().getY()-1);
+			break;
+
+			case LEFT :
+				model.getMap().getSpell().setX(model.getMap().getSpell().getX()-1);
+			break;
+
+			case RIGHT :
+				model.getMap().getSpell().setX(model.getMap().getSpell().getX()+1);
+			break;
+
+		}
+		model.flush();
+	}
+
 }

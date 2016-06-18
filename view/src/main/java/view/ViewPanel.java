@@ -87,15 +87,24 @@ class ViewPanel extends JPanel implements Observer {
 			x++;
 		}
 
-		System.out.println(viewFrame.getModel().getMap().getHero().getY());
+		//Draw the spell if exist
+		if(viewFrame.getModel().getMap().getSpell()!=null)
+		graphics.drawImage((viewFrame.getModel().getMap().getSpell().getSprite().getImage()),viewFrame.getModel().getMap().getSpell().getX()*32,viewFrame.getModel().getMap().getSpell().getY()*32,null);
 
-		System.out.println(viewFrame.getModel().getMap().getHero().getX());
-
+		//Draw the Hero
 		graphics.drawImage((viewFrame.getModel().getMap().getHero().getSprite().getImage()),viewFrame.getModel().getMap().getHero().getX()*32,viewFrame.getModel().getMap().getHero().getY()*32,null);
 
 		for(IMobileElement mobileElement:viewFrame.getModel().getMap().getMobiles())
 		{
 			graphics.drawImage(mobileElement.getSprite().getImage(), mobileElement.getX() * 32 + 1, mobileElement.getY() * 32 + 1, null);
+		}
+
+		if(viewFrame.getModel().getMessage()!=null)
+		{
+			Font font=new Font("TimesRoman",Font.BOLD,30);
+			graphics.setFont(font);
+			graphics.setColor(Color.YELLOW);
+			graphics.drawString(viewFrame.getModel().getMessage(),(viewFrame.getWidth()/2)-(viewFrame.getModel().getMessage().length()*10),(viewFrame.getHeight())-viewFrame.getModel().getMessage().length()*4);
 		}
     }
 }

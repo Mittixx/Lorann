@@ -4,35 +4,39 @@ import java.util.ArrayList;
 
 public interface IMap {
 
-    public void setWidth(int width);
+     void setWidth(int width);
 
-    public void setHeight(int height);
+     void setHeight(int height);
 
-    public void addElementToMap(IElement element, int x, int y);
+     void addElementToMap(IElement element, int x, int y);
 
-    public void setMobiles(ArrayList<IMobileElement> mobiles);
+     void setMobiles(ArrayList<IMobileElement> mobiles);
 
-    public void setElements (IElement[][] elements);
+     void setElements (IElement[][] elements);
 
-    public void setID(int ID);
+     void setID(int ID);
 
-    public int getWidth();
+     int getWidth();
 
-    public int getHeight();
+     int getHeight();
 
-    public IElement getElement(int x, int y);
+     IElement getElement(int x, int y);
 
-    public IElement[][] getElements();
+     IElement[][] getElements();
 
-    public ArrayList<IMobileElement> getMobiles();
+     ArrayList<IMobileElement> getMobiles();
 
-    public int getID();
+     int getID();
 
-    public void setHeroPosition(int x, int y);
+     void setHeroPosition(int x, int y);
 
-    public IMobileElement getHero();
+     IMobileElement getHero();
 
-    public void setHero(IMobileElement hero);
+     void setHero(IMobileElement hero);
+
+     IMobileElement getSpell();
+
+     void setSpell(IMobileElement spell);
 
 
     }

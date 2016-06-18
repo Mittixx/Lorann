@@ -5,13 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Observable;
 
-import contract.IElement;
-import contract.IModel;
+import contract.*;
 import model.LorannWorld.Element;
 import model.LorannWorld.Map;
 import model.LorannWorld.MobileElement.Hero;
 import model.LorannWorld.MobileElement.MobileElement;
 import model.LorannWorld.MobileElement.Monster;
+import model.LorannWorld.MobileElement.Spell;
 import model.LorannWorld.MotionlessElement.*;
 import model.dataBase.DAOGetMap;
 
@@ -26,7 +26,14 @@ public class Model extends Observable implements IModel {
 	 * The map.
 	 */
 	private Map map;
+	/**
+	 * The connection to the database and the query to execute
+	 */
 	private DAOGetMap daoGetMap;
+	/**
+	 * The message to print
+	 */
+	private String message;
 
 	/**
 	 * Instantiates a new model.
@@ -55,11 +62,10 @@ public class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel(java.lang.String)
-	 */
+	/**
+	 * Load the elements of the map from the database
+	 * @param ID
+     */
 	public void loadMap(final int ID) {
 
 		map=new Map(20,12);
@@ -101,10 +107,10 @@ public class Model extends Observable implements IModel {
 				}
 				else if(name.equals("lorann_b"))
 				{
-					MobileElement e=new Hero(name);
+					Hero e=new Hero(name);
 					map.setHero(e);
 					map.setHeroPosition(resultSet.getInt("PosX"),resultSet.getInt("PosY"));
-
+					map.getHero().setStateElement(StateElement.WEAK);
 				}
 				else if(name.equals("monster"))
 				{
@@ -174,7 +180,7 @@ public class Model extends Observable implements IModel {
 		return this;
 	}
 
-	public void flush(){
+	public synchronized void  flush(){
 		setChanged();
 		notifyObservers();
 	}
@@ -196,5 +202,23 @@ public class Model extends Observable implements IModel {
 		return 0;
 	}
 
+	public String getMessage() {
+		return message;
+	}
 
+	public void setMessage(String message) {
+		this.message = message;
+		flush();
+	}
+
+	public void createSpell(String path, ControllerOrder direction) throws IOException {
+		MobileElement spell=new Spell(path,direction);
+		//map.addElementToMap(spell,map.getHero().getX(),map.getHero().getY());
+
+		map.setSpell(spell);
+		map.getSpell().setY(map.getHero().getY());
+		map.getSpell().setX(map.getHero().getX());
+		map.getSpell().setDirection(direction);
+		System.out.print("Spell Created at "+map.getHero().getX()+"-"+map.getHero().getY());
+	}
 }

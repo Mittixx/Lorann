@@ -20,9 +20,9 @@ public interface IElement {
 
     public void setSpawn(Point2D spawn);
 
-    public StateMotionlessElement getStateMotionlessElement();
+    public StateElement getStateElement();
 
-    public void setStateMotionlessElement(StateMotionlessElement doorState);
+    public void setStateElement(StateElement doorState);
 
 }
 

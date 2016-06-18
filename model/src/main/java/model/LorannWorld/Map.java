@@ -39,7 +39,11 @@ public class Map implements IMap{
 
     private IMobileElement hero;
 
-    public Map( int height, int width) {
+    private IMobileElement spell;
+
+
+
+    public Map(int height, int width) {
 
         this.height = height;
         this.width = width;
@@ -48,11 +52,11 @@ public class Map implements IMap{
     }
 
     public int getWidth() {
-        return 0;
+        return this.width;
     }
 
     public int getHeight() {
-        return 0;
+        return this.height;
     }
 
     public IElement getElement(int x, int y) {
@@ -105,5 +109,13 @@ public class Map implements IMap{
 
     public void setHero(IMobileElement hero) {
         this.hero = hero;
+    }
+
+    public IMobileElement getSpell() {
+        return spell;
+    }
+
+    public void setSpell(IMobileElement spell) {
+        this.spell = spell;
     }
 }

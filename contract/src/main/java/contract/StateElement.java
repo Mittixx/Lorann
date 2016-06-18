@@ -2,11 +2,14 @@ package contract;
 
 /**
  *Sees if an item is collectable or not.
- *@author Romain
  */
-public enum StateMotionlessElement {
+public enum StateElement {
     COLLECTABLE,
     FIXED,
     DOOR,
-    DRAGON;
+    DRAGON,
+    SPELL,
+    DEATH,
+    WEAK;
+
 }

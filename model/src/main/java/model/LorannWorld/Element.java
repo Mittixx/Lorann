@@ -27,12 +27,13 @@ public class Element implements IElement {
      */
     private Point2D spawn;
 
-    private StateMotionlessElement stateMotionlessElement;
+    private StateElement stateElement;
 
 
-    public Element(ISprite sprite, Permeability permeability) {
+    public Element(ISprite sprite, Permeability permeability,StateElement stateElement) {
         this.sprite = sprite;
         this.permeability = permeability;
+        this.stateElement=stateElement;
     }
 
     public ISprite getSprite() {
@@ -68,11 +69,21 @@ public class Element implements IElement {
         this.spawn = spawn;
     }
 
-    public StateMotionlessElement getStateMotionlessElement() {
-        return stateMotionlessElement;
+    /**
+     * gets the Element's state
+     * @return stateElement
+     */
+    public StateElement getStateElement() {
+        return this.stateElement;
     }
 
-    public void setStateMotionlessElement(StateMotionlessElement stateMotionlessElement) {
-        this.stateMotionlessElement = stateMotionlessElement;
+    /**
+     * sets the Element's state
+     * @param stateElement
+     */
+    public void setStateElement(StateElement stateElement) {
+        this.stateElement = stateElement;
     }
+
+
 }

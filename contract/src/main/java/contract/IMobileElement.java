@@ -10,8 +10,17 @@ public interface IMobileElement {
 
     void setX(int x);
 
-    void setControllerOrder (ControllerOrder position);
+    void setDirection (ControllerOrder direction);
+
+    ControllerOrder getDirection();
+
 
     ISprite getSprite();
+
+    StateElement getStateElement();
+
+    void setStateElement(StateElement stateElement);
+
+
 
 }

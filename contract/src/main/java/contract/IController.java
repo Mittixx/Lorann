@@ -1,5 +1,7 @@
 package contract;
 
+import java.io.IOException;
+
 /**
  * The Interface IController.
  *
@@ -16,14 +18,15 @@ public interface IController {
 
 	public void AIMonster();
 
-	public boolean contact(int x, int y);
+	public boolean contactMonster(int x, int y);
 
-	public void heroStart(int x, int y);
+	public boolean contactHero(int x,int y);
+
 	/**
 	 * Order perform.
 	 *
 	 * @param controllerOrder
 	 *          the controller order
 	 */
-	public void orderPerform(ControllerOrder controllerOrder);
+	public void orderPerform(ControllerOrder controllerOrder) throws IOException;
 }

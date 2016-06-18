@@ -1,6 +1,6 @@
 package model.LorannWorld.MotionlessElement;
 
-import contract.StateMotionlessElement;
+import contract.StateElement;
 import model.LorannWorld.Element;
 import contract.Permeability;
 import model.LorannWorld.Sprite;
@@ -16,26 +16,14 @@ public abstract class MotionlessElement extends Element{
 
     private int y;
 
-    private StateMotionlessElement stateMotionlessElement;
-
-    /**
-     * Instantiates a new MotionlessElement.
-     * Overloading of the constructor depending of the element.
-     * @param sprite
-     * @param permeability
-     */
-    public MotionlessElement(Sprite sprite, Permeability permeability) {
-        super(sprite,permeability);
-    }
-
     /**
      *
      * @param sprite
      * @param permeability
-     * @param stateMotionlessElement
+     * @param stateElement
      */
-    public MotionlessElement (Sprite sprite, Permeability permeability, StateMotionlessElement stateMotionlessElement){
-        super(sprite,permeability);
+    public MotionlessElement (Sprite sprite, Permeability permeability, StateElement stateElement){
+        super(sprite,permeability,stateElement);
     }
 
     public int getY() {

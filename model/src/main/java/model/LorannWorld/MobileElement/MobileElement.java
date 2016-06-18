@@ -1,9 +1,6 @@
 package model.LorannWorld.MobileElement;
 
-import contract.ControllerOrder;
-import contract.IMobileElement;
-import contract.ISprite;
-import contract.Permeability;
+import contract.*;
 import model.LorannWorld.Element;
 import model.LorannWorld.Sprite;
 
@@ -29,12 +26,14 @@ public class MobileElement extends Element implements IMobileElement{
      */
     private Permeability permeability;
 
+    private StateElement stateElement;
 
-    private ControllerOrder position;
+
+    private ControllerOrder direction;
 
 
-    public MobileElement(Sprite sprite, Permeability permeability) {
-        super(sprite,permeability);
+    public MobileElement(Sprite sprite, Permeability permeability, StateElement stateElement) {
+        super(sprite,permeability,stateElement);
     }
 
     public int getY() {
@@ -47,9 +46,6 @@ public class MobileElement extends Element implements IMobileElement{
 
     public void setX(int x) {this.x = x;}
 
-
-
-
     public void setSprite(ISprite sprite) {
         this.sprite = sprite;
     }
@@ -58,12 +54,25 @@ public class MobileElement extends Element implements IMobileElement{
         return permeability;
     }
 
+    public void setDirection(ControllerOrder direction){
+        this.direction = direction;
+    }
 
-    public void setControllerOrder(ControllerOrder position){
-        this.position = position;
+    public ControllerOrder getDirection() {
+        return direction;
     }
 
     public void setPermeability(Permeability permeability) {
         this.permeability = permeability;
     }
+
+    public StateElement getStateElement() {
+        return stateElement;
+    }
+
+
+    public void setStateElement(StateElement stateElement) {
+        this.stateElement = stateElement;
+    }
+
 }
