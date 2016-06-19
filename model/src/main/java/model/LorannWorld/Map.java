@@ -35,7 +35,7 @@ public class Map implements IMap{
     /**
      * the Identifiant of the map
      **/
-    private int ID;
+    private int score=0;
 
     private IMobileElement hero;
 
@@ -63,6 +63,10 @@ public class Map implements IMap{
         return elements[x][y];
     }
 
+    public void setElement(int x, int y,IElement element){
+        this.elements[x][y]=element;
+    }
+
     public IElement[][] getElements() {
         return elements;
     }
@@ -71,9 +75,7 @@ public class Map implements IMap{
         return mobiles;
     }
 
-    public int getID() {
-        return 0;
-    }
+
 
     public void setWidth(int width) {
 
@@ -95,9 +97,16 @@ public class Map implements IMap{
     public void setMobiles(ArrayList<IMobileElement> mobiles) {
 
     }
-    public void setID(int ID) {
+    public void setScore(int score) {
+        this.score=score;
 
     }
+
+    public int getScore() {
+        return this.score;
+    }
+
+
     public void setHeroPosition(int x, int y){
         this.hero.setX(x);
         this.hero.setY(y);

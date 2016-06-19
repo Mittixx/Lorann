@@ -14,7 +14,11 @@ public interface IMap {
 
      void setElements (IElement[][] elements);
 
-     void setID(int ID);
+     void setElement(int x, int y,IElement element);
+
+     void setScore(int score);
+
+     int getScore();
 
      int getWidth();
 
@@ -26,7 +30,7 @@ public interface IMap {
 
      ArrayList<IMobileElement> getMobiles();
 
-     int getID();
+
 
      void setHeroPosition(int x, int y);
 

@@ -178,6 +178,9 @@ public class Model extends Observable implements IModel {
 	}
 
 	public synchronized void  flush(){
+		if(map.getScore()>=100)
+			map.getHero().setStateElement(StateElement.STRONG);
+
 		setChanged();
 		notifyObservers();
 	}
@@ -185,17 +188,17 @@ public class Model extends Observable implements IModel {
 	public int testType(IElement element)
 	{
 		if(element instanceof Door)
-		{
 			return 1;
-		}
+
 		if(element instanceof Purse)
-		{
 			return 2;
-		}
+
 		if(element instanceof Monster)
-		{
 			return 3;
-		}
+
+		if(element instanceof Key)
+			return 4;
+
 		return 0;
 	}
 

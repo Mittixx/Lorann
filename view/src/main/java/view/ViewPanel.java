@@ -94,17 +94,23 @@ class ViewPanel extends JPanel implements Observer {
 		//Draw the Hero
 		graphics.drawImage((viewFrame.getModel().getMap().getHero().getSprite().getImage()),viewFrame.getModel().getMap().getHero().getX()*32,viewFrame.getModel().getMap().getHero().getY()*32,null);
 
+
+
 		for(IMobileElement mobileElement:viewFrame.getModel().getMap().getMobiles())
 		{
 			graphics.drawImage(mobileElement.getSprite().getImage(), mobileElement.getX() * 32 + 1, mobileElement.getY() * 32 + 1, null);
 		}
 
+		Font font=new Font("TimesRoman",Font.BOLD,30);
+		graphics.setFont(font);
+		graphics.setColor(Color.YELLOW);
+
+		//Draw the message (GAME OVER)
 		if(viewFrame.getModel().getMessage()!=null)
-		{
-			Font font=new Font("TimesRoman",Font.BOLD,30);
-			graphics.setFont(font);
-			graphics.setColor(Color.YELLOW);
 			graphics.drawString(viewFrame.getModel().getMessage(),(viewFrame.getWidth()/2)-(viewFrame.getModel().getMessage().length()*10),(viewFrame.getHeight())-viewFrame.getModel().getMessage().length()*4);
-		}
+
+		//Draw the score of the map
+		graphics.drawString("SCORE : "+viewFrame.getModel().getMap().getScore(),(viewFrame.getWidth()/10)-50,410);
+
     }
 }

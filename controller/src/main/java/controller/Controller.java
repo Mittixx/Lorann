@@ -16,7 +16,6 @@ public class Controller implements IController{
 	/** The model. */
 	private IModel	model;
 
-
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -30,6 +29,7 @@ public class Controller implements IController{
 		this.setModel(model);
 		Thread clock = new Thread(new Clock(this));
 		clock.start();
+
 
 	}
 
@@ -116,10 +116,23 @@ public class Controller implements IController{
 	public boolean contactHero(int x, int y){
 		if(model.getMap().getElement(x, y) == null) return true;
 		if((model.getMap().getElement(x, y).getPermeability()) == Permeability.PENETRABLE ){
-			if(model.getMap().getElement(x,y).getStateElement()==StateElement.COLLECTABLE)
+			if(model.getMap().getElement(x,y).getStateElement()==StateElement.COLLECTABLE )
 			{
-				System.out.print("COLLECTABLE");
+				if(model.testType(model.getMap().getElement(x,y))==2)
+				{
+					model.getMap().setElement(x,y,null);
+					model.getMap().setScore(model.getMap().getScore()+100);
+					model.flush();
+				}
+
+
+
+				else if(model.testType(model.getMap().getElement(x,y))==4)
+				{
+					System.out.println("KEY");
+				}
 			}
+
 			return true;
 		}
 
@@ -208,8 +221,8 @@ public class Controller implements IController{
 				}
 				break;
 
-			case SPACE : //TODO inverse == to !=
-				if(model.getMap().getHero().getStateElement()==StateElement.WEAK)	//Test if it is able to cast a spell
+			case SPACE :
+				if(model.getMap().getHero().getStateElement()!=StateElement.WEAK)	//Test if it is able to cast a spell
 				{
 					castSpell(model.getMap().getHero().getDirection());
 				}
@@ -218,9 +231,15 @@ public class Controller implements IController{
 		}
 	}
 
+	/**
+	 * Sets the message to Game over
+	 *
+	 * */
 	public void gameOver()
 	{
 		model.setMessage("GAME OVER !");
+
+
 	}
 
 	/**
@@ -243,6 +262,11 @@ public class Controller implements IController{
 		return false;
 	}
 
+	public void updateController()
+	{
+		AIMonster();
+		moveSpell();
+	}
 
 	/**
 	 * AI to move the spell
@@ -278,8 +302,6 @@ public class Controller implements IController{
 
 	public void moveSpellDirection(int x,int y) {
 
-		if(isSpell()) //Check if the spell exist
-		{
 			int xHero = model.getMap().getHero().getX();
 			int xSpell = model.getMap().getSpell().getX();
 			int yHero = model.getMap().getHero().getY();
@@ -288,7 +310,7 @@ public class Controller implements IController{
 			if (xHero == xSpell && yHero == ySpell)
 				destroySpell();
 
-			if (y != 0) {
+			if (y != 0 && isSpell()) {
 
 				if (model.getMap().getElement(model.getMap().getSpell().getX(), model.getMap().getSpell().getY() + y) == null)
 					model.getMap().getSpell().setY(model.getMap().getSpell().getY() + y);
@@ -303,7 +325,7 @@ public class Controller implements IController{
 						model.getMap().getSpell().setDirection(ControllerOrder.UP);
 					}
 				}
-			} else if (x != 0) {
+			} else if (x != 0 && isSpell()) {
 				//If there is no element next to the spell
 				if (model.getMap().getElement(model.getMap().getSpell().getX() + x, model.getMap().getSpell().getY()) == null)
 					model.getMap().getSpell().setX(model.getMap().getSpell().getX() + x);
@@ -321,7 +343,7 @@ public class Controller implements IController{
 			}
 
 		}
-	}
+
 	public void destroySpell(){
 
 		model.getMap().getHero().setStateElement(StateElement.STRONG);

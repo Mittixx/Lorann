@@ -10,6 +10,7 @@ public class Clock implements Runnable{
 
     private Controller controller;
 
+    private boolean stopped=false;
 
     /**
      * Instanciate a new Controller
@@ -22,17 +23,25 @@ public class Clock implements Runnable{
     /**
      * Launch a Thread.
      */
-    public void run(){
-        try{
-            while(true){
-                controller.AIMonster();
+    public void run() {
 
+        while (stopped == false) {
+            controller.updateController();
 
-                controller.moveSpell();
-
-
+            try {
                 Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        }catch(Exception ex) {}
+
+        }
+    }
+
+    public boolean isStopped() {
+        return stopped;
+    }
+
+    public void setStopped(boolean stopped) {
+        this.stopped = stopped;
     }
 }
