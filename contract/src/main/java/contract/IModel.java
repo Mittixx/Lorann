@@ -1,6 +1,5 @@
 package contract;
 
-import javax.naming.ldap.Control;
 import java.io.IOException;
 import java.util.Observable;
 
@@ -33,14 +32,42 @@ public interface IModel {
 	 */
 	Observable getObservable();
 
-	public void flush();
+	/**
+	 * notify the changes to the view
+	 */
+	void flush();
 
-	public int testType(IElement element);
 
-	public void setMessage(String message);
+	/**
+	 *test the type of element
+	 * @param element
+	 * @return int representing an element
+	 */
+	int testType(IElement element);
 
-	public String getMessage();
 
+	/**
+	 * sets the message
+	 * @param message
+	 */
+	void setMessage(String message);
+
+
+	/**
+	 * get the message
+	 * @return message
+	 */
+	String getMessage();
+
+
+	/**
+	 * calls the instantiation of  a spell
+	 * @param path
+	 * 			path of the spell image
+	 * @param direction
+	 * 			direction that the spell will go
+	 * @throws IOException
+	 */
 	void createSpell(String path, ControllerOrder direction) throws IOException;
 
 	}

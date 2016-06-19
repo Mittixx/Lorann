@@ -17,7 +17,7 @@ public class BoneC extends MotionlessElement{
 
 
     /**
-     *
+     *instantiates a round bone
      */
     public BoneC(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING,StateElement.FIXED);

@@ -179,6 +179,9 @@ public class Model extends Observable implements IModel {
 		return this;
 	}
 
+	/**
+	 * notify the changes to the view
+	 */
 	public synchronized void  flush(){
 		if(map.getScore()>=100 && map.getHero()!=null)
 			map.getHero().setStateElement(StateElement.STRONG);
@@ -188,6 +191,11 @@ public class Model extends Observable implements IModel {
 		notifyObservers();
 	}
 
+	/**
+	 *test the type of element
+	 * @param element
+	 * @return int representing an element
+     */
 	public int testType(IElement element)
 	{
 		if(element instanceof Door)
@@ -205,15 +213,31 @@ public class Model extends Observable implements IModel {
 		return 0;
 	}
 
+	/**
+	 * get the message
+	 * @return message
+     */
 	public String getMessage() {
 		return message;
 	}
 
+	/**
+	 * sets the message
+	 * @param message
+     */
 	public void setMessage(String message) {
 		this.message = message;
 		flush();
 	}
 
+	/**
+	 * calls the instantiation of  a spell
+	 * @param path
+	 * 			path of the spell image
+	 * @param direction
+	 * 			direction that the spell will go
+	 * @throws IOException
+     */
 	public void createSpell(String path, ControllerOrder direction) throws IOException {
 		MobileElement spell=new Spell(path,direction);
 

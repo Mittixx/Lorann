@@ -3,8 +3,6 @@ package controller;
 import contract.*;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * The Class Controller.
@@ -23,6 +21,9 @@ public class Controller implements IController{
 	 */
 	private Clock clock;
 
+	/**
+	 * The monster to kill when hited by a spell
+	 */
 	private IMobileElement monsterToKill;
 	/**
 	 * Instantiates a new controller.
@@ -39,14 +40,6 @@ public class Controller implements IController{
 		clock.start();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see contract.IController#control()
-	 */
-	public void control() {
-		this.view.printMessage("Move your character !");
-	}
 
 	/**
 	 * Sets the view.
@@ -102,12 +95,14 @@ public class Controller implements IController{
 				if (monster.getX() != x && monster.getY() != y)
 					notInContact++;
 
-				if(monster.getX()==model.getMap().getHero().getX() && monster.getY()==model.getMap().getHero().getY() && model.getMap().getHero()!=null)
+				if(model.getMap().getHero()!=null && monster.getX()==model.getMap().getHero().getX() && monster.getY()==model.getMap().getHero().getY() )
 					gameOver();
 
 				if(isSpell()) {
 					if (monster.getX() == model.getMap().getSpell().getX() && monster.getY() == model.getMap().getSpell().getY()) {
 						monsterToKill=monster;
+						destroySpell();
+						model.getMap().setScore(model.getMap().getScore()+500);
 					}
 				}
 			}
@@ -147,7 +142,7 @@ public class Controller implements IController{
 
 				else if(model.testType(model.getMap().getElement(x,y))==4)
 				{
-					System.out.println("KEY");
+					model.getMap().getElement(x,y).setStateElement(StateElement.DOOR);
 				}
 			}
 
@@ -155,8 +150,6 @@ public class Controller implements IController{
 		}
 
 
-		if(model.getMap().getElement(x,y).getStateElement()==StateElement.FIXED)
-					System.out.print("FIXED");
 
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DRAGON)
 					gameOver();
@@ -197,8 +190,7 @@ public class Controller implements IController{
 				monster.setDirection(ControllerOrder.RIGHT);
 				monster.setX(monster.getX()+1);
 			}
-		destroyMonster(monsterToKill);
-		model.flush();
+
 		}
 	}
 
@@ -239,7 +231,7 @@ public class Controller implements IController{
 				break;
 
 			case SPACE :
-				if(model.getMap().getHero().getStateElement()!=StateElement.WEAK)	//Test if it is able to cast a spell
+				if(model.getMap().getHero().getStateElement()!=StateElement.WEAK && canCastSpell(model.getMap().getHero().getDirection()))	//Test if it is able to cast a spell
 				{
 					castSpell(model.getMap().getHero().getDirection());
 				}
@@ -248,11 +240,13 @@ public class Controller implements IController{
 			case RETRY:
 
 				model.loadMap(model.getMap().getID());
+				model.setMessage("");
 			System.out.println(clock.isStopped());
 				if(clock.isStopped())
 				{
-					clock.setStopped(false);
-					clock.run();
+					clock=new Clock(this);
+					clock.start();
+
 				}
 
 				System.out.println(clock.isStopped());
@@ -271,6 +265,7 @@ public class Controller implements IController{
 		model.setMessage("GAME OVER !");
 		this.clock.setStopped(true);
 		model.getMap().setHero(null);
+		model.flush();
 
 	}
 
@@ -282,6 +277,7 @@ public class Controller implements IController{
 	public void castSpell(ControllerOrder direction) throws IOException {
 		if(!isSpell())
 		model.createSpell("fireball",direction);
+		model.flush();
 
 
 	}
@@ -298,6 +294,8 @@ public class Controller implements IController{
 	{
 		AIMonster();
 		moveSpell();
+		destroyMonster(monsterToKill);
+		model.flush();
 	}
 
 	/**
@@ -376,7 +374,7 @@ public class Controller implements IController{
 
 		}
 
-	public void destroySpell(){
+	public synchronized void destroySpell(){
 
 		model.getMap().getHero().setStateElement(StateElement.STRONG);
 
@@ -385,9 +383,43 @@ public class Controller implements IController{
 		model.flush();
 	}
 
-	public void destroyMonster(IMobileElement monster)
+	public synchronized void destroyMonster(IMobileElement monster)
 	{
 		model.getMap().getMobiles().remove(monster);
 	}
 
+	public boolean canCastSpell(ControllerOrder direction)
+	{
+		switch (direction)
+		{
+			case UP:
+				if(model.getMap().getElement(model.getMap().getHero().getX(),model.getMap().getHero().getY()-1)==null)
+				{
+					return true;
+				}
+				break;
+			case DOWN:
+				if(model.getMap().getElement(model.getMap().getHero().getX(),model.getMap().getHero().getY()+1)==null)
+				{
+					return true;
+				}
+				break;
+			case RIGHT:
+			if(model.getMap().getElement(model.getMap().getHero().getX()+1,model.getMap().getHero().getY())==null)
+			{
+				return true;
+			}
+			break;
+
+			case LEFT:
+				if(model.getMap().getElement(model.getMap().getHero().getX()-1,model.getMap().getHero().getY())==null)
+				{
+					return true;
+				}
+				break;
+			default:
+				return false;
+		}
+		return false;
+	}
 }

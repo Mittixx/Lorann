@@ -12,6 +12,9 @@ public class Clock extends Thread implements IClock{
 
     private Controller controller;
 
+    /**
+     * the state of the clock
+     */
     private boolean stopped=false;
 
     /**
@@ -39,10 +42,18 @@ public class Clock extends Thread implements IClock{
         }
     }
 
+    /**
+     * gets the running state of the clock
+     * @return value of stopped (true or false)
+     */
     public boolean isStopped() {
         return stopped;
     }
 
+    /**
+     * sets the state of the clock
+     * @param stopped
+     */
     public void setStopped(boolean stopped) {
         this.stopped = stopped;
     }

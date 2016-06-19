@@ -26,7 +26,5 @@ public abstract class Main {
 
 		view.setController(controller);
 
-
-		//controller.control();
 	}
 }

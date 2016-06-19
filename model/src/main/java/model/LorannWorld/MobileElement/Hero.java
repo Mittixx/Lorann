@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Hero extends MobileElement implements IHero {
 
     /**
-     *instanciate the hero
+     *instantiates the hero
      */
     public Hero(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING, StateElement.WEAK);

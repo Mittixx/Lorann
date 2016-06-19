@@ -1,38 +1,29 @@
 package Controller;
 
+import contract.IModel;
+import contract.IView;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
  * @author Romain
  */
-public class ControllerTest {
-    @Test
-    public void control() throws Exception {
+public class ControllerTest extends TestCase {
+
+    private IModel model;
+
+    public void setUp() throws Exception {
+        super.setUp();
+
+    }
+
+    public ControllerTest(IView view, IModel model){
+
 
     }
 
     @Test
-    public void moveHero() throws Exception {
-
-    }
-
-    @Test
-    public void AIMonster() throws Exception {
-
-    }
-
-    @Test
-    public void contact() throws Exception {
-
-    }
-
-    @Test
-    public void heroStart() throws Exception {
-
-    }
-
-    @Test
-    public void monstersStart() throws Exception {
+    public void testmoveHero(int x,int y){
 
     }
 
