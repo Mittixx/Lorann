@@ -25,7 +25,7 @@ public class Clock extends Thread implements IClock{
     /**
      * Launch a Thread.
      */
-    public void run() {
+    public synchronized void run() {
 
         while (!stopped) {
             controller.updateController();

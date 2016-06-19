@@ -4,6 +4,7 @@ import contract.*;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * The Class Controller.
@@ -17,11 +18,12 @@ public class Controller implements IController{
 	/** The model. */
 	private IModel	model;
 
-
 	/**
 	 * The clock
 	 */
 	private Clock clock;
+
+	private IMobileElement monsterToKill;
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -74,7 +76,7 @@ public class Controller implements IController{
 	 * @param y
 	 * 		northing
 	 */
-	public void moveHero(int x, int y){
+	public synchronized void moveHero(int x, int y){
 
 		model.getMap().getHero().setX(model.getMap().getHero().getX() + x);
 		model.getMap().getHero().setY(model.getMap().getHero().getY() + y);
@@ -89,7 +91,7 @@ public class Controller implements IController{
 	 * @param y
 	 * 		northing
 	 */
-	public boolean contactMonster(int x, int y){
+	public synchronized boolean contactMonster(int x, int y){
 
 		if(model.getMap().getElement(x, y) == null && model.getMap().getHero()!=null)
 		{
@@ -105,10 +107,12 @@ public class Controller implements IController{
 
 				if(isSpell()) {
 					if (monster.getX() == model.getMap().getSpell().getX() && monster.getY() == model.getMap().getSpell().getY()) {
-						
+						monsterToKill=monster;
 					}
 				}
 			}
+
+
 			if(notInContact>=model.getMap().getMobiles().size()-1)
 			{
 				return true;
@@ -127,7 +131,7 @@ public class Controller implements IController{
 	 * @param y
 	 * 		northing
 	 */
-	public boolean contactHero(int x, int y){
+	public synchronized boolean contactHero(int x, int y){
 		if(model.getMap().getElement(x, y) == null) return true;
 		if((model.getMap().getElement(x, y).getPermeability()) == Permeability.PENETRABLE ){
 			if(model.getMap().getElement(x,y).getStateElement()==StateElement.COLLECTABLE )
@@ -176,7 +180,8 @@ public class Controller implements IController{
 	 *
 	 *Artificial Intelligence of the Monsters
 	 */
-	public void AIMonster(){
+	public synchronized void AIMonster(){
+
 		for(IMobileElement monster : model.getMap().getMobiles()){
 			double random = Math.random();
 			if(random <= .25d && contactMonster(monster.getX(),monster.getY() -1)){
@@ -192,6 +197,7 @@ public class Controller implements IController{
 				monster.setDirection(ControllerOrder.RIGHT);
 				monster.setX(monster.getX()+1);
 			}
+		destroyMonster(monsterToKill);
 		model.flush();
 		}
 	}
@@ -288,7 +294,7 @@ public class Controller implements IController{
 		return false;
 	}
 
-	public void updateController()
+	public synchronized void updateController()
 	{
 		AIMonster();
 		moveSpell();
@@ -297,7 +303,7 @@ public class Controller implements IController{
 	/**
 	 * AI to move the spell
 	 */
-	public void moveSpell()
+	public synchronized void moveSpell()
 	{
 
 		if(isSpell())  //Check if the spell exist
@@ -326,7 +332,7 @@ public class Controller implements IController{
 		}
 	}
 
-	public void moveSpellDirection(int x,int y) {
+	public synchronized void moveSpellDirection(int x,int y) {
 
 			int xHero = model.getMap().getHero().getX();
 			int xSpell = model.getMap().getSpell().getX();
@@ -379,5 +385,9 @@ public class Controller implements IController{
 		model.flush();
 	}
 
+	public void destroyMonster(IMobileElement monster)
+	{
+		model.getMap().getMobiles().remove(monster);
+	}
 
 }
