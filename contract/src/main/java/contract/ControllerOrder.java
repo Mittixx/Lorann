@@ -18,6 +18,8 @@ public enum ControllerOrder {
 
 	/** The hero goes RIGHT */
 	RIGHT,
-	/** The herep throw a spell*/
-	SPACE;
+	/** The hero throws a spell*/
+	SPACE,
+	/** Restart the level*/
+	RETRY;
 }

@@ -20,6 +20,10 @@ public interface IMap {
 
      int getScore();
 
+     public int getID();
+
+     public void setID(int ID);
+
      int getWidth();
 
      int getHeight();

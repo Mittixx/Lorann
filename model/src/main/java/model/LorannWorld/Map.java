@@ -37,6 +37,9 @@ public class Map implements IMap{
      **/
     private int score=0;
 
+    private int ID;
+
+
     private IMobileElement hero;
 
     private IMobileElement spell;
@@ -106,6 +109,13 @@ public class Map implements IMap{
         return this.score;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public void setHeroPosition(int x, int y){
         this.hero.setX(x);

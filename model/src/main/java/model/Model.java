@@ -68,7 +68,9 @@ public class Model extends Observable implements IModel {
      */
 	public void loadMap(final int ID) {
 
+
 		map=new Map(20,12);
+		map.setID(ID);
 		daoGetMap=new DAOGetMap();
 		ResultSet resultSet=daoGetMap.query("{call getElementMapByID(?)}",ID);
 		int monsterPlus=1;
@@ -178,7 +180,7 @@ public class Model extends Observable implements IModel {
 	}
 
 	public synchronized void  flush(){
-		if(map.getScore()>=100)
+		if(map.getScore()>=100 && map.getHero()!=null)
 			map.getHero().setStateElement(StateElement.STRONG);
 
 		setChanged();

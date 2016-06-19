@@ -230,6 +230,9 @@ public class Controller implements IController{
 					castSpell(model.getMap().getHero().getDirection());
 				}
 			break;
+
+			case RETRY:
+				model.loadMap(model.getMap().getID());
 			default:
 		}
 	}
