@@ -88,12 +88,14 @@ class ViewPanel extends JPanel implements Observer {
 		}
 
 		//Draw the spell if exist
-		if(viewFrame.getModel().getMap().getSpell()!=null)
-		graphics.drawImage((viewFrame.getModel().getMap().getSpell().getSprite().getImage()),viewFrame.getModel().getMap().getSpell().getX()*32,viewFrame.getModel().getMap().getSpell().getY()*32,null);
+		if(viewFrame.getModel().getMap().getSpell()!=null) {
+			graphics.drawImage((viewFrame.getModel().getMap().getSpell().getSprite().getImage()), viewFrame.getModel().getMap().getSpell().getX() * 32, viewFrame.getModel().getMap().getSpell().getY() * 32, null);
+		}
 
 		//Draw the Hero
-		graphics.drawImage((viewFrame.getModel().getMap().getHero().getSprite().getImage()),viewFrame.getModel().getMap().getHero().getX()*32,viewFrame.getModel().getMap().getHero().getY()*32,null);
-
+		if(viewFrame.getModel().getMap().getHero()!=null) {
+			graphics.drawImage((viewFrame.getModel().getMap().getHero().getSprite().getImage()), viewFrame.getModel().getMap().getHero().getX() * 32, viewFrame.getModel().getMap().getHero().getY() * 32, null);
+		}
 
 
 		for(IMobileElement mobileElement:viewFrame.getModel().getMap().getMobiles())

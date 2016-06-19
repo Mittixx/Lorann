@@ -16,6 +16,11 @@ public class Controller implements IController{
 	/** The model. */
 	private IModel	model;
 
+
+	/**
+	 * The clock
+	 */
+	private Clock clock;
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -27,10 +32,8 @@ public class Controller implements IController{
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
-		Thread clock = new Thread(new Clock(this));
+		clock=new Clock(this);
 		clock.start();
-
-
 	}
 
 	/*
@@ -95,6 +98,9 @@ public class Controller implements IController{
 				if (monster.getX() != x && monster.getY() != y)
 					notInContact++;
 
+				if(monster.getX()==model.getMap().getHero().getX() && monster.getY()==model.getMap().getHero().getY() && model.getMap().getHero()!=null)
+					gameOver();
+
 			}
 			if(notInContact>=model.getMap().getMobiles().size()-1)
 			{
@@ -136,15 +142,12 @@ public class Controller implements IController{
 			return true;
 		}
 
-		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DEATH)
-					model.setMessage("GAME OVER !");
-
 
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.FIXED)
 					System.out.print("FIXED");
 
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DRAGON)
-					System.out.print("DRAGON");
+					gameOver();
 
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.SPELL)
 					System.out.print("SPELL");
@@ -238,7 +241,8 @@ public class Controller implements IController{
 	public void gameOver()
 	{
 		model.setMessage("GAME OVER !");
-
+		this.clock.setStopped(true);
+		model.getMap().setHero(null);
 
 	}
 

@@ -1,11 +1,13 @@
 package controller;
 
+import contract.IClock;
+
 /**
  * The Class Clock
  * @author Romain
  */
 
-public class Clock implements Runnable{
+public class Clock extends Thread implements IClock{
     /** The Controller */
 
     private Controller controller;
@@ -25,7 +27,7 @@ public class Clock implements Runnable{
      */
     public void run() {
 
-        while (stopped == false) {
+        while (!stopped) {
             controller.updateController();
 
             try {
