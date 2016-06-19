@@ -86,9 +86,23 @@ public class Controller implements IController{
 	 * 		northing
 	 */
 	public boolean contactMonster(int x, int y){
-		if(model.getMap().getElement(x, y) == null) return true;
 
-		else {return false;}
+		if(model.getMap().getElement(x, y) == null)
+		{
+			int notInContact=0;
+			for(IMobileElement monster : model.getMap().getMobiles()) {
+				
+				if (monster.getX() != x && monster.getY() != y)
+					notInContact++;
+
+			}
+			if(notInContact>=model.getMap().getMobiles().size()-1)
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
@@ -110,18 +124,17 @@ public class Controller implements IController{
 		}
 
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DEATH)
-		{
-			model.setMessage("GAME OVER !");
-		}
+					model.setMessage("GAME OVER !");
+
 
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.FIXED)
-		{
-			System.out.print("FIXED");
-		}
+					System.out.print("FIXED");
+
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DRAGON)
-		{
-			System.out.print("DRAGON");
-		}
+					System.out.print("DRAGON");
+
+		if(model.getMap().getElement(x,y).getStateElement()==StateElement.SPELL)
+					System.out.print("SPELL");
 
 		 if((model.testType(model.getMap().getElement(x,y)))==1 )
 		{
@@ -134,8 +147,6 @@ public class Controller implements IController{
 
 
 	}
-
-
 
 	/**
 	 *
@@ -212,44 +223,111 @@ public class Controller implements IController{
 		model.setMessage("GAME OVER !");
 	}
 
+	/**
+	 * Create a spell if there is not already one on the map
+	 * @param direction
+	 * @throws IOException
+     */
 	public void castSpell(ControllerOrder direction) throws IOException {
+		if(!isSpell())
 		model.createSpell("fireball",direction);
+
 
 	}
 
 	public boolean isSpell()
 	{
 		if(model.getMap().getSpell()!=null)
-		{
 			return true;
-		}
+
 		return false;
 	}
 
+
+	/**
+	 * AI to move the spell
+	 */
 	public void moveSpell()
 	{
 
-		System.out.println(model.getMap().getSpell().getDirection());
-
-		switch (model.getMap().getSpell().getDirection())
+		if(isSpell())  //Check if the spell exist
 		{
-			case DOWN:
-				model.getMap().getSpell().setY(model.getMap().getSpell().getY()+1);
-			break;
 
-			case UP:
-				model.getMap().getSpell().setY(model.getMap().getSpell().getY()-1);
-			break;
 
-			case LEFT :
-				model.getMap().getSpell().setX(model.getMap().getSpell().getX()-1);
-			break;
+			switch (model.getMap().getSpell().getDirection()) {
+				case DOWN:
+					moveSpellDirection(0, 1);
+					break;
 
-			case RIGHT :
-				model.getMap().getSpell().setX(model.getMap().getSpell().getX()+1);
-			break;
+				case UP:
+					moveSpellDirection(0, -1);
+					break;
+
+				case LEFT:
+					moveSpellDirection(-1, 0);
+					break;
+
+				case RIGHT:
+					moveSpellDirection(1, 0);
+					break;
+
+			}
+			model.flush();
+		}
+	}
+
+	public void moveSpellDirection(int x,int y) {
+
+		if(isSpell()) //Check if the spell exist
+		{
+			int xHero = model.getMap().getHero().getX();
+			int xSpell = model.getMap().getSpell().getX();
+			int yHero = model.getMap().getHero().getY();
+			int ySpell = model.getMap().getSpell().getY();
+
+			if (xHero == xSpell && yHero == ySpell)
+				destroySpell();
+
+			if (y != 0) {
+
+				if (model.getMap().getElement(model.getMap().getSpell().getX(), model.getMap().getSpell().getY() + y) == null)
+					model.getMap().getSpell().setY(model.getMap().getSpell().getY() + y);
+
+				else {
+					model.getMap().getSpell().setY(model.getMap().getSpell().getY() - y);
+
+
+					if (model.getMap().getSpell().getDirection() == ControllerOrder.UP)
+						model.getMap().getSpell().setDirection(ControllerOrder.DOWN);
+					else {
+						model.getMap().getSpell().setDirection(ControllerOrder.UP);
+					}
+				}
+			} else if (x != 0) {
+				//If there is no element next to the spell
+				if (model.getMap().getElement(model.getMap().getSpell().getX() + x, model.getMap().getSpell().getY()) == null)
+					model.getMap().getSpell().setX(model.getMap().getSpell().getX() + x);
+
+					//If there is an element next to the spell
+				else {
+					model.getMap().getSpell().setX(model.getMap().getSpell().getX() - x);
+
+					if (model.getMap().getSpell().getDirection() == ControllerOrder.LEFT)
+						model.getMap().getSpell().setDirection(ControllerOrder.RIGHT);
+					else {
+						model.getMap().getSpell().setDirection(ControllerOrder.LEFT);
+					}
+				}
+			}
 
 		}
+	}
+	public void destroySpell(){
+
+		model.getMap().getHero().setStateElement(StateElement.STRONG);
+
+		model.getMap().setSpell(null);
+
 		model.flush();
 	}
 

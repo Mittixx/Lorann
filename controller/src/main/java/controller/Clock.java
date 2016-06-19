@@ -26,10 +26,11 @@ public class Clock implements Runnable{
         try{
             while(true){
                 controller.AIMonster();
-                if(controller.isSpell())    //Check if the spell exist
-                {
-                    controller.moveSpell();
-                }
+
+
+                controller.moveSpell();
+
+
                 Thread.sleep(300);
             }
         }catch(Exception ex) {}

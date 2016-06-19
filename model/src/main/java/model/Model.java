@@ -77,9 +77,6 @@ public class Model extends Observable implements IModel {
 			{
 
 				String name=resultSet.getString("name");
-				System.out.println(resultSet.getInt("PosX"));
-				System.out.println(resultSet.getInt("PosY"));
-				System.out.println(name);
 				if(name.equals("boneH"))
 				{
 					MotionlessElement e = new BoneH(name);
@@ -213,12 +210,32 @@ public class Model extends Observable implements IModel {
 
 	public void createSpell(String path, ControllerOrder direction) throws IOException {
 		MobileElement spell=new Spell(path,direction);
-		//map.addElementToMap(spell,map.getHero().getX(),map.getHero().getY());
 
 		map.setSpell(spell);
-		map.getSpell().setY(map.getHero().getY());
-		map.getSpell().setX(map.getHero().getX());
+		switch (map.getHero().getDirection())
+		{
+			case UP:
+				map.getSpell().setY(map.getHero().getY()-1);
+				map.getSpell().setX(map.getHero().getX());
+				break;
+
+			case DOWN:
+				map.getSpell().setY(map.getHero().getY()+1);
+				map.getSpell().setX(map.getHero().getX());
+				break;
+
+			case RIGHT:
+				map.getSpell().setY(map.getHero().getY());
+				map.getSpell().setX(map.getHero().getX()+1);
+				break;
+
+			case LEFT:
+				map.getSpell().setY(map.getHero().getY());
+				map.getSpell().setX(map.getHero().getX()-1);
+				break;
+		}
+
 		map.getSpell().setDirection(direction);
-		System.out.print("Spell Created at "+map.getHero().getX()+"-"+map.getHero().getY());
+		System.out.println("Spell Created at "+map.getHero().getX()+"-"+map.getHero().getY());
 	}
 }

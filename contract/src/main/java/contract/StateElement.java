@@ -10,6 +10,7 @@ public enum StateElement {
     DRAGON,
     SPELL,
     DEATH,
-    WEAK;
+    WEAK,
+    STRONG;
 
 }
