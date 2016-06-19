@@ -3,6 +3,7 @@ package controller;
 import contract.*;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 /**
  * The Class Controller.
@@ -90,9 +91,10 @@ public class Controller implements IController{
 	 */
 	public boolean contactMonster(int x, int y){
 
-		if(model.getMap().getElement(x, y) == null)
+		if(model.getMap().getElement(x, y) == null && model.getMap().getHero()!=null)
 		{
 			int notInContact=0;
+
 			for(IMobileElement monster : model.getMap().getMobiles()) {
 				
 				if (monster.getX() != x && monster.getY() != y)
@@ -101,12 +103,18 @@ public class Controller implements IController{
 				if(monster.getX()==model.getMap().getHero().getX() && monster.getY()==model.getMap().getHero().getY() && model.getMap().getHero()!=null)
 					gameOver();
 
+				if(isSpell()) {
+					if (monster.getX() == model.getMap().getSpell().getX() && monster.getY() == model.getMap().getSpell().getY()) {
+						
+					}
+				}
 			}
 			if(notInContact>=model.getMap().getMobiles().size()-1)
 			{
 				return true;
 			}
 		}
+
 
 		return false;
 	}
@@ -232,7 +240,18 @@ public class Controller implements IController{
 			break;
 
 			case RETRY:
+
 				model.loadMap(model.getMap().getID());
+			System.out.println(clock.isStopped());
+				if(clock.isStopped())
+				{
+					clock.setStopped(false);
+					clock.run();
+				}
+
+				System.out.println(clock.isStopped());
+
+				model.flush();
 			default:
 		}
 	}
@@ -359,5 +378,6 @@ public class Controller implements IController{
 
 		model.flush();
 	}
+
 
 }

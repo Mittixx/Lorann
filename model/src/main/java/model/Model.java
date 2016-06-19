@@ -183,6 +183,7 @@ public class Model extends Observable implements IModel {
 		if(map.getScore()>=100 && map.getHero()!=null)
 			map.getHero().setStateElement(StateElement.STRONG);
 
+
 		setChanged();
 		notifyObservers();
 	}

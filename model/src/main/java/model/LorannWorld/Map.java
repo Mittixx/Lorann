@@ -33,10 +33,12 @@ public class Map implements IMap{
      **/
     private ArrayList<IMobileElement> mobiles;
     /**
-     * the Identifiant of the map
+     * the score of the map
      **/
     private int score=0;
-
+    /**
+     * The ID of the map
+     */
     private int ID;
 
 
