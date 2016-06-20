@@ -11,12 +11,6 @@ import model.LorannWorld.Sprite;
  */
 public abstract class MotionlessElement extends Element{
 
-    /** Easting */
-    private int x;
-
-    /** Northing */
-    private int y;
-
     /**
      *
      * Instantiates a new MotionLessElement.
@@ -30,7 +24,7 @@ public abstract class MotionlessElement extends Element{
      * @param stateElement
      *      The state of the element.
      */
-    public MotionlessElement (Sprite sprite, Permeability permeability, StateElement stateElement){
+    MotionlessElement(Sprite sprite, Permeability permeability, StateElement stateElement){
         super(sprite,permeability,stateElement);
     }
 

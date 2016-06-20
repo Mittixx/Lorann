@@ -100,9 +100,9 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.setFont(font);
 		graphics.setColor(Color.YELLOW);
 
-		//Draw the message (GAME OVER)
+		//Draw the message (GAME OVER OR YOU WIN)
 		if(viewFrame.getModel().getMessage()!=null)
-			graphics.drawString(viewFrame.getModel().getMessage(),(viewFrame.getWidth()/2)-(viewFrame.getModel().getMessage().length()*10),(viewFrame.getHeight())-viewFrame.getModel().getMessage().length()*4);
+			graphics.drawString(viewFrame.getModel().getMessage(),(viewFrame.getWidth()/2)-(viewFrame.getModel().getMessage().length()*10),(viewFrame.getHeight())-viewFrame.getModel().getMessage().length()*5);
 
 		//Draw the score of the map
 		graphics.drawString("SCORE : "+viewFrame.getModel().getMap().getScore(),(viewFrame.getWidth()/10)-50,410);

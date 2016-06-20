@@ -1,5 +1,6 @@
 package model.LorannWorld.MobileElement;
 
+import contract.IMonster;
 import contract.Permeability;
 import contract.StateElement;
 import model.LorannWorld.Sprite;
@@ -12,7 +13,7 @@ import java.io.IOException;
  * The class Monster
  * @author Tanguy Blochet
  */
-public class Monster extends MobileElement{
+public class Monster extends MobileElement implements IMonster {
 
 
     /** Instanciates a monster.

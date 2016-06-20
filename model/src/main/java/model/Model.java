@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.*;
-import model.LorannWorld.Element;
 import model.LorannWorld.Map;
 import model.LorannWorld.MobileElement.Hero;
 import model.LorannWorld.MobileElement.MobileElement;

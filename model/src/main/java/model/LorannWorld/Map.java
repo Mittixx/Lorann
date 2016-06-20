@@ -31,7 +31,6 @@ public class Map implements IMap{
     private ArrayList<IMobileElement> mobiles;
 
 
-
     /**
      * The score of the map.
      **/
@@ -63,22 +62,6 @@ public class Map implements IMap{
         this.width = width;
         elements=new Element[this.height][this.width];
         mobiles=new ArrayList<IMobileElement>();
-    }
-
-    /**
-     * gets the width
-     * @return the map width
-     */
-    public int getWidth() {
-        return this.width;
-    }
-
-    /**
-     * gets the height
-     * @return the map height
-     */
-    public int getHeight() {
-        return this.height;
     }
 
     /**
@@ -117,37 +100,7 @@ public class Map implements IMap{
         return mobiles;
     }
 
-    /**
-     * sets the mobiles elements of the map
-     * @param mobiles
-     */
-    public void setMobiles(ArrayList<IMobileElement> mobiles) {
 
-    }
-
-    /**
-     * sets the map width
-     * @param width
-     */
-    public void setWidth(int width) {
-
-    }
-
-    /**
-     * sets the map height
-     * @param height
-     */
-    public void setHeight(int height) {
-
-    }
-
-    /**
-     * sets the elements of the map
-     * @param elements
-     */
-    public void setElements(IElement[][] elements) {
-
-    }
 
     /**
      * add an element at a position on the ma
