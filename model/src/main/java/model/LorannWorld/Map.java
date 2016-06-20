@@ -167,7 +167,6 @@ public class Map implements IMap{
      */
     public void setScore(int score) {
         this.score=score;
-
     }
 
     /**

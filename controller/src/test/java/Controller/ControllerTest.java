@@ -1,29 +1,41 @@
 package Controller;
 
-import contract.IModel;
-import contract.IView;
-import junit.framework.TestCase;
+import controller.Controller;
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 /**
+ * Created by Romain on 20/06/2016.
  * @author Romain
  */
-public class ControllerTest extends TestCase {
+public class ControllerTest {
 
-    private IModel model;
+    Controller t;
 
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
-
+        t = new Controller();
     }
 
-    public ControllerTest(IView view, IModel model){
-
+    @Test
+    public void moveHero() throws Exception {
 
     }
 
     @Test
-    public void testmoveHero(int x,int y){
+    public void contactMonster() throws Exception {
+
+    }
+
+    @Test
+    public void contactHero() throws Exception {
+
+    }
+
+    @Test
+    public void AIMonster() throws Exception {
 
     }
 
@@ -31,4 +43,55 @@ public class ControllerTest extends TestCase {
     public void orderPerform() throws Exception {
 
     }
+
+    @Test
+    public void gameOver() throws Exception {
+
+    }
+
+    @Test
+    public void castSpell() throws Exception {
+
+    }
+
+    @Test
+    public void isSpell() throws Exception {
+
+    }
+
+    @Test
+    public void updateController() throws Exception {
+
+    }
+
+    @Test
+    public void updateSprite() throws Exception {
+
+    }
+
+    @Test
+    public void moveSpell() throws Exception {
+
+    }
+
+    @Test
+    public void moveSpellDirection() throws Exception {
+
+    }
+
+    @Test
+    public void destroySpell() throws Exception {
+
+    }
+
+    @Test
+    public void destroyMonster() throws Exception {
+
+    }
+
+    @Test
+    public void canCastSpell() throws Exception {
+
+    }
+
 }
