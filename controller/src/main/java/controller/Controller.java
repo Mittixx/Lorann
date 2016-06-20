@@ -140,7 +140,7 @@ public class Controller implements IController{
 		if((model.getMap().getElement(x, y).getPermeability()) == Permeability.PENETRABLE ){
 			if(model.getMap().getElement(x,y).getStateElement()==StateElement.COLLECTABLE )
 			{
-				if(model.testType(model.getMap().getElement(x,y))==2)
+				if(model.testType(model.getMap().getElement(x,y))==2)	//Purse
 				{
 					model.getMap().setElement(x,y,null);
 					model.getMap().setScore(model.getMap().getScore()+100);
@@ -153,48 +153,38 @@ public class Controller implements IController{
 				{
 					model.getMap().setElement(x,y,null);	//deletes key
 
-					for(IElement[] element:model.getMap().getElements())
+					for(IElement[] elements:model.getMap().getElements())
 					{
-
-						for(IElement iElement:element)
-						{		//Tests if its a door
-							if(model.testType(iElement)==1)
-								model.setDoor(iElement);
-
+						for(IElement element:elements)
+						{
+							if(model.testType(element)==1)
+							{
+								model.setDoor(element);
+							}
 						}
-
 					}
 				}
+			}
 
-				if(model.testType(model.getMap().getElement(x,y))==1 && model.getMap().getElement(x,y).getStateElement()==StateElement.DOOR)
-				{
-					//TODO lets win madafucka
-					model.setMessage("YOU WIN !");
-					model.flush();
-					clock.setStopped(true);
-				}
+			else if(model.getMap().getElement(x,y).getStateElement()==StateElement.DOOR)
+			{
+				model.setMessage("YOU WIN !");
+				this.clock.setStopped(true);
 			}
 
 			return true;
 		}
 
-
-
-		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DRAGON)
-					gameOver();
-
-
-		 if((model.testType(model.getMap().getElement(x,y)))==1 && model.getMap().getElement(x,y).getStateElement()==StateElement.DOOR)
+		else if(model.getMap().getElement(x,y).getStateElement()==StateElement.DRAGON)
 		{
-			System.out.print("Porte de victoire !");
-			model.setMessage("YOU WIN !");
-			this.clock.setStopped(true);
-			return true;
-
-
+			gameOver();
+			return false;
 		}
 
-		else {return false;}
+
+
+
+		return false;
 
 
 	}

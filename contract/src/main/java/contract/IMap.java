@@ -45,5 +45,4 @@ public interface IMap {
 
      void setSpell(IMobileElement spell);
 
-
     }

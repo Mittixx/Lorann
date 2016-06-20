@@ -161,7 +161,7 @@ public class Model extends Observable implements IModel {
 				}
 				else if (name.equals("door"))
 				{
-					MotionlessElement e=new Door(name);
+					Door e=new Door(name);
 					map.addElementToMap(e,resultSet.getInt("PosX"),resultSet.getInt("PosY"));
 				}
 
@@ -286,4 +286,6 @@ public class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 	}
+
+
 }

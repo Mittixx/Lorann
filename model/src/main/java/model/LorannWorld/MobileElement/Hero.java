@@ -13,7 +13,7 @@ import java.io.IOException;
  * The class Hero
  * @author Tanguy Blochet
  */
-public class Hero extends MobileElement implements IHero, IAnimatedSprite {
+public class Hero extends MobileElement implements IAnimatedSprite {
     private AnimatedSprite sprites;
     /**
      *instanciate the hero

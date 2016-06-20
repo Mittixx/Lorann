@@ -32,6 +32,9 @@ public class Map implements IMap{
      * the mobile elements of the map
      **/
     private ArrayList<IMobileElement> mobiles;
+
+
+
     /**
      * the score of the map
      **/
@@ -236,4 +239,6 @@ public class Map implements IMap{
     public void setSpell(IMobileElement spell) {
         this.spell = spell;
     }
+
+
 }
