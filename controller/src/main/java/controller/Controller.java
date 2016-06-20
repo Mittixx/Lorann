@@ -88,7 +88,8 @@ public class Controller implements IController{
 	 *		easting
 	 * @param y
 	 * 		northing
-	 * 	@return boolean.
+	 * 	@return
+	 * 		boolean.
 	 */
 	public synchronized boolean contactMonster(int x, int y){
 
@@ -131,6 +132,8 @@ public class Controller implements IController{
 	 *		easting
 	 * @param y
 	 * 		northing
+	 * 	@return
+	 * 		boolean.
 	 */
 	public synchronized boolean contactHero(int x, int y){
 		if(model.getMap().getElement(x, y) == null) return true;
@@ -222,8 +225,9 @@ public class Controller implements IController{
 	}
 
 	/**
-	 * Pick up user's action
+	 * Picks up user's action
 	 * @param controllerOrder
+	 * 		Direction.
 	 *
      */
 	public void orderPerform(ControllerOrder controllerOrder) throws IOException {
@@ -297,8 +301,10 @@ public class Controller implements IController{
 	}
 
 	/**
-	 * Create a spell if there is not already one on the map
+	 * Creates a spell if there is not already one on the map
 	 * @param direction
+	 * 		The direction.
+	 *
 	 * @throws IOException
      */
 	public void castSpell(ControllerOrder direction) throws IOException {
@@ -309,6 +315,11 @@ public class Controller implements IController{
 
 	}
 
+	/**
+	 * Sees if an element is a spell.
+	 * @return
+	 * 		boolean
+     */
 	public boolean isSpell()
 	{
 		if(model.getMap().getSpell()!=null)
@@ -317,6 +328,10 @@ public class Controller implements IController{
 		return false;
 	}
 
+
+	/**
+	 * Update the Controller. Contains all the methods which depend of the clock.
+	 */
 	public synchronized void updateController()
 	{
 		AIMonster();
@@ -325,6 +340,10 @@ public class Controller implements IController{
 		model.flush();
 	}
 
+
+	/**
+	 * Changes the hero' sprite with the incrementation of the method next().
+	 */
 	public  void updateSprite(){
 
 		if(this.model.getMap().getHero() instanceof IAnimatedSprite){
@@ -365,6 +384,15 @@ public class Controller implements IController{
 		}
 	}
 
+
+	/**
+	 * Direction taken by the spell.
+	 *
+	 * @param x
+	 *		easting
+	 * @param y
+	 * 		northing
+     */
 	public synchronized void moveSpellDirection(int x,int y) {
 
 			int xHero = model.getMap().getHero().getX();
@@ -409,6 +437,9 @@ public class Controller implements IController{
 
 		}
 
+	/**
+	 * Makes the spell disappears.
+	 */
 	public synchronized void destroySpell(){
 
 		model.getMap().getHero().setStateElement(StateElement.STRONG);
@@ -418,11 +449,27 @@ public class Controller implements IController{
 		model.flush();
 	}
 
+
+	/**
+	 * Makes the monsters disappears.
+	 *
+	 * @param monster
+	 * 		The monster element.
+     */
 	public synchronized void destroyMonster(IMobileElement monster)
 	{
 		model.getMap().getMobiles().remove(monster);
 	}
 
+
+	/**
+	 * If the hero is able to launch a spell.
+	 *
+	 * @param direction
+	 * 		The direction of the spell.
+	 * @return
+	 * 		boolean.
+     */
 	public boolean canCastSpell(ControllerOrder direction)
 	{
 		switch (direction)

@@ -26,7 +26,9 @@ public class DAOGetMap {
     /**
      *Which map the hero is in.
      * @param id
+     *      Id of the map.
      * @return
+     *      ResultSet.
      */
     public ResultSet query(String sql, int id){
 
