@@ -20,8 +20,7 @@ public interface IModel {
 	/**
 	 * Load the map.
 	 *
-	 * @param ID
-	 *          the key
+	 * @param ID the key
 	 */
 	void loadMap(int ID);
 
@@ -39,7 +38,8 @@ public interface IModel {
 
 
 	/**
-	 *test the type of element
+	 * test the type of element
+	 *
 	 * @param element
 	 * @return int representing an element
 	 */
@@ -48,6 +48,7 @@ public interface IModel {
 
 	/**
 	 * sets the message
+	 *
 	 * @param message
 	 */
 	void setMessage(String message);
@@ -55,6 +56,7 @@ public interface IModel {
 
 	/**
 	 * get the message
+	 *
 	 * @return message
 	 */
 	String getMessage();
@@ -62,12 +64,14 @@ public interface IModel {
 
 	/**
 	 * calls the instantiation of  a spell
-	 * @param path
-	 * 			path of the spell image
-	 * @param direction
-	 * 			direction that the spell will go
+	 *
+	 * @param path      path of the spell image
+	 * @param direction direction that the spell will go
 	 * @throws IOException
 	 */
 	void createSpell(String path, ControllerOrder direction) throws IOException;
 
-	}
+
+	public void setDoor(IElement element);
+
+}

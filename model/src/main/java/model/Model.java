@@ -1,5 +1,6 @@
 package model;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,10 @@ import model.LorannWorld.MobileElement.MobileElement;
 import model.LorannWorld.MobileElement.Monster;
 import model.LorannWorld.MobileElement.Spell;
 import model.LorannWorld.MotionlessElement.*;
+import model.LorannWorld.Sprite;
 import model.dataBase.DAOGetMap;
+
+import javax.imageio.ImageIO;
 
 /**
  * The Class Model.
@@ -267,5 +271,19 @@ public class Model extends Observable implements IModel {
 
 		map.getSpell().setDirection(direction);
 		System.out.println("Spell Created at "+map.getHero().getX()+"-"+map.getHero().getY());
+	}
+
+
+	public void setDoor(IElement element)
+	{
+		try {
+			element.setSprite(new Sprite(ImageIO.read(new File("sprite/door_open.png"))));
+			element.setPermeability(Permeability.PENETRABLE);
+			element.setStateElement(StateElement.DOOR);
+			flush();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

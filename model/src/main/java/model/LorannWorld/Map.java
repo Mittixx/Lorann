@@ -160,6 +160,7 @@ public class Map implements IMap{
         this.elements[x][y]=element;
     }
 
+
     /**
      * sets the score on this map
      * @param score
@@ -230,7 +231,7 @@ public class Map implements IMap{
 
     /**
      * sets the spell on the map
-     * @param spell
+     * @param  spell
      */
     public void setSpell(IMobileElement spell) {
         this.spell = spell;

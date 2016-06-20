@@ -2,6 +2,9 @@ package controller;
 
 import contract.*;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -139,10 +142,30 @@ public class Controller implements IController{
 				}
 
 
-
+				//test if its a key
 				else if(model.testType(model.getMap().getElement(x,y))==4)
 				{
-					model.getMap().getElement(x,y).setStateElement(StateElement.DOOR);
+					model.getMap().setElement(x,y,null);	//deletes key
+
+					for(IElement[] element:model.getMap().getElements())
+					{
+
+						for(IElement iElement:element)
+						{		//Tests if its a door
+							if(model.testType(iElement)==1)
+								model.setDoor(iElement);
+
+						}
+
+					}
+				}
+
+				if(model.testType(model.getMap().getElement(x,y))==1 && model.getMap().getElement(x,y).getStateElement()==StateElement.DOOR)
+				{
+					//TODO lets win madafucka
+					model.setMessage("YOU WIN !");
+					model.flush();
+					clock.setStopped(true);
 				}
 			}
 
@@ -154,14 +177,15 @@ public class Controller implements IController{
 		if(model.getMap().getElement(x,y).getStateElement()==StateElement.DRAGON)
 					gameOver();
 
-		if(model.getMap().getElement(x,y).getStateElement()==StateElement.SPELL)
-					System.out.print("SPELL");
 
-		 if((model.testType(model.getMap().getElement(x,y)))==1 )
+		 if((model.testType(model.getMap().getElement(x,y)))==1 && model.getMap().getElement(x,y).getStateElement()==StateElement.DOOR)
 		{
-			System.out.print("DOOR");
-			gameOver();
-			return false;
+			System.out.print("Porte de victoire !");
+			model.setMessage("YOU WIN !");
+			this.clock.setStopped(true);
+			return true;
+
+
 		}
 
 		else {return false;}

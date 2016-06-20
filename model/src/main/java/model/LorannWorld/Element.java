@@ -41,7 +41,7 @@ public class Element implements IElement {
     }
 
     public void setSprite(ISprite sprite) {
-
+    this.sprite=sprite;
     }
 
 
