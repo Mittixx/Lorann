@@ -28,6 +28,7 @@ public class Controller implements IController{
 	 * The monster to kill when hited by a spell
 	 */
 	private IMobileElement monsterToKill;
+
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -53,6 +54,7 @@ public class Controller implements IController{
 	private void setView(final IView view) {
 		this.view = view;
 	}
+
 
 	/**
 	 * Sets the model.
@@ -86,6 +88,7 @@ public class Controller implements IController{
 	 *		easting
 	 * @param y
 	 * 		northing
+	 * 	@return boolean.
 	 */
 	public synchronized boolean contactMonster(int x, int y){
 
@@ -318,17 +321,15 @@ public class Controller implements IController{
 	{
 		AIMonster();
 		moveSpell();
-		updateSprite();
 		destroyMonster(monsterToKill);
 		model.flush();
 	}
 
 	public  void updateSprite(){
 
-		if(this.model.getMap().getHero().getSprite() instanceof IAnimatedSprite){
-			((IAnimatedSprite) this.model.getMap().getHero().getSprite()).next();
+		if(this.model.getMap().getHero() instanceof IAnimatedSprite){
+			((IAnimatedSprite) this.model.getMap().getHero()).next();
 		}
-		model.flush();
 
 	}
 

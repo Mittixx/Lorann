@@ -5,6 +5,7 @@ import model.LorannWorld.AnimatedSprite;
 import model.LorannWorld.Sprite;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -12,8 +13,8 @@ import java.io.IOException;
  * The class Hero
  * @author Tanguy Blochet
  */
-public class Hero extends MobileElement implements IHero {
-
+public class Hero extends MobileElement implements IHero, IAnimatedSprite {
+    private AnimatedSprite sprites;
     /**
      *instanciate the hero
      */
@@ -31,8 +32,19 @@ public class Hero extends MobileElement implements IHero {
                 "lorann_br",
         };
 
-        this.setSprite(new AnimatedSprite((ImageIO.read(new File("sprite/lorann_b.png"))),imagesPaths));
+        sprites = new AnimatedSprite((ImageIO.read(new File("sprite/lorann_b.png"))),imagesPaths);
     }
 
+    public void next() {
+        sprites.next();
+        setImage(sprites.getImage());
+    }
 
+    public Image getImage() {
+        return sprites.getImage();
+    }
+
+    public void setImage(Image image) {
+        this.getSprite().setImage(image);
+    }
 }

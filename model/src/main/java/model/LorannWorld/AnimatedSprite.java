@@ -1,9 +1,7 @@
 package model.LorannWorld;
 
 import contract.IAnimatedSprite;
-import contract.Permeability;
-import contract.StateElement;
-import model.LorannWorld.Sprite;
+import contract.ISprite;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -39,9 +37,9 @@ public class AnimatedSprite extends Sprite implements IAnimatedSprite {
         for(int i = 0; i<images.length; i++){
             try {
                 // this.images[i] = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(images[i]));
-                this.images[i] = ImageIO.read(new File("sprite/"+images[i]+".png"));
+               this.images[i] = ImageIO.read(new File("sprite/"+images[i]+".png"));
             } catch (IOException e) {
-                System.err.println("Can't load "+images[i]);
+                System.err.println("Cannot load "+images[i]);
                 e.printStackTrace();
             }
         }
@@ -52,9 +50,10 @@ public class AnimatedSprite extends Sprite implements IAnimatedSprite {
      * gets the image
      * @return images
      */
-    public Image[] getImages() {
+   /* public Image[] getImages() {
         return images;
-    }
+    } */
+
     /**
      * sets the image
      * @param images
@@ -72,5 +71,11 @@ public class AnimatedSprite extends Sprite implements IAnimatedSprite {
         if(this.step >= this.images.length){
             this.step = 0;
         }
+        setImage(images[step]);
+    }
+
+    @Override
+    public Image getImage() {
+        return this.images[this.step];
     }
 }

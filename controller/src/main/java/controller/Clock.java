@@ -34,10 +34,24 @@ public class Clock extends Thread implements IClock{
             controller.updateController();
 
             try {
-                Thread.sleep(300);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            controller.updateSprite();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            controller.updateSprite();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            controller.updateSprite();
+
 
         }
     }
