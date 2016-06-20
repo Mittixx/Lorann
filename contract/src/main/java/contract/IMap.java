@@ -3,19 +3,12 @@ package contract;
 import java.util.ArrayList;
 
 /**
+ * Interface of the map.
  * @author Romain
  */
 public interface IMap {
 
-     void setWidth(int width);
-
-     void setHeight(int height);
-
      void addElementToMap(IElement element, int x, int y);
-
-     void setMobiles(ArrayList<IMobileElement> mobiles);
-
-     void setElements (IElement[][] elements);
 
      void setElement(int x, int y,IElement element);
 
@@ -23,13 +16,9 @@ public interface IMap {
 
      int getScore();
 
-      int getID();
+     int getID();
 
-      void setID(int ID);
-
-     int getWidth();
-
-     int getHeight();
+     void setID(int ID);
 
      IElement getElement(int x, int y);
 

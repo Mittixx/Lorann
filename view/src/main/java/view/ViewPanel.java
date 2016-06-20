@@ -18,6 +18,7 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
+
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
@@ -27,21 +28,13 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
+	ViewPanel(final ViewFrame viewFrame) {
+		this.viewFrame = viewFrame;
 		this.setViewFrame(viewFrame);
 		this.setSize(viewFrame.getWidth(),viewFrame.getHeight());
 
 		viewFrame.getModel().getObservable().addObserver(this);
 		repaint();
-	}
-
-	/**
-	 * Gets the view frame.
-	 *
-	 * @return the view frame
-	 */
-	private ViewFrame getViewFrame() {
-		return this.viewFrame;
 	}
 
 	/**

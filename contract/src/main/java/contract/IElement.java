@@ -1,6 +1,7 @@
 package contract;
 
 /**
+ *Interface of the Element.
  *@author Romain
  */
 public interface IElement {

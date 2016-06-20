@@ -3,19 +3,15 @@ package contract;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Romain
  */
 public interface IView {
 
 	/**
-	 * Prints the message.
+	 * Sets the controller.
 	 *
-	 * @param message
-	 *          the message
+	 * @param controller
+	 *          the new controller
 	 */
-	
-
-	void run();
-
 	void setController(final IController controller);
 }

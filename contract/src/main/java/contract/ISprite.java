@@ -3,6 +3,7 @@ package contract;
 import java.awt.*;
 
 /**
+ * Interface of the sprite.
  * @author Romain
  */
 public interface ISprite{

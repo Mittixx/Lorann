@@ -38,7 +38,7 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	public static ControllerOrder keyCodeToControllerOrder(final KeyEvent keyCode) {
+	static ControllerOrder keyCodeToControllerOrder(final KeyEvent keyCode) {
 		switch (keyCode.getKeyCode()) {
 			case KeyEvent.VK_UP: case KeyEvent.VK_Z :
 				return ControllerOrder.UP;
@@ -58,11 +58,8 @@ public class View implements IView, Runnable {
 	}
 
 
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Runnable#run()
+	/**
+	 * Sets visible.
 	 */
 	public void run() {
 		this.viewFrame.setVisible(true);

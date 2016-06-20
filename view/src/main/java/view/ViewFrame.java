@@ -22,6 +22,7 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	/** The controller. */
 	private IController				controller;
+
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
 
@@ -33,52 +34,12 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model) throws HeadlessException {
+	ViewFrame(final IModel model) throws HeadlessException {
+		this.model = model;
 		this.buildViewFrame(model);
 	}
 
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model
-	 *          the model
-	 * @param gc
-	 *          the gc
-	 */
-	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
-		super(gc);
-		this.buildViewFrame(model);
-	}
 
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model
-	 *          the model
-	 * @param title
-	 *          the title
-	 * @throws HeadlessException
-	 *           the headless exception
-	 */
-	public ViewFrame(final IModel model, final String title) throws HeadlessException {
-		super(title);
-		this.buildViewFrame(model);
-	}
-
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model
-	 *          the model
-	 * @param title
-	 *          the title
-	 * @param gc
-	 *          the gc
-	 */
-	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
-		super(title, gc);
-		this.buildViewFrame(model);
-	}
 
 	/**
 	 * Gets the controller.
@@ -95,7 +56,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param controller
 	 *          the new controller
 	 */
-	protected void setController(final IController controller) {
+	void setController(final IController controller) {
 		this.controller = controller;
 	}
 
@@ -104,7 +65,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @return the model
 	 */
-	protected IModel getModel() {
+	IModel getModel() {
 		return this.model;
 	}
 
@@ -127,8 +88,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	private void buildViewFrame(final IModel model) {
 		this.setTitle("LORANN");
 		this.setModel(model);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false); // et aussi ça
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setSize(660, 425+30);  //Size of the map plus scoring panel
 		this.setLocationRelativeTo(null);

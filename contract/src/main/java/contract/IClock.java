@@ -1,6 +1,7 @@
 package contract;
 
 /**
+ * Interface of the Clock.
  * @author Romain
  */
 public interface IClock {
@@ -14,6 +15,7 @@ public interface IClock {
     /**
      * sets the state of the clock
      * @param stopped
+     *      True or False.
      */
     void setStopped(boolean stopped);
 }
