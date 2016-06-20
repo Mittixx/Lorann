@@ -25,11 +25,4 @@ public class BoneH extends MotionlessElement{
 
     }
 
-    public void setSprite(ISprite sprite) {
-
-    }
-
-    public void setMap(IMap map) {
-
-    }
 }

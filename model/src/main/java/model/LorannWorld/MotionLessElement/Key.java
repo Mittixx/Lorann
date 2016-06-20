@@ -23,7 +23,5 @@ public class Key extends MotionlessElement{
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.PENETRABLE,StateElement.COLLECTABLE);
     }
 
-    public void setSprite(ISprite sprite) {
 
-    }
 }

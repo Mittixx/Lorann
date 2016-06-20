@@ -23,7 +23,4 @@ public class BoneC extends MotionlessElement{
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING,StateElement.FIXED);
     }
 
-    public void setSprite(ISprite sprite) {
-
-    }
 }

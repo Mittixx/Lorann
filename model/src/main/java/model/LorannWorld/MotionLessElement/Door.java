@@ -23,8 +23,6 @@ public class Door extends MotionlessElement {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING,StateElement.DRAGON);
     }
 
-    public void setSprite(ISprite sprite) {
 
-    }
 
 }
