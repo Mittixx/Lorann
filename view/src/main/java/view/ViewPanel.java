@@ -107,5 +107,7 @@ class ViewPanel extends JPanel implements Observer {
 		//Draw the score of the map
 		graphics.drawString("SCORE : "+viewFrame.getModel().getMap().getScore(),(viewFrame.getWidth()/10)-50,410);
 
+		//Draw the indication for retry
+		graphics.drawString("R to retry",(viewFrame.getWidth()/10)+427,410);
     }
 }
