@@ -44,8 +44,11 @@ public class MobileElement extends Element implements IMobileElement{
     /**
      * Instantiates a new MobileElement.
      * @param sprite
+     *          the sprite of the element
      * @param permeability
+     *          the permeability of the element
      * @param stateElement
+     *          the state of the element
      */
     public MobileElement(Sprite sprite, Permeability permeability, StateElement stateElement) {
         super(sprite,permeability,stateElement);

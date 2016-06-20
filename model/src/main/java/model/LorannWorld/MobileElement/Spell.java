@@ -18,7 +18,8 @@ public class Spell extends MobileElement {
      *
      * @param path
      *      Where to find the image.
-     *
+     *@throws IOException
+     *      Can't read file
      */
     public Spell(String path, ControllerOrder direction) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+"_1"+".png")))), Permeability.PENETRABLE, StateElement.SPELL);

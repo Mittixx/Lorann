@@ -20,6 +20,7 @@ public class Clock extends Thread implements IClock{
     /**
      * Instanciate a new Controller
      * @param controller
+     *          the Controller
      */
     public Clock(Controller controller) {
         this.controller = controller;
@@ -67,6 +68,7 @@ public class Clock extends Thread implements IClock{
     /**
      * sets the state of the clock
      * @param stopped
+     *          State of the thread
      */
     public void setStopped(boolean stopped) {
         this.stopped = stopped;

@@ -16,7 +16,11 @@ import java.io.IOException;
 public class Hero extends MobileElement implements IAnimatedSprite {
     private AnimatedSprite sprites;
     /**
-     *Instanciates the hero.
+     *Instantiates the hero.
+     * @param path
+     *          the path to the first image
+     *@throws IOException
+     *           Can't read file
      */
     public Hero(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING, StateElement.WEAK);
@@ -58,6 +62,7 @@ public class Hero extends MobileElement implements IAnimatedSprite {
     /**
      * Sets the Image.
      * @param image
+     *              the image to set
      */
     public void setImage(Image image) {
         this.getSprite().setImage(image);

@@ -60,6 +60,7 @@ public class Model extends Observable implements IModel {
 	/**
 	 * Load the elements of the map from the database
 	 * @param ID
+	 * 			The map ID.
      */
 	public void loadMap(final int ID) {
 
@@ -241,6 +242,7 @@ public class Model extends Observable implements IModel {
 	 * @param direction
 	 * 			Direction that the spell will go
 	 * @throws IOException
+	 * 			Can't read file.
      */
 	public void createSpell(String path, ControllerOrder direction) throws IOException {
 		MobileElement spell=new Spell(path,direction);

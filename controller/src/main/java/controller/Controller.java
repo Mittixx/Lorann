@@ -296,6 +296,7 @@ public class Controller implements IController{
 	 * 		The direction.
 	 *
 	 * @throws IOException
+	 * 			Can't read file
      */
 	public void castSpell(ControllerOrder direction) throws IOException {
 		if(!isSpell())

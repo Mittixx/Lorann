@@ -54,7 +54,9 @@ public class Map implements IMap{
     /**
      * Instantiates a new map.
      * @param height
+     *          the map height
      * @param width
+     *          the map width
      */
     public Map(int height, int width) {
 
@@ -67,7 +69,9 @@ public class Map implements IMap{
     /**
      * gets an element at a position
      * @param x
+     *          easting
      * @param y
+     *          northing
      * @return an element of the map
      */
     public IElement getElement(int x, int y) {
@@ -77,8 +81,11 @@ public class Map implements IMap{
     /**
      * sets an element on the map
      * @param x
+     *          easting
      * @param y
+     *          northing
      * @param element
+     *          the element
      */
     public void setElement(int x, int y,IElement element){
         this.elements[x][y]=element;
@@ -105,8 +112,11 @@ public class Map implements IMap{
     /**
      * add an element at a position on the ma
      * @param element
+     *              the element
      * @param x
+     *          the easting position
      * @param y
+     *          the northing position
      */
     public void addElementToMap(IElement element, int x, int y)
     {
@@ -117,6 +127,7 @@ public class Map implements IMap{
     /**
      * sets the score on this map
      * @param score
+     *          the score of the map
      */
     public void setScore(int score) {
         this.score=score;
@@ -124,7 +135,7 @@ public class Map implements IMap{
 
     /**
      * gets the score on this map
-     * @return
+     * @return score
      */
     public int getScore() {
         return this.score;
@@ -149,7 +160,9 @@ public class Map implements IMap{
     /**
      * sets the hero position
      * @param x
+     *          easting
      * @param y
+     *          northing
      */
     public void setHeroPosition(int x, int y){
         this.hero.setX(x);
@@ -167,6 +180,7 @@ public class Map implements IMap{
     /**
      * sets the hero of the map
      * @param hero
+     *          the hero
      */
     public void setHero(IMobileElement hero) {
         this.hero = hero;
@@ -184,6 +198,7 @@ public class Map implements IMap{
     /**
      * sets the spell on the map
      * @param  spell
+     *          the spell
      */
     public void setSpell(IMobileElement spell) {
         this.spell = spell;

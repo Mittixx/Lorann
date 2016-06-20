@@ -16,7 +16,6 @@ public class ControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        t = new Controller();
     }
 
     @Test

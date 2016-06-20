@@ -41,6 +41,7 @@ public interface IModel {
 	 * test the type of element
 	 *
 	 * @param element
+	 * 				the element
 	 * @return int representing an element
 	 */
 	int testType(IElement element);
@@ -50,6 +51,7 @@ public interface IModel {
 	 * sets the message
 	 *
 	 * @param message
+	 * 				the message to set
 	 */
 	void setMessage(String message);
 
@@ -68,11 +70,12 @@ public interface IModel {
 	 * @param path      path of the spell image
 	 * @param direction direction that the spell will go
 	 * @throws IOException
+	 * 			Can't read the file
 	 */
 	void createSpell(String path, ControllerOrder direction) throws IOException;
 
 	/**
-	 * Sets the dorr.
+	 * Sets the door.
 	 *
 	 * @param element
 	 * 		The element.

@@ -13,7 +13,9 @@ public interface IController {
 	/**
 	 * Move the hero
 	 * @param x
+	 * 			easting
 	 * @param y
+	 * 			northing
      */
 	public void moveHero(int x, int y);
 
@@ -25,7 +27,9 @@ public interface IController {
 	/**
 	 * Test contact between monsters and elements
 	 * @param x
+	 * 			easting
 	 * @param y
+	 * 			northing
      * @return boolean
      */
 	public boolean contactMonster(int x, int y);
@@ -33,7 +37,9 @@ public interface IController {
 	/**
 	 * Test contact between the hero and the elements
 	 * @param x
+	 * 			easting
 	 * @param y
+	 * 			northing
      * @return boolean
      */
 	public boolean contactHero(int x,int y);
@@ -43,6 +49,8 @@ public interface IController {
 	 *
 	 * @param controllerOrder
 	 *          the controller order
+	 * @throws IOException
+	 * 				Can"t read the file.
 	 */
 	public void orderPerform(ControllerOrder controllerOrder) throws IOException;
 }

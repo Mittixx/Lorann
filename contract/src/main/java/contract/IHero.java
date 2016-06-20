@@ -8,10 +8,7 @@ import java.awt.*;
 public interface IHero {
 
     /**
-     * Gets the Image.
-     *
-     * @return
-     *      Image.
+     * Increments the value to run through the images
      */
     void next();
 
