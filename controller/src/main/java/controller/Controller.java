@@ -318,8 +318,18 @@ public class Controller implements IController{
 	{
 		AIMonster();
 		moveSpell();
+		updateSprite();
 		destroyMonster(monsterToKill);
 		model.flush();
+	}
+
+	public  void updateSprite(){
+
+		if(this.model.getMap().getHero().getSprite() instanceof IAnimatedSprite){
+			((IAnimatedSprite) this.model.getMap().getHero().getSprite()).next();
+		}
+		model.flush();
+
 	}
 
 	/**
