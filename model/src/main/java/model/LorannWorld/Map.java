@@ -3,9 +3,6 @@ package model.LorannWorld;
 import contract.IElement;
 import contract.IMap;
 import contract.IMobileElement;
-import contract.IMotionlessElement;
-import model.LorannWorld.MobileElement.Hero;
-import model.LorannWorld.MotionlessElement.MotionlessElement;
 
 import java.util.ArrayList;
 
@@ -17,46 +14,46 @@ import java.util.ArrayList;
  **/
 public class Map implements IMap{
     /**
-    * the width of the map
+    * The width of the map.
      **/
     private int width=20;
     /**
-     * the height of the map
+     * The height of the map.
      **/
     private int height=12;
     /**
-     * the static elements of the map
+     * The static elements of the ma.
      **/
     private IElement[][] elements;
     /**
-     * the mobile elements of the map
+     * The mobile elements of the map.
      **/
     private ArrayList<IMobileElement> mobiles;
 
 
 
     /**
-     * the score of the map
+     * The score of the map.
      **/
     private int score=0;
     /**
-     * The ID of the map
+     * The ID of the map.
      */
     private int ID;
 
     /**
-     * The hero of the map
+     * The hero of the map.
      */
     private IMobileElement hero;
 
     /**
-     * The spell
+     * The spell.
      */
     private IMobileElement spell;
 
 
     /**
-     * instantiates a new map
+     * Instantiates a new map.
      * @param height
      * @param width
      */

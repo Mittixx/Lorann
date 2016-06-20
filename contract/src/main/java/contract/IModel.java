@@ -71,7 +71,13 @@ public interface IModel {
 	 */
 	void createSpell(String path, ControllerOrder direction) throws IOException;
 
-
-	public void setDoor(IElement element);
+	/**
+	 * Sets the dorr.
+	 *
+	 * @param element
+	 * 		The element.
+	 *
+	 */
+	void setDoor(IElement element);
 
 }

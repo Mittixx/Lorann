@@ -15,9 +15,11 @@ import java.io.IOException;
 public class Monster extends MobileElement{
 
 
-    /** Instanciates a monster
+    /** Instanciates a monster.
+     *
      * @param path
-     * */
+     *         Where to find the image.
+     */
     public Monster(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING, StateElement.DEATH);
     }

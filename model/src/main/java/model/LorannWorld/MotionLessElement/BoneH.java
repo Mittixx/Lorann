@@ -18,9 +18,12 @@ public class BoneH extends MotionlessElement{
 
 
     /**
+     *Instantiates an horizontal bone.
      *
+     * @param path
+     *      Where to find the image.
      */
-    public BoneH(String path) throws IOException {
+     public BoneH(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING,StateElement.FIXED);
 
     }

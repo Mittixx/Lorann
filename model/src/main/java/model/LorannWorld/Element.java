@@ -1,89 +1,1 @@
-package model.LorannWorld;
-
-import contract.*;
-
-import java.awt.geom.Point2D;
-
-/**
- * The class Element
- * @author Tanguy Blochet
- * @version 15.06.2016
- */
-public class Element implements IElement {
-    /**
-     * The image of the element
-     */
-    private ISprite sprite;
-    /**
-     * The permeability of the element
-     */
-    private Permeability permeability;
-    /**
-     * The map wich contains the element
-     */
-    private IMap map;
-    /**
-     * The point where the element will spawn
-     */
-    private Point2D spawn;
-
-    private StateElement stateElement;
-
-
-    public Element(ISprite sprite, Permeability permeability,StateElement stateElement) {
-        this.sprite = sprite;
-        this.permeability = permeability;
-        this.stateElement=stateElement;
-    }
-
-    public ISprite getSprite() {
-        return this.sprite;
-    }
-
-    public void setSprite(ISprite sprite) {
-    this.sprite=sprite;
-    }
-
-
-    public Permeability getPermeability() {
-        return this.permeability;
-    }
-
-    public void setPermeability(Permeability permeability) {
-        this.permeability = permeability;
-    }
-
-    public IMap getMap() {
-        return map;
-    }
-
-    public void setMap(IMap map) {
-        this.map = map;
-    }
-
-    public Point2D getSpawn() {
-        return spawn;
-    }
-
-    public void setSpawn(Point2D spawn) {
-        this.spawn = spawn;
-    }
-
-    /**
-     * gets the Element's state
-     * @return stateElement
-     */
-    public StateElement getStateElement() {
-        return this.stateElement;
-    }
-
-    /**
-     * sets the Element's state
-     * @param stateElement
-     */
-    public void setStateElement(StateElement stateElement) {
-        this.stateElement = stateElement;
-    }
-
-
-}
+package model.LorannWorld;import contract.*;import java.awt.geom.Point2D;/** * The class Element * @author Tanguy Blochet * @version 15.06.2016 */public class Element implements IElement {    /**     * The image of the element.     */    private ISprite sprite;    /**     * The permeability of the element.     */    private Permeability permeability;    /**     * The map wich contains the element.     */    private IMap map;    /**     * The point where the element will spawn.     */    private Point2D spawn;    /**     * The state of the element.     */    private StateElement stateElement;    /**     * Instantiates a new Element.     *     * @param sprite     *      The sprite.     *     * @param permeability     *      The permeability.     *     * @param stateElement     *      The state of the Element.     */    public Element(ISprite sprite, Permeability permeability,StateElement stateElement) {        this.sprite = sprite;        this.permeability = permeability;        this.stateElement=stateElement;    }    /**     * Gets the sprite.     *     * @return     *      The sprite.     */    public ISprite getSprite() {        return this.sprite;    }    /**     * Sets the sprite,     *     * @param sprite     *      The sprite,     */    public void setSprite(ISprite sprite) {    this.sprite=sprite;    }    /**     * Gets the permeability.     *     * @return     *      The permeability.     */    public Permeability getPermeability() {        return this.permeability;    }    /**     * Sets the permeability.     *     * @param permeability     *      The permeability.     */    public void setPermeability(Permeability permeability) {        this.permeability = permeability;    }    /**     * Gets the Element's state.     *     * @return     *      stateElement     */    public StateElement getStateElement() {        return this.stateElement;    }    /**     * Sets the Element's state.     *     * @param stateElement     *      The state of the element.     */    public void setStateElement(StateElement stateElement) {        this.stateElement = stateElement;    }}

@@ -1,28 +1,57 @@
 package contract;
 
-import java.awt.geom.Point2D;
-
+/**
+ *@author Romain
+ */
 public interface IElement {
 
+    /**
+     * Gets the sprite.
+     *
+     * @return
+     *      The sprite.
+     */
     ISprite getSprite();
 
+    /**
+     * Sets the sprite,
+     *
+     * @param sprite
+     *      The sprite,
+     */
     void setSprite(ISprite sprite);
 
-    public Permeability getPermeability();
+    /**
+     * Gets the permeability.
+     *
+     * @return
+     *      The permeability.
+     */
+    Permeability getPermeability();
 
-    public void setPermeability(Permeability permeability);
+    /**
+     * Sets the permeability.
+     *
+     * @param permeability
+     *      The permeability.
+     */
+    void setPermeability(Permeability permeability);
 
-    public IMap getMap();
+    /**
+     * Gets the Element's state.
+     *
+     * @return
+     *      stateElement
+     */
+    StateElement getStateElement();
 
-    public void setMap(IMap map);
-
-    public Point2D getSpawn();
-
-    public void setSpawn(Point2D spawn);
-
-    public StateElement getStateElement();
-
-    public void setStateElement(StateElement doorState);
+    /**
+     * Sets the Element's state.
+     *
+     * @param stateElement
+     *      The state of the element.
+     */
+    void setStateElement(StateElement stateElement);
 
 }
 

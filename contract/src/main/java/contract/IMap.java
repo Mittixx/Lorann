@@ -2,6 +2,9 @@ package contract;
 
 import java.util.ArrayList;
 
+/**
+ * @author Romain
+ */
 public interface IMap {
 
      void setWidth(int width);

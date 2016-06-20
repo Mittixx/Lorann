@@ -1,5 +1,8 @@
 package contract;
 
+/**
+ * @author Romain
+ */
 public interface IClock {
 
     /**

@@ -17,7 +17,10 @@ public class Door extends MotionlessElement {
 
 
     /**
+     *Instantiates a door.
      *
+     * @param path
+     *      Where to find the image.
      */
     public Door(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING,StateElement.DRAGON);

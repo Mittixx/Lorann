@@ -30,10 +30,12 @@ public class Model extends Observable implements IModel {
 	 * The map.
 	 */
 	private Map map;
+
 	/**
 	 * The connection to the database and the query to execute
 	 */
 	private DAOGetMap daoGetMap;
+
 	/**
 	 * The message to print
 	 */
@@ -46,24 +48,14 @@ public class Model extends Observable implements IModel {
 		this.map =null;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Gets the map.
 	 *
-	 * @see contract.IModel#getMap()
-	 */
+	 * @return
+	 * 		The map.
+     */
 	public Map getMap() {
 		return this.map;
-	}
-
-	/**
-	 * Sets the map.
-	 *
-	 * @param map the new map
-	 */
-	private void setMap(final Map map) {
-		this.map = map;
-		this.setChanged();
-		this.notifyObservers();
 	}
 
 	/**
@@ -174,17 +166,18 @@ public class Model extends Observable implements IModel {
 
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Gets the observable.
 	 *
-	 * @see contract.IModel#getObservable()
-	 */
+	 * @return
+	 * 		Observable.
+     */
 	public Observable getObservable() {
 		return this;
 	}
 
 	/**
-	 * notify the changes to the view
+	 * Notify the changes to the view.
 	 */
 	public synchronized void  flush(){
 		if(map.getScore()>=100 && map.getHero()!=null)
@@ -196,9 +189,12 @@ public class Model extends Observable implements IModel {
 	}
 
 	/**
-	 *test the type of element
+	 *Tests the type of element.
+	 *
 	 * @param element
-	 * @return int representing an element
+	 * 		The element.
+	 * @return
+	 * 		int representing an element
      */
 	public int testType(IElement element)
 	{
@@ -218,16 +214,20 @@ public class Model extends Observable implements IModel {
 	}
 
 	/**
-	 * get the message
-	 * @return message
+	 * Gets the message.
+	 *
+	 * @return
+	 * 		message
      */
 	public String getMessage() {
 		return message;
 	}
 
 	/**
-	 * sets the message
+	 * Sets the message.
+	 *
 	 * @param message
+	 * 		The message.
      */
 	public void setMessage(String message) {
 		this.message = message;
@@ -235,11 +235,12 @@ public class Model extends Observable implements IModel {
 	}
 
 	/**
-	 * calls the instantiation of  a spell
+	 * Calls the instantiation of  a spell.
+	 *
 	 * @param path
-	 * 			path of the spell image
+	 * 			Path of the spell image
 	 * @param direction
-	 * 			direction that the spell will go
+	 * 			Direction that the spell will go
 	 * @throws IOException
      */
 	public void createSpell(String path, ControllerOrder direction) throws IOException {
@@ -273,7 +274,13 @@ public class Model extends Observable implements IModel {
 		System.out.println("Spell Created at "+map.getHero().getX()+"-"+map.getHero().getY());
 	}
 
-
+	/**
+	 * Sets the dorr.
+	 *
+	 * @param element
+	 * 		The element.
+	 *
+     */
 	public void setDoor(IElement element)
 	{
 		try {

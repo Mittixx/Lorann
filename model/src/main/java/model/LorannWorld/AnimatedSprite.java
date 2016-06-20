@@ -28,8 +28,12 @@ public class AnimatedSprite extends Sprite implements IAnimatedSprite {
     private int step;
 
     /**
-     * Instanciate a new AnimatedSprite
+     * Instanciate a new AnimatedSprite.
+     *
      * @param image
+     *      The image.
+     * @param images
+     *      Board of the images' paths.
      */
     public AnimatedSprite(Image image, String[] images) {
         super(image);
@@ -46,24 +50,19 @@ public class AnimatedSprite extends Sprite implements IAnimatedSprite {
         this.step = 0;
     }
 
-    /**
-     * gets the image
-     * @return images
-     */
-   /* public Image[] getImages() {
-        return images;
-    } */
 
     /**
-     * sets the image
+     * Sets the image.
+     *
      * @param images
+     *      Board of images.
      */
-
     public void setImages(Image[] images) {
         this.images = images;
     }
+
     /**
-     * increments the step
+     * Increments the steps.
      */
     public void next()
     {
@@ -74,7 +73,12 @@ public class AnimatedSprite extends Sprite implements IAnimatedSprite {
         setImage(images[step]);
     }
 
-    @Override
+    /**
+     * Gets the Image.
+     *
+     * @return
+     *      return the image in the board. It depends of the step.
+     */
     public Image getImage() {
         return this.images[this.step];
     }
