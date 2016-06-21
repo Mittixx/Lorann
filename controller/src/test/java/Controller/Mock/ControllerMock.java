@@ -1,20 +1,19 @@
 package Controller.Mock;
 
-import contract.ControllerOrder;
-import contract.IController;
-import contract.IModel;
-import contract.IView;
+import contract.*;
 
 import java.io.IOException;
 
 /**
- * Created by Romain on 21/06/2016.
+ * @author Romain
  */
 public class ControllerMock implements IController {
 
     private IModel modelMock;
 
     private IView view;
+
+    private IMobileElement monster;
 
     public ControllerMock(ViewMock view,ModelMock model) {
         this.setModel(model);
@@ -27,15 +26,35 @@ public class ControllerMock implements IController {
     }
 
     public void AIMonster() {
-
+        for(IMobileElement mobile : modelMock.getMap().getMobiles()){
+            mobile.getX();
+        }
     }
 
     public boolean contactMonster(int x, int y) {
-        return false;
+        return modelMock.getMap().getElement(x, y) == null;
     }
 
     public boolean contactHero(int x, int y) {
-        return false;
+
+        if(modelMock.getMap().getElement(x, y) == null){
+            return true;
+        }
+
+        else if(modelMock.getMap().getElement(x,y).getStateElement()==StateElement.DOOR){
+            return true;
+        }
+
+        else if(modelMock.getMap().getElement(x,y).getStateElement()== StateElement.DRAGON)
+        {
+            return false;
+        }
+
+        else{
+            return false;
+        }
+
+
     }
 
     public void orderPerform(ControllerOrder controllerOrder) throws IOException {
