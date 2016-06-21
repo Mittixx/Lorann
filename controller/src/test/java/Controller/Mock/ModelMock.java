@@ -1,12 +1,8 @@
 package Controller.Mock;
 
-import Controller.Mock.ElementMock;
-import Controller.Mock.HeroMock;
-import Controller.Mock.MapMock;
-import Controller.Mock.MonsterMock;
 import contract.*;
 
-import java.awt.*;
+
 import java.io.IOException;
 import java.util.Observable;
 
@@ -19,7 +15,7 @@ public class ModelMock extends Observable implements IModel  {
 
 
     public ModelMock() {
-        this.map=new MapMock(20,12);
+        loadMap(1);
     }
 
 

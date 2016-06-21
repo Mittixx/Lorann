@@ -1,5 +1,6 @@
 package Controller;
 
+import Controller.Mock.ControllerMock;
 import Controller.Mock.ModelMock;
 import Controller.Mock.ViewMock;
 import controller.Controller;
@@ -14,16 +15,21 @@ import static org.junit.Assert.*;
  */
 public class ControllerTest {
 
-    Controller t;
+    ControllerMock t;
 
     @Before
     public void setUp() throws Exception {
-        this.t = new Controller(new ViewMock(), new ModelMock());
+        this.t = new ControllerMock(new ViewMock(), new ModelMock());
     }
 
     @Test
     public void moveHeroTest() throws Exception {
+        assertNotNull("Hero should not be null",t.getModelMock().getMap().getHero());
 
+        int heroPositionBefore=t.getModelMock().getMap().getHero().getX();  //stock position of the hero before move
+        t.moveHero(1,0);
+        assertNotEquals("X position should be different",heroPositionBefore,t.getModelMock().getMap().getHero().getX());
+        assertEquals("X should be the same",heroPositionBefore+1,t.getModelMock().getMap().getHero().getX());
     }
 
     @Test

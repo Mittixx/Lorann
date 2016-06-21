@@ -18,6 +18,8 @@ public class MapMock implements IMap{
     ArrayList<IMobileElement> mobiles;
 
     public MapMock(int i, int i1) {
+        this.elements=new IElement[i][i1];
+        this.mobiles=new ArrayList<IMobileElement>();
     }
 
     public void addElementToMap(IElement element, int x, int y) {

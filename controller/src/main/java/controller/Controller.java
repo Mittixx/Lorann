@@ -25,7 +25,7 @@ public class Controller implements IController{
 	private Clock clock;
 
 	/**
-	 * The monster to kill when hited by a spell
+	 * The monster to kill when hit by a spell
 	 */
 	private IMobileElement monsterToKill;
 

@@ -75,7 +75,6 @@ public class ModelTest implements Observer {
 	public void loadMapTest() throws Exception {
 		model.loadMap(1);
 		assertNotNull("ID map should not be null",model.getMap().getID());
-
 		assertNotNull("Hero X position shouldn't be null",model.getMap().getHero().getX());
 		assertNotNull("Hero Y position shouldn't be null",model.getMap().getHero().getY());
 		assertNotNull("Elements should have at least an element",model.getMap().getElements());

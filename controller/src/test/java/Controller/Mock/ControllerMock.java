@@ -14,12 +14,16 @@ public class ControllerMock implements IController {
 
     private IModel modelMock;
 
-    public ControllerMock(IView view,IModel model) {
+    private IView view;
+
+    public ControllerMock(ViewMock view,ModelMock model) {
         this.setModel(model);
+        this.view=view;
     }
 
     public void moveHero(int x, int y) {
-        
+        this.modelMock.getMap().getHero().setX(modelMock.getMap().getHero().getX()+x);
+        this.modelMock.getMap().getHero().setY(modelMock.getMap().getHero().getY()+y);
     }
 
     public void AIMonster() {
@@ -45,7 +49,12 @@ public class ControllerMock implements IController {
      *          the new model
      */
     private void setModel(final IModel model) {
-        this.modelMock = model;
+        this.modelMock =model;
+    }
+
+    public IModel getModelMock()
+    {
+        return  this.modelMock;
     }
 
 }
