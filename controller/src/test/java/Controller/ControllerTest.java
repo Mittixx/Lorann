@@ -14,28 +14,45 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by Romain on 20/06/2016.
  * @author Romain
  */
 public class ControllerTest {
 
+    /**
+     * The controller.
+     */
     private ControllerMock t;
 
+    /**
+     * Sets the UP.
+     * @throws Exception
+     *      The exception.
+     */
     @Before
     public void setUp() throws Exception {
         this.t = new ControllerMock(new ViewMock(), new ModelMock());
     }
 
+    /**
+     * Tests the hero's movements.
+     * @throws Exception
+     *      The exception.
+     */
     @Test
     public void moveHeroTest() throws Exception {
         assertNotNull("Hero should not be null",t.getModelMock().getMap().getHero());
 
-        int heroPositionBefore=t.getModelMock().getMap().getHero().getX();  //stock position of the hero before move
+        int heroPositionBefore=t.getModelMock().getMap().getHero().getX();  //Stock position of the hero before move.
         t.moveHero(1,0);
         assertNotEquals("X position should be different",heroPositionBefore,t.getModelMock().getMap().getHero().getX());
         assertEquals("X should be the same",heroPositionBefore+1,t.getModelMock().getMap().getHero().getX());
     }
 
+    /**
+     * Tests the contact between the monster and any other element.
+     * @throws Exception
+     *      The exception.
+     */
     @Test
     public void contactMonsterTest() throws Exception {
         assertNotNull("Monster should not be null",t.getModelMock().getMap().getMobiles());
@@ -49,6 +66,11 @@ public class ControllerTest {
 
     }
 
+    /**
+     * Tests the contact between the hero and any other element.
+     * @throws Exception
+     *      The exception.
+     */
     @Test
     public void contactHeroTest() throws Exception {
         assertNotNull("Hero should not be null",t.getModelMock().getMap().getHero());

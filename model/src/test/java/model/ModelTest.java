@@ -61,6 +61,7 @@ public class ModelTest implements Observer {
 	/**
 	 * Tests the map getter.
 	 * @throws Exception
+	 * 		The exception.
      */
 	@Test
 	public void getMapTest() throws Exception {
@@ -70,6 +71,7 @@ public class ModelTest implements Observer {
 	/**
 	 * Tests the loading of the map and its elements (hero, monster...).
 	 * @throws Exception
+	 * 		The exception.
      */
 	@Test
 	public void loadMapTest() throws Exception {
@@ -85,7 +87,9 @@ public class ModelTest implements Observer {
 	/**
 	 * Called when observable is changed.
 	 * @param o
+	 * 		The observable.
 	 * @param arg
+	 * 		The object.
      */
 	public void update(Observable o, Object arg) {
 		notified=true;
@@ -105,6 +109,7 @@ public class ModelTest implements Observer {
 	/**
 	 * Tests to gets the Observable (the model).
 	 * @throws Exception
+	 * 		The exception.
      */
 	@Test
 	public void getObservableTest() throws Exception {
@@ -115,6 +120,7 @@ public class ModelTest implements Observer {
 	/**
 	 * Tests the instance of the element.
 	 * @throws Exception
+	 * 		The exception.
      */
 	@Test
 	public void testTypeTest() throws Exception {
@@ -138,6 +144,7 @@ public class ModelTest implements Observer {
 	/**
 	 * Tests the message getter.
 	 * @throws Exception
+	 * 		The exception.
      */
 	@Test
 	public void getMessageTest() throws Exception {
@@ -149,6 +156,7 @@ public class ModelTest implements Observer {
 	/**
 	 * Tests the message setter.
 	 * @throws Exception
+	 * 		The exception.
      */
 	@Test
 	public void setMessageTest() throws Exception {
