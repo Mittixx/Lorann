@@ -17,6 +17,9 @@ public class MapMock implements IMap{
     int ID;
     ArrayList<IMobileElement> mobiles;
 
+    public MapMock(int i, int i1) {
+    }
+
     public void addElementToMap(IElement element, int x, int y) {
         this.elements[x][y]=element;
     }

@@ -1,18 +1,19 @@
 package Controller.Mock;
 
-import contract.ControllerOrder;
-import contract.IMobileElement;
-import contract.ISprite;
-import contract.StateElement;
+import contract.*;
 
 /**
  * Created by Romain on 20/06/2016.
  */
-public class MobileElementMock implements IMobileElement {
+public class MobileElementMock extends ElementMock implements IMobileElement {
     int y;
     int x;
     ControllerOrder direction;
     StateElement stateElement;
+
+    public MobileElementMock(Permeability penetrable, StateElement collectable) {
+        super(penetrable, collectable);
+    }
 
     public int getY() {
         return y;

@@ -272,11 +272,10 @@ public class Model extends Observable implements IModel {
 		}
 
 		map.getSpell().setDirection(direction);
-		System.out.println("Spell Created at "+map.getHero().getX()+"-"+map.getHero().getY());
 	}
 
 	/**
-	 * Sets the dorr.
+	 * Sets the door.
 	 *
 	 * @param element
 	 * 		The element.

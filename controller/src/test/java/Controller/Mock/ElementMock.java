@@ -14,6 +14,9 @@ public class ElementMock implements IElement {
     Permeability permeability;
     StateElement stateElement;
 
+    public ElementMock(Permeability penetrable, StateElement collectable) {
+    }
+
     public ISprite getSprite() {
         return this.sprite;
     }

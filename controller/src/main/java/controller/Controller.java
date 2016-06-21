@@ -262,7 +262,7 @@ public class Controller implements IController{
 
 				model.loadMap(model.getMap().getID());
 				model.setMessage("");
-			System.out.println(clock.isStopped());
+
 				if(clock.isStopped())
 				{
 					clock=new Clock(this);
@@ -270,7 +270,6 @@ public class Controller implements IController{
 
 				}
 
-				System.out.println(clock.isStopped());
 
 				model.flush();
 			default:

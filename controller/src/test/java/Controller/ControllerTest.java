@@ -1,5 +1,7 @@
 package Controller;
 
+import Controller.Mock.ModelMock;
+import Controller.Mock.ViewMock;
 import controller.Controller;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,80 +18,81 @@ public class ControllerTest {
 
     @Before
     public void setUp() throws Exception {
+        this.t = new Controller(new ViewMock(), new ModelMock());
     }
 
     @Test
-    public void moveHero() throws Exception {
-
-    }
-
-    @Test
-    public void contactMonster() throws Exception {
+    public void moveHeroTest() throws Exception {
 
     }
 
     @Test
-    public void contactHero() throws Exception {
+    public void contactMonsterTest() throws Exception {
 
     }
 
     @Test
-    public void AIMonster() throws Exception {
+    public void contactHeroTest() throws Exception {
 
     }
 
     @Test
-    public void orderPerform() throws Exception {
+    public void AIMonsterTest() throws Exception {
 
     }
 
     @Test
-    public void gameOver() throws Exception {
+    public void orderPerformTest() throws Exception {
 
     }
 
     @Test
-    public void castSpell() throws Exception {
+    public void gameOverTest() throws Exception {
 
     }
 
     @Test
-    public void isSpell() throws Exception {
+    public void castSpellTest() throws Exception {
 
     }
 
     @Test
-    public void updateController() throws Exception {
+    public void isSpellTest() throws Exception {
 
     }
 
     @Test
-    public void updateSprite() throws Exception {
+    public void updateControllerTest() throws Exception {
 
     }
 
     @Test
-    public void moveSpell() throws Exception {
+    public void updateSpriteTest() throws Exception {
 
     }
 
     @Test
-    public void moveSpellDirection() throws Exception {
+    public void moveSpellTest() throws Exception {
 
     }
 
     @Test
-    public void destroySpell() throws Exception {
+    public void moveSpellDirectionTest() throws Exception {
 
     }
 
     @Test
-    public void destroyMonster() throws Exception {
+    public void destroySpellTest() throws Exception {
 
     }
 
     @Test
-    public void canCastSpell() throws Exception {
+    public void destroyMonsterTest() throws Exception {
+
+    }
+
+    @Test
+    public void canCastSpellTest() throws Exception {
 
     }
 

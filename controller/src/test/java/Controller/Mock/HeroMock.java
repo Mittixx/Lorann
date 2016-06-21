@@ -1,6 +1,8 @@
 package Controller.Mock;
 
 import contract.IHero;
+import contract.Permeability;
+import contract.StateElement;
 
 import java.awt.*;
 
@@ -9,8 +11,12 @@ import java.awt.*;
  * Created by Romain on 20/06/2016.
  * @author Romain
  */
-public class HeroMock implements IHero{
+public class HeroMock extends MobileElementMock implements IHero{
     AnimatedSpriteMock sprites;
+
+    public HeroMock(Permeability penetrable, StateElement collectable) {
+        super(penetrable, collectable);
+    }
 
     public void next() {
         sprites.next();

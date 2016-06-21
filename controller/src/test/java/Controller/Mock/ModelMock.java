@@ -1,14 +1,17 @@
 package Controller.Mock;
 
+import Controller.Mock.ElementMock;
+import Controller.Mock.HeroMock;
+import Controller.Mock.MapMock;
+import Controller.Mock.MonsterMock;
 import contract.*;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Observable;
 
-/**
- * Created by Romain on 20/06/2016.
- */
-public class ModelMock implements IModel {
+public class ModelMock extends Observable implements IModel  {
+
 
     private String message;
 
@@ -16,7 +19,7 @@ public class ModelMock implements IModel {
 
 
     public ModelMock() {
-        this.map= new MapMock(20,12);
+        this.map=new MapMock(20,12);
     }
 
 
@@ -26,7 +29,7 @@ public class ModelMock implements IModel {
 
     public void loadMap(int ID) {
         this.map=new MapMock(20,12);
-        map.setHero(new HeroMock());
+        map.setHero(new HeroMock(Permeability.PENETRABLE, StateElement.COLLECTABLE));
         map.setHeroPosition(5,5);
         map.setID(ID);
         map.addElementToMap(new ElementMock(Permeability.PENETRABLE, StateElement.COLLECTABLE),10,10);

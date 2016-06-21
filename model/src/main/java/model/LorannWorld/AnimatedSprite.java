@@ -43,7 +43,6 @@ public class AnimatedSprite extends Sprite implements IAnimatedSprite {
                 // this.images[i] = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(images[i]));
                this.images[i] = ImageIO.read(new File("sprite/"+images[i]+".png"));
             } catch (IOException e) {
-                System.err.println("Cannot load "+images[i]);
                 e.printStackTrace();
             }
         }
