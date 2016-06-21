@@ -25,6 +25,8 @@ public class DAOGetMap {
 
     /**
      *Which map the hero is in.
+     * @param sql
+     *        The query to execute.
      * @param id
      *      Id of the map.
      * @return

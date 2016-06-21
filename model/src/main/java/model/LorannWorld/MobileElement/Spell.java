@@ -18,6 +18,8 @@ public class Spell extends MobileElement {
      *
      * @param path
      *      Where to find the image.
+     *@param direction
+     *      The direction the spell will take
      *@throws IOException
      *      Can't read file
      */

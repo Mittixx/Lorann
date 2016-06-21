@@ -164,6 +164,7 @@ public class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 
+		this.setMessage("");
 	}
 
 	/**

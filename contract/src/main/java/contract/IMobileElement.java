@@ -73,6 +73,4 @@ public interface IMobileElement {
      */
     void setStateElement(StateElement stateElement);
 
-
-
 }

@@ -3,14 +3,10 @@ package contract;
 import java.awt.*;
 
 /**
- * Created by Romain on 20/06/2016.
+ * @author Romain
  */
 public interface IHero {
 
-    /**
-     * Increments the value to run through the images
-     */
-    void next();
 
     /**
      * Gets the Image.
@@ -23,6 +19,7 @@ public interface IHero {
     /**
      * Sets the Image.
      * @param image
+     *          The image to set.
      */
     public void setImage(Image image);
 

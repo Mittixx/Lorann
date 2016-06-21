@@ -17,12 +17,12 @@ public interface IController {
 	 * @param y
 	 * 			northing
      */
-	public void moveHero(int x, int y);
+	void moveHero(int x, int y);
 
 	/**
 	 * move the monsters
 	 */
-	public void AIMonster();
+	void AIMonster();
 
 	/**
 	 * Test contact between monsters and elements
@@ -32,7 +32,7 @@ public interface IController {
 	 * 			northing
      * @return boolean
      */
-	public boolean contactMonster(int x, int y);
+	boolean contactMonster(int x, int y);
 
 	/**
 	 * Test contact between the hero and the elements
@@ -42,7 +42,7 @@ public interface IController {
 	 * 			northing
      * @return boolean
      */
-	public boolean contactHero(int x,int y);
+	boolean contactHero(int x,int y);
 
 	/**
 	 * Order perform.
@@ -52,5 +52,5 @@ public interface IController {
 	 * @throws IOException
 	 * 				Can"t read the file.
 	 */
-	public void orderPerform(ControllerOrder controllerOrder) throws IOException;
+	void orderPerform(ControllerOrder controllerOrder) throws IOException;
 }

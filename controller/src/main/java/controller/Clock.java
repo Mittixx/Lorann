@@ -17,6 +17,7 @@ public class Clock extends Thread implements IClock{
      */
     private boolean stopped=false;
 
+    private int time=75;
     /**
      * Instanciate a new Controller
      * @param controller
@@ -35,13 +36,13 @@ public class Clock extends Thread implements IClock{
             controller.updateController();
 
             try {
-                Thread.sleep(100);
+                Thread.sleep(time);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             controller.updateSprite();
             try {
-                Thread.sleep(100);
+                Thread.sleep(time);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

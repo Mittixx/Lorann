@@ -21,6 +21,8 @@ public class BoneC extends MotionlessElement{
      *
      * @param path
      *      Where to find the image.
+     *@throws IOException
+     *       Can't read file.
      */
     public BoneC(String path) throws IOException {
         super((new Sprite(ImageIO.read(new File("sprite/"+path+".png")))), Permeability.BLOCKING,StateElement.FIXED);

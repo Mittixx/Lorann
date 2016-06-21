@@ -2,9 +2,6 @@ package controller;
 
 import contract.*;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -168,8 +165,14 @@ public class Controller implements IController{
 
 			else if(model.getMap().getElement(x,y).getStateElement()==StateElement.DOOR)
 			{
-				model.setMessage("YOU WIN !");
-				this.clock.setStopped(true);
+
+				if(model.getMap().getID()<5)
+				model.loadMap(model.getMap().getID()+1);
+				else {
+					model.setMessage("YOU WIN !");
+					this.clock.setStopped(true);
+					model.getMap().setHero(null);
+				}
 			}
 
 			return true;
@@ -221,58 +224,62 @@ public class Controller implements IController{
 	 *
      */
 	public void orderPerform(ControllerOrder controllerOrder) throws IOException {
+		if(model.getMap().getHero()!=null) {
+			switch (controllerOrder) {
+				case UP:
+					if (contactHero(model.getMap().getHero().getX(), model.getMap().getHero().getY() - 1)) {
+						model.getMap().getHero().setDirection(ControllerOrder.UP);
+						moveHero(0, -1);
+
+					}
+					break;
+				case DOWN:
+					if (contactHero(model.getMap().getHero().getX(), model.getMap().getHero().getY() + 1)) {
+						model.getMap().getHero().setDirection(ControllerOrder.DOWN);
+						moveHero(0, +1);
+
+					}
+					break;
+				case LEFT:
+					if (contactHero(model.getMap().getHero().getX() - 1, model.getMap().getHero().getY())) {
+						model.getMap().getHero().setDirection(ControllerOrder.LEFT);
+						moveHero(-1, 0);
+
+					}
+					break;
+				case RIGHT:
+					if (contactHero(model.getMap().getHero().getX() + 1, model.getMap().getHero().getY())) {
+						model.getMap().getHero().setDirection(ControllerOrder.RIGHT);
+						moveHero(+1, 0);
+
+					}
+					break;
+
+				case SPACE:
+					if (model.getMap().getHero().getStateElement() != StateElement.WEAK && canCastSpell(model.getMap().getHero().getDirection()))    //Test if it is able to cast a spell
+					{
+						castSpell(model.getMap().getHero().getDirection());
+					}
+					break;
+
+
+			}
+		}
 		switch (controllerOrder){
-			case UP :
-				if(contactHero(model.getMap().getHero().getX(),model.getMap().getHero().getY() -1)) {
-					model.getMap().getHero().setDirection(ControllerOrder.UP);
-					moveHero(0,-1);
-
-				}
-				break;
-			case DOWN :
-				if(contactHero(model.getMap().getHero().getX(),model.getMap().getHero().getY() +1)) {
-					model.getMap().getHero().setDirection(ControllerOrder.DOWN);
-					moveHero(0,+1);
-
-				}
-				break;
-			case LEFT:
-				if(contactHero(model.getMap().getHero().getX() -1,model.getMap().getHero().getY())) {
-					model.getMap().getHero().setDirection(ControllerOrder.LEFT);
-					moveHero(-1,0);
-
-				}
-				break;
-			case RIGHT:
-				if(contactHero(model.getMap().getHero().getX() +1,model.getMap().getHero().getY())) {
-					model.getMap().getHero().setDirection(ControllerOrder.RIGHT);
-					moveHero(+1,0);
-
-				}
-				break;
-
-			case SPACE :
-				if(model.getMap().getHero().getStateElement()!=StateElement.WEAK && canCastSpell(model.getMap().getHero().getDirection()))	//Test if it is able to cast a spell
-				{
-					castSpell(model.getMap().getHero().getDirection());
-				}
-			break;
-
 			case RETRY:
 
 				model.loadMap(model.getMap().getID());
 				model.setMessage("");
 
-				if(clock.isStopped())
-				{
-					clock=new Clock(this);
+				if (clock.isStopped()) {
+					clock = new Clock(this);
 					clock.start();
 
 				}
 
 
 				model.flush();
-			default:
+				break;
 		}
 	}
 

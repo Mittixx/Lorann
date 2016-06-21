@@ -152,6 +152,7 @@ public class Map implements IMap{
     /**
      * sets the ID of the map
      * @param ID
+     *      The ID of the map
      */
     public void setID(int ID) {
         this.ID = ID;

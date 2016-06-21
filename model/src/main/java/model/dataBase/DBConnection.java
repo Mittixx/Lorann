@@ -12,8 +12,6 @@ import java.sql.SQLException;
  * @author Romain
  */
 final class DBConnection {
-	/** The instance. */
-	private static DBConnection	INSTANCE	= null;
 
 	/** The connection. */
 	private Connection					connection;
@@ -25,17 +23,7 @@ final class DBConnection {
 		this.open();
 	}
 
-	/**
-	 * Gets the single instance of DBConnection.
-	 *
-	 * @return single instance of DBConnection
-	 */
-	public static synchronized DBConnection getInstance() {
-		if (DBConnection.INSTANCE == null) {
-			DBConnection.INSTANCE = new DBConnection();
-		}
-		return DBConnection.INSTANCE;
-	}
+
 
 	/**
 	 * Open.
